@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Video View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MDVideoViewController" customModule="Mediator" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gnc-Bx-Soc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="8u5-CO-3nt">
+                                    <size key="itemSize" width="366" height="664"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="N9C-vr-JeU" customClass="MDVideoCell" customModule="Mediator">
+                                        <rect key="frame" x="0.0" y="1.5" width="366" height="664"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="366" height="664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rie-HX-BST">
+                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="664"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Rie-HX-BST" secondAttribute="bottom" id="Ltc-B7-f6B"/>
+                                            <constraint firstItem="Rie-HX-BST" firstAttribute="leading" secondItem="N9C-vr-JeU" secondAttribute="leading" id="UJ4-tj-37Q"/>
+                                            <constraint firstItem="Rie-HX-BST" firstAttribute="top" secondItem="N9C-vr-JeU" secondAttribute="top" id="dGN-9a-bJS"/>
+                                            <constraint firstAttribute="trailing" secondItem="Rie-HX-BST" secondAttribute="trailing" id="nON-CC-6OZ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="Rie-HX-BST" id="EGy-Ug-yX7"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gnc-Bx-Soc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Cqa-li-ctc"/>
+                            <constraint firstAttribute="trailing" secondItem="gnc-Bx-Soc" secondAttribute="trailing" id="I5n-Xk-ORH"/>
+                            <constraint firstAttribute="trailing" secondItem="gnc-Bx-Soc" secondAttribute="trailing" id="JyR-SC-Fyo"/>
+                            <constraint firstItem="gnc-Bx-Soc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VeV-z7-Knm"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gnc-Bx-Soc" secondAttribute="bottom" id="c0f-LA-kms"/>
+                            <constraint firstItem="gnc-Bx-Soc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ctU-bY-Nta"/>
+                            <constraint firstItem="gnc-Bx-Soc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lNq-2v-ZtT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gnc-Bx-Soc" secondAttribute="bottom" id="lgf-D2-LiJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="gnc-Bx-Soc" id="qt9-si-7Sv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="115.5" y="123.5"/>
+        </scene>
+    </scenes>
+</document>

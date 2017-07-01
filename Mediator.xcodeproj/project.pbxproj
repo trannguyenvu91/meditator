@@ -20,7 +20,6 @@
 		12580B841F06696E00B3CF1D /* MDVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12580B831F06696E00B3CF1D /* MDVideoModel.swift */; };
 		125FA2341F079A8100320E5E /* MDPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125FA2331F079A8100320E5E /* MDPlayerView.swift */; };
 		129358731F07A2FC003AAA33 /* IMG_0648.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 125FA2351F079D8700320E5E /* IMG_0648.MOV */; };
-		129358751F07A64D003AAA33 /* 123.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 129358741F07A64D003AAA33 /* 123.jpg */; };
 		12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D079941F0670720022EF1E /* MDVideoViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +39,7 @@
 		12580B831F06696E00B3CF1D /* MDVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MDVideoModel.swift; path = Mediator/VideoScreen/MDVideoModel.swift; sourceTree = SOURCE_ROOT; };
 		125FA2331F079A8100320E5E /* MDPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDPlayerView.swift; sourceTree = "<group>"; };
 		125FA2351F079D8700320E5E /* IMG_0648.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = IMG_0648.MOV; path = Mediator/VideoScreen/IMG_0648.MOV; sourceTree = SOURCE_ROOT; };
-		129358741F07A64D003AAA33 /* 123.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 123.jpg; path = ../../../../../Desktop/123.jpg; sourceTree = "<group>"; };
+		129358761F07AABD003AAA33 /* 123.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 123.jpg; path = Mediator/VideoScreen/123.jpg; sourceTree = SOURCE_ROOT; };
 		12D079941F0670720022EF1E /* MDVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDVideoViewController.swift; path = Mediator/VideoScreen/MDVideoViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -93,7 +92,7 @@
 				12580B831F06696E00B3CF1D /* MDVideoModel.swift */,
 				12580B6C1F06526600B3CF1D /* MDVideoCell.swift */,
 				12580B6F1F06581000B3CF1D /* VideoList.plist */,
-				129358741F07A64D003AAA33 /* 123.jpg */,
+				129358761F07AABD003AAA33 /* 123.jpg */,
 				125FA2351F079D8700320E5E /* IMG_0648.MOV */,
 			);
 			name = VideoScreen;
@@ -170,7 +169,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				129358751F07A64D003AAA33 /* 123.jpg in Resources */,
 				129358731F07A2FC003AAA33 /* IMG_0648.MOV in Resources */,
 				12580B701F06581000B3CF1D /* VideoList.plist in Resources */,
 				12580B611F064EAF00B3CF1D /* LaunchScreen.storyboard in Resources */,

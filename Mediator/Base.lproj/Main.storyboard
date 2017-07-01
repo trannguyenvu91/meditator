@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,19 +38,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="366" height="664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rie-HX-BST">
-                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="664"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2p-6h-xh5" customClass="MDPlayerView" customModule="Mediator">
+                                                    <rect key="frame" x="0.0" y="-0.5" width="366" height="664"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rie-HX-BST">
+                                                    <rect key="frame" x="0.0" y="-0.5" width="366" height="664"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Rie-HX-BST" secondAttribute="bottom" id="Ltc-B7-f6B"/>
-                                            <constraint firstItem="Rie-HX-BST" firstAttribute="leading" secondItem="N9C-vr-JeU" secondAttribute="leading" id="UJ4-tj-37Q"/>
-                                            <constraint firstItem="Rie-HX-BST" firstAttribute="top" secondItem="N9C-vr-JeU" secondAttribute="top" id="dGN-9a-bJS"/>
-                                            <constraint firstAttribute="trailing" secondItem="Rie-HX-BST" secondAttribute="trailing" id="nON-CC-6OZ"/>
+                                            <constraint firstItem="Rie-HX-BST" firstAttribute="top" secondItem="N9C-vr-JeU" secondAttribute="top" id="O5a-xm-pGT"/>
+                                            <constraint firstAttribute="bottom" secondItem="u2p-6h-xh5" secondAttribute="bottom" id="OJO-vn-iC6"/>
+                                            <constraint firstAttribute="trailing" secondItem="Rie-HX-BST" secondAttribute="trailing" id="Wwo-v1-JWf"/>
+                                            <constraint firstAttribute="bottom" secondItem="Rie-HX-BST" secondAttribute="bottom" id="XbG-eh-rjm"/>
+                                            <constraint firstItem="u2p-6h-xh5" firstAttribute="leading" secondItem="N9C-vr-JeU" secondAttribute="leading" id="iVX-LQ-het"/>
+                                            <constraint firstItem="u2p-6h-xh5" firstAttribute="top" secondItem="N9C-vr-JeU" secondAttribute="top" id="j8x-UU-Exw"/>
+                                            <constraint firstAttribute="trailing" secondItem="u2p-6h-xh5" secondAttribute="trailing" id="mxM-Fs-G5r"/>
+                                            <constraint firstItem="Rie-HX-BST" firstAttribute="leading" secondItem="N9C-vr-JeU" secondAttribute="leading" id="w8A-Cq-d4n"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="Rie-HX-BST" id="EGy-Ug-yX7"/>
+                                            <outlet property="videoPlayerView" destination="u2p-6h-xh5" id="Bcd-SY-slc"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -73,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="115.5" y="123.5"/>
+            <point key="canvasLocation" x="114.40000000000001" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>

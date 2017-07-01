@@ -8,8 +8,12 @@
 
 import UIKit
 
-protocol MDDataSourceProtocol: NSObjectProtocol {
+@objc protocol MDDataSourceProtocol: NSObjectProtocol {
     func itemSize(at indexPath: IndexPath, with model:MDModel?) -> CGSize
+    @objc optional func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    @objc optional func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath)
+    @objc optional func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
+    @objc optional func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
 }
 
 class MDCollectionViewDataSource: NSObject {
@@ -54,5 +58,21 @@ extension MDCollectionViewDataSource: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let model = dataProvider.model(at: indexPath)
         return owner.itemSize(at: indexPath, with: model)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        owner.collectionView?(collectionView, didSelectItemAt: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        owner.collectionView?(collectionView, didDeselectItemAt: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        owner.collectionView?(collectionView, willDisplay: cell, forItemAt: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        owner.collectionView?(collectionView, didEndDisplaying: cell, forItemAt: indexPath)
     }
 }

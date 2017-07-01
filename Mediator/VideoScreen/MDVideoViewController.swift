@@ -31,5 +31,20 @@ extension MDVideoViewController: MDDataSourceProtocol {
     func itemSize(at indexPath: IndexPath, with model: MDModel?) -> CGSize {
         return UIScreen.main.bounds.size
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        videoCell(cell: cell)?.playVideo()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        videoCell(cell: cell)?.pauseVideo()
+    }
+    
+    func videoCell(cell: UICollectionViewCell) -> MDVideoCell? {
+        if let videoCell = cell as? MDVideoCell {
+            return videoCell
+        }
+        return nil
+    }
 }
 

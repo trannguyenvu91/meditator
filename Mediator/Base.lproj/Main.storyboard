@@ -38,13 +38,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="366" height="664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2p-6h-xh5" customClass="MDPlayerView" customModule="Mediator">
-                                                    <rect key="frame" x="0.0" y="-0.5" width="366" height="664"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rie-HX-BST">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rie-HX-BST">
                                                     <rect key="frame" x="0.0" y="-0.5" width="366" height="664"/>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2p-6h-xh5" customClass="MDPlayerView" customModule="Mediator">
+                                                    <rect key="frame" x="0.0" y="-0.5" width="366" height="664"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <constraints>

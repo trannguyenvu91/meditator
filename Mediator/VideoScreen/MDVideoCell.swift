@@ -16,7 +16,6 @@ class MDVideoCell: UICollectionViewCell, MDModelViewProtocol {
     func setup(with model: MDModel?) {
         guard let videoModel = model as? MDVideoModel else { return }
         imageView.image = UIImage(named: videoModel.filePath)
-        imageView.isHidden = false
         print("video layer: \(videoPlayerView.layer)")
     }
     
@@ -29,14 +28,10 @@ extension MDVideoCell {
             let avPlayer:AVPlayer = AVPlayer(playerItem: playItem)
             videoPlayerView.player = avPlayer
             videoPlayerView.player?.play()
-            avPlayer.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, 1), queue: DispatchQueue.main, using: { (time) in
-                self.imageView.isHidden = true
-            })
         }
     }
     
     func pauseVideo()  {
         videoPlayerView.player?.pause()
-        self.imageView.isHidden = false
     }
 }

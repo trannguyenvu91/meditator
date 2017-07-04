@@ -14,6 +14,7 @@ import UIKit
     @objc optional func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath)
     @objc optional func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
     @objc optional func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
+    @objc optional func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
 }
 
 class MDCollectionViewDataSource: NSObject {
@@ -74,5 +75,9 @@ extension MDCollectionViewDataSource: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         owner.collectionView?(collectionView, didEndDisplaying: cell, forItemAt: indexPath)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        owner.scrollViewDidEndDecelerating?(scrollView)
     }
 }

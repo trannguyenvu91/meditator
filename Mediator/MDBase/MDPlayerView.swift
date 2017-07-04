@@ -34,3 +34,9 @@ class MDPlayerView: UIView {
         self.layer.addSublayer(playerLayer)
     }
 }
+
+extension AVPlayer {
+    func isPlaying() -> Bool {
+        return (rate != 0) && (error == nil)
+    }
+}

@@ -32,15 +32,24 @@ extension MDVideoViewController: MDDataSourceProtocol {
         return UIScreen.main.bounds.size
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        playVideoOnVisibleCell()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        videoCell(cell: cell)?.playVideo()
+        if (MDPlayerCenter.sharedInstance.currentPlayer == nil) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+                self.playVideoOnVisibleCell()
+            }
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        videoCell(cell: cell)?.pauseVideo()
+    func playVideoOnVisibleCell() {
+        let cell = videoCell(cell: collectionView.visibleCells.first)
+        cell?.playVideo()
     }
     
-    func videoCell(cell: UICollectionViewCell) -> MDVideoCell? {
+    func videoCell(cell: UICollectionViewCell?) -> MDVideoCell? {
         if let videoCell = cell as? MDVideoCell {
             return videoCell
         }

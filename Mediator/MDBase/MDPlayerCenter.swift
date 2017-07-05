@@ -18,6 +18,8 @@ class MDPlayerCenter: NSObject {
         loopPlayer()
     }
     
+    var playerLayer: AVPlayerLayer?
+    
     var currentPlayer: AVPlayer? {
         willSet {
             if currentPlayer != newValue {

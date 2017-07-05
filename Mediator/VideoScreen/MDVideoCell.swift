@@ -16,12 +16,15 @@ class MDVideoCell: UICollectionViewCell, MDModelViewProtocol {
     func setup(with model: MDModel?) {
         guard let videoModel = model as? MDVideoModel else { return }
         imageView.image = UIImage(named: videoModel.filePath)
+        videoPlayerView.isHidden = true
     }
     
 }
 
 extension MDVideoCell {
+    
     func playVideo() {
+        videoPlayerView.isHidden = false
         if let player = videoPlayerView.player, player.isPlaying() == true {
             return
         }
@@ -32,4 +35,5 @@ extension MDVideoCell {
             MDPlayerCenter.sharedInstance.currentPlayer = avPlayer
         }
     }
+    
 }

@@ -13,12 +13,32 @@ class MDPlayerCenter: NSObject {
     
     static let sharedInstance = MDPlayerCenter()
     
+    override init() {
+        super.init()
+        loopPlayer()
+    }
+    
     var currentPlayer: AVPlayer? {
         willSet {
             if currentPlayer != newValue {
                 currentPlayer?.pause()
                 newValue?.play()
             }
+        }
+    }
+    
+    func play() {
+        currentPlayer?.play()
+    }
+    
+    func pause() {
+        currentPlayer?.pause()
+    }
+    
+    func loopPlayer() {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { notification in
+            self.currentPlayer?.seek(to: kCMTimeZero)
+            self.currentPlayer?.play()
         }
     }
 }

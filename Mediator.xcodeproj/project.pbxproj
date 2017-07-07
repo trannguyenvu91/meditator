@@ -30,6 +30,7 @@
 /* Begin PBXFileReference section */
 		121A35BD1F0B9F3D005843E9 /* MDPlayerCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDPlayerCenter.swift; sourceTree = "<group>"; };
 		121A35BF1F0BA78C005843E9 /* IMG_0648.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = IMG_0648.m4v; path = Mediator/VideoScreen/IMG_0648.m4v; sourceTree = SOURCE_ROOT; };
+		123DE6181F0F528000B7281D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		12580B531F064EAF00B3CF1D /* Mediator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mediator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12580B561F064EAF00B3CF1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12580B5B1F064EAF00B3CF1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,12 +62,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		123DE6171F0F528000B7281D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				123DE6181F0F528000B7281D /* MediaPlayer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		12580B4A1F064EAF00B3CF1D = {
 			isa = PBXGroup;
 			children = (
 				126A82E91F0CE84500E63C23 /* .gitignore */,
 				12580B551F064EAF00B3CF1D /* Mediator */,
 				12580B541F064EAF00B3CF1D /* Products */,
+				123DE6171F0F528000B7281D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

@@ -21,11 +21,6 @@ class MDPlayerView: UIView {
     
     var playerLayer: AVPlayerLayer = AVPlayerLayer()
     
-    // Override UIView property
-    override static var layerClass: AnyClass {
-        return AVPlayerLayer.self
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         playerLayer.frame = bounds

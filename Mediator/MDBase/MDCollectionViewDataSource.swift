@@ -17,6 +17,7 @@ import UIKit
     @objc optional func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)
 }
 
+//MARK: Initialization
 class MDCollectionViewDataSource: NSObject {
     weak var collectionView: UICollectionView!
     weak var owner: MDDataSourceProtocol!
@@ -38,6 +39,7 @@ class MDCollectionViewDataSource: NSObject {
     }
 }
 
+//MARK: UICollectionViewDataSource
 extension MDCollectionViewDataSource: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return dataProvider.numberOfSections()
@@ -55,6 +57,7 @@ extension MDCollectionViewDataSource: UICollectionViewDataSource {
     }
 }
 
+//MARK: UICollectionViewDelegateFlowLayout
 extension MDCollectionViewDataSource: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let model = dataProvider.model(at: indexPath)

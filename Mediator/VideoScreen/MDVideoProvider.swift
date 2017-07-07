@@ -27,6 +27,11 @@ class MDVideoProvider: NSObject, MDListProviderProtocol {
         return data.count
     }
     
+}
+
+//MARK: Get Data
+extension MDVideoProvider {
+    
     class func getVideoModels() -> [MDVideoModel] {
         var videoModels = [MDVideoModel]()
         if let filePath = Bundle.main.path(forResource: "VideoList", ofType: "plist"),
@@ -39,5 +44,6 @@ class MDVideoProvider: NSObject, MDListProviderProtocol {
         }
         return videoModels
     }
+    
 }
 

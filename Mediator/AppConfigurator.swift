@@ -11,20 +11,15 @@ import AVFoundation
 
 final class AppConfigurator: NSObject {
     func didFinishLaunching() {
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch let error {
-            print(error)
-        }
+        MDPlayerCenter.sharedInstance.registerBackgroundPlaying()
     }
     
     func didEnterBackground() {
-        MDPlayerCenter.sharedInstance.playerLayer?.player = nil
+        MDPlayerCenter.sharedInstance.didEnterBackground()
     }
     
     func willEnterForeground() {
-        MDPlayerCenter.sharedInstance.playerLayer?.player = MDPlayerCenter.sharedInstance.currentPlayer
+        MDPlayerCenter.sharedInstance.willEnterForeground()
     }
     
 }

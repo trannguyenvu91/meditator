@@ -8,6 +8,7 @@
 
 import UIKit
 
+//MARK: MDListProviderProtocol
 protocol MDListProviderProtocol: NSObjectProtocol {
     var data: [MDModel] {
         get
@@ -17,6 +18,7 @@ protocol MDListProviderProtocol: NSObjectProtocol {
     func numberOfItems(in section: Int) -> Int
 }
 
+//MARK: MDModelViewProtocol
 protocol MDModelViewProtocol {
     func setup(with model:MDModel?)
 }

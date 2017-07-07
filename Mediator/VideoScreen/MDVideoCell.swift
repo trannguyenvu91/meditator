@@ -9,7 +9,9 @@
 import UIKit
 import AVFoundation
 
+//MARK: Setup views
 class MDVideoCell: UICollectionViewCell, MDModelViewProtocol {
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var videoPlayerView: MDPlayerView!
     
@@ -21,6 +23,7 @@ class MDVideoCell: UICollectionViewCell, MDModelViewProtocol {
     
 }
 
+//MARK: Functionalities
 extension MDVideoCell {
     
     func playVideo() {

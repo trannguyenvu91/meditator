@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 class MDPlayerCenter: NSObject {
     
@@ -16,6 +17,7 @@ class MDPlayerCenter: NSObject {
     override init() {
         super.init()
         loopPlayer()
+        registerRemoteCommandCenter()
     }
     
     var playerLayer: AVPlayerLayer?
@@ -24,13 +26,17 @@ class MDPlayerCenter: NSObject {
         willSet {
             if currentPlayer != newValue {
                 currentPlayer?.pause()
-                newValue?.play()
             }
+        }
+        didSet {
+            play()
         }
     }
     
+    //MARK: Control functionalities
     func play() {
         currentPlayer?.play()
+        updateNowPlayingCenter(title: "Meditator", previewImage: #imageLiteral(resourceName: "123.jpg"))
     }
     
     func pause() {
@@ -43,4 +49,66 @@ class MDPlayerCenter: NSObject {
             self.currentPlayer?.play()
         }
     }
+    
+}
+
+//MARK: Application status callbacks
+
+extension MDPlayerCenter {
+    
+    func didEnterBackground() {
+        playerLayer?.player = nil
+    }
+    
+    func willEnterForeground() {
+        playerLayer?.player = currentPlayer
+        play()
+    }
+    
+}
+
+//MARK: Control Center and Background playing
+extension MDPlayerCenter {
+    
+    func registerBackgroundPlaying() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    func registerRemoteCommandCenter() {
+        let commandCenter = MPRemoteCommandCenter.shared()
+        commandCenter.playCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            self.play()
+            return .success
+        }
+        commandCenter.dislikeCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            return .success
+        }
+        commandCenter.likeCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            return .success
+        }
+        commandCenter.pauseCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            self.pause()
+            return .success
+        }
+        commandCenter.ratingCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            return .success
+        }
+        commandCenter.likeCommand.localizedTitle = "Thumb Up"
+        commandCenter.dislikeCommand.localizedTitle = "Thumb Down"
+    }
+    
+    func updateNowPlayingCenter(title: String, previewImage: UIImage?) {
+        let info = MPNowPlayingInfoCenter.default()
+        var playingInfo = [MPMediaItemPropertyTitle: title] as [String : Any]
+        if let image = previewImage {
+            playingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: image)
+        }
+        info.nowPlayingInfo = playingInfo
+    }
+    
 }

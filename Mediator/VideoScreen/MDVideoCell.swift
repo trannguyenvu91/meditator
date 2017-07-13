@@ -35,8 +35,8 @@ extension MDVideoCell {
             let playItem = AVPlayerItem(url: URL(fileURLWithPath: path))
             let avPlayer:AVPlayer = AVPlayer(playerItem: playItem)
             videoPlayerView.player = avPlayer
-            MDPlayerCenter.sharedInstance.currentPlayer = avPlayer
-            MDPlayerCenter.sharedInstance.playerLayer = videoPlayerView.playerLayer
+            MDPlayingCenter.sharedInstance.currentPlayer = avPlayer
+            MDPlayingCenter.sharedInstance.playerLayer = videoPlayerView.playerLayer
         }
     }
     

@@ -1,5 +1,5 @@
 //
-//  MDPlayerCenter.swift
+//  MDPlayingCenter.swift
 //  Mediator
 //
 //  Created by VuVince on 7/4/17.
@@ -10,9 +10,9 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 
-class MDPlayerCenter: NSObject {
+class MDPlayingCenter: NSObject {
     
-    static let sharedInstance = MDPlayerCenter()
+    static let sharedInstance = MDPlayingCenter()
     
     override init() {
         super.init()
@@ -54,7 +54,7 @@ class MDPlayerCenter: NSObject {
 
 //MARK: Application status callbacks
 
-extension MDPlayerCenter {
+extension MDPlayingCenter {
     
     func didEnterBackground() {
         playerLayer?.player = nil
@@ -68,7 +68,7 @@ extension MDPlayerCenter {
 }
 
 //MARK: Control Center and Background playing
-extension MDPlayerCenter {
+extension MDPlayingCenter {
     
     func registerBackgroundPlaying() {
         do {

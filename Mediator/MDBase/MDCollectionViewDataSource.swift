@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol MDDataSourceProtocol: NSObjectProtocol {
+@objc protocol MDCollectionViewDataSourceProtocol: NSObjectProtocol {
     func itemSize(at indexPath: IndexPath, with model:MDModel?) -> CGSize
     @objc optional func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     @objc optional func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath)
@@ -20,11 +20,11 @@ import UIKit
 //MARK: Initialization
 class MDCollectionViewDataSource: NSObject {
     weak var collectionView: UICollectionView!
-    weak var owner: MDDataSourceProtocol!
+    weak var owner: MDCollectionViewDataSourceProtocol!
     weak var dataProvider: MDListProviderProtocol!
     var reusedCellID: String!
     
-    init(collectionView: UICollectionView, owner: MDDataSourceProtocol, dataProvider: MDListProviderProtocol, reusedCellID: String) {
+    init(collectionView: UICollectionView, owner: MDCollectionViewDataSourceProtocol, dataProvider: MDListProviderProtocol, reusedCellID: String) {
         super.init()
         self.collectionView = collectionView
         self.owner = owner

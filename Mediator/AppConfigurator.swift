@@ -11,15 +11,15 @@ import AVFoundation
 
 final class AppConfigurator: NSObject {
     func didFinishLaunching() {
-        MDPlayerCenter.sharedInstance.registerBackgroundPlaying()
+        MDPlayingCenter.sharedInstance.registerBackgroundPlaying()
     }
     
     func didEnterBackground() {
-        MDPlayerCenter.sharedInstance.didEnterBackground()
+        MDPlayingCenter.sharedInstance.didEnterBackground()
     }
     
     func willEnterForeground() {
-        MDPlayerCenter.sharedInstance.willEnterForeground()
+        MDPlayingCenter.sharedInstance.willEnterForeground()
     }
     
 }

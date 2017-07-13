@@ -12,48 +12,40 @@ class MDVideoViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     lazy var videoProvider = MDVideoProvider()
-    var dataSource: MDCollectionViewDataSource!
+    var dataSource: MDVideoDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataSource = MDCollectionViewDataSource(collectionView: collectionView,
+        dataSource = MDVideoDataSource(collectionView: collectionView,
                                                 owner: self,
                                                 dataProvider: videoProvider,
                                                 reusedCellID: "Cell")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    @IBAction func didPressImportBtn(_ sender: Any) {
+        importMedia()
+    }
+    
 }
 
-extension MDVideoViewController: MDDataSourceProtocol {
+//MARK: Navigations
+extension MDVideoViewController {
+    
+    func importMedia() {
+        dataSource.presentImagePickerVC(fromVC: self, animated: true, completion: nil)
+    }
+}
+
+//MARK: MDDataSourceProtocol
+extension MDVideoViewController: MDVideoDataSourceProtocol {
+    
     func itemSize(at indexPath: IndexPath, with model: MDModel?) -> CGSize {
         return UIScreen.main.bounds.size
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        playVideoOnVisibleCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if (MDPlayerCenter.sharedInstance.currentPlayer == nil) {
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
-                self.playVideoOnVisibleCell()
-            }
-        }
-    }
-    
-    func playVideoOnVisibleCell() {
-        let cell = videoCell(cell: collectionView.visibleCells.first)
-        cell?.playVideo()
-    }
-    
-    func videoCell(cell: UICollectionViewCell?) -> MDVideoCell? {
-        if let videoCell = cell as? MDVideoCell {
-            return videoCell
-        }
-        return nil
-    }
 }
 

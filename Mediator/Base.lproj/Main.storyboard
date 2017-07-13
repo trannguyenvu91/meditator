@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,24 +26,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="8u5-CO-3nt">
-                                    <size key="itemSize" width="366" height="664"/>
+                                    <size key="itemSize" width="194" height="227"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="N9C-vr-JeU" customClass="MDVideoCell" customModule="Mediator">
-                                        <rect key="frame" x="0.0" y="1.5" width="366" height="664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="194" height="227"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="366" height="664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="194" height="227"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rie-HX-BST">
-                                                    <rect key="frame" x="0.0" y="-0.5" width="366" height="664"/>
+                                                    <rect key="frame" x="0.0" y="-0.5" width="194" height="227.5"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2p-6h-xh5" customClass="MDPlayerView" customModule="Mediator">
-                                                    <rect key="frame" x="0.0" y="-0.5" width="366" height="664"/>
+                                                    <rect key="frame" x="0.0" y="-0.5" width="194" height="227.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -64,17 +65,26 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAF-rv-61Y">
+                                <rect key="frame" x="313" y="20" width="46" height="30"/>
+                                <state key="normal" title="Import"/>
+                                <connections>
+                                    <action selector="didPressImportBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nfC-VK-spa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gnc-Bx-Soc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Cqa-li-ctc"/>
                             <constraint firstAttribute="trailing" secondItem="gnc-Bx-Soc" secondAttribute="trailing" id="I5n-Xk-ORH"/>
+                            <constraint firstItem="UAF-rv-61Y" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="JOQ-bu-dro"/>
                             <constraint firstAttribute="trailing" secondItem="gnc-Bx-Soc" secondAttribute="trailing" id="JyR-SC-Fyo"/>
                             <constraint firstItem="gnc-Bx-Soc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VeV-z7-Knm"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gnc-Bx-Soc" secondAttribute="bottom" id="c0f-LA-kms"/>
                             <constraint firstItem="gnc-Bx-Soc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ctU-bY-Nta"/>
                             <constraint firstItem="gnc-Bx-Soc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lNq-2v-ZtT"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gnc-Bx-Soc" secondAttribute="bottom" id="lgf-D2-LiJ"/>
+                            <constraint firstItem="UAF-rv-61Y" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="mbI-xX-jkb"/>
                         </constraints>
                     </view>
                     <connections>
@@ -83,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114.40000000000001" y="122.78860569715144"/>
+            <point key="canvasLocation" x="-559" y="75"/>
         </scene>
     </scenes>
 </document>

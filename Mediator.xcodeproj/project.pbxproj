@@ -26,6 +26,7 @@
 		126A82EC1F0CF12B00E63C23 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */; };
 		129358771F07AB4C003AAA33 /* 123.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 129358761F07AABD003AAA33 /* 123.jpg */; };
 		12B3B0EA1F119CF3006168C0 /* MDVideoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */; };
+		12B8A38A1F18AAED00D5D14B /* . gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 12B8A3891F18AAED00D5D14B /* . gitattributes */; };
 		12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D079941F0670720022EF1E /* MDVideoViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurator.swift; sourceTree = "<group>"; };
 		129358761F07AABD003AAA33 /* 123.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 123.jpg; path = Mediator/VideoScreen/123.jpg; sourceTree = SOURCE_ROOT; };
 		12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDVideoDataSource.swift; path = Mediator/VideoScreen/MDVideoDataSource.swift; sourceTree = SOURCE_ROOT; };
+		12B8A3891F18AAED00D5D14B /* . gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = ". gitattributes"; sourceTree = "<group>"; };
 		12D079941F0670720022EF1E /* MDVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDVideoViewController.swift; path = Mediator/VideoScreen/MDVideoViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				126A82E91F0CE84500E63C23 /* .gitignore */,
+				12B8A3891F18AAED00D5D14B /* . gitattributes */,
 				12580B551F064EAF00B3CF1D /* Mediator */,
 				12580B541F064EAF00B3CF1D /* Products */,
 				123DE6171F0F528000B7281D /* Frameworks */,
@@ -195,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12B8A38A1F18AAED00D5D14B /* . gitattributes in Resources */,
 				121A35C01F0BA79E005843E9 /* IMG_0648.m4v in Resources */,
 				126A82EA1F0CE84500E63C23 /* .gitignore in Resources */,
 				129358771F07AB4C003AAA33 /* 123.jpg in Resources */,

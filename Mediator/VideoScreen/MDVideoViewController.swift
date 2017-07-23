@@ -43,7 +43,7 @@ extension MDVideoViewController {
 //MARK: MDDataSourceProtocol
 extension MDVideoViewController: MDVideoDataSourceProtocol {
     
-    func itemSize(at indexPath: IndexPath, with model: MDModel?) -> CGSize {
+    func itemSize(at indexPath: IndexPath) -> CGSize {
         return UIScreen.main.bounds.size
     }
     

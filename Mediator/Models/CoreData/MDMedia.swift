@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class MDMedia: Object {
+class MDMedia: Object, MDModelProtocol {
     @objc dynamic var id: Int = 0
     @objc dynamic var title = ""
     @objc dynamic var fileName = ""

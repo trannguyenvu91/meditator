@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol MDCollectionViewDataSourceProtocol: NSObjectProtocol {
-    func itemSize(at indexPath: IndexPath, with model:MDModel?) -> CGSize
+    func itemSize(at indexPath: IndexPath) -> CGSize
     @objc optional func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     @objc optional func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath)
     @objc optional func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
@@ -60,8 +60,7 @@ extension MDCollectionViewDataSource: UICollectionViewDataSource {
 //MARK: UICollectionViewDelegateFlowLayout
 extension MDCollectionViewDataSource: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let model = dataProvider.model(at: indexPath)
-        return owner.itemSize(at: indexPath, with: model)
+        return owner.itemSize(at: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

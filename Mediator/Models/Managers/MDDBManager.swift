@@ -32,3 +32,9 @@ class MDDBManager: NSObject {
         }
     }
 }
+
+extension MDDBManager {
+    func getMedias() -> Results<MDMedia> {
+        return realm.objects(MDMedia.self)
+    }
+}

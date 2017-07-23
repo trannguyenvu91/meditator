@@ -6,20 +6,6 @@
 	objectVersion = 48;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		12B8A38E1F18B84100D5D14B /* Run Mogenerator */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 12B8A38F1F18B84100D5D14B /* Build configuration list for PBXAggregateTarget "Run Mogenerator" */;
-			buildPhases = (
-				12B8A3921F18B87200D5D14B /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = "Run Mogenerator";
-			productName = "Run Mogenerator";
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		120B5A871F11A1630001F23C /* MDMediaImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B5A861F11A1630001F23C /* MDMediaImporter.swift */; };
 		121A35BE1F0B9F3D005843E9 /* MDPlayingCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A35BD1F0B9F3D005843E9 /* MDPlayingCenter.swift */; };
@@ -32,17 +18,19 @@
 		12580B701F06581000B3CF1D /* VideoList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12580B6F1F06581000B3CF1D /* VideoList.plist */; };
 		12580B7D1F065E0900B3CF1D /* MDVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12580B6C1F06526600B3CF1D /* MDVideoCell.swift */; };
 		12580B7E1F065E0F00B3CF1D /* MDCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12580B791F065D6700B3CF1D /* MDCollectionViewDataSource.swift */; };
-		12580B7F1F065E0F00B3CF1D /* MDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12580B7A1F065D6700B3CF1D /* MDModel.swift */; };
 		12580B821F065F9800B3CF1D /* MDProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12580B811F065F9800B3CF1D /* MDProtocols.swift */; };
 		12580B841F06696E00B3CF1D /* MDVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12580B831F06696E00B3CF1D /* MDVideoModel.swift */; };
 		125FA2341F079A8100320E5E /* MDPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125FA2331F079A8100320E5E /* MDPlayerView.swift */; };
 		126A82EA1F0CE84500E63C23 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 126A82E91F0CE84500E63C23 /* .gitignore */; };
 		126A82EC1F0CF12B00E63C23 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */; };
+		1276A8941F245AA6008410B5 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1276A8931F245AA6008410B5 /* FileManager+Extension.swift */; };
 		129358771F07AB4C003AAA33 /* 123.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 129358761F07AABD003AAA33 /* 123.jpg */; };
+		12A2B34E1F218E8D0028F268 /* MDDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2B34D1F218E8D0028F268 /* MDDBManager.swift */; };
 		12B3B0EA1F119CF3006168C0 /* MDVideoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */; };
 		12B8A38A1F18AAED00D5D14B /* . gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 12B8A3891F18AAED00D5D14B /* . gitattributes */; };
-		12B8A38D1F18B2B800D5D14B /* Meditate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12B8A38B1F18B2B800D5D14B /* Meditate.xcdatamodeld */; };
 		12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D079941F0670720022EF1E /* MDVideoViewController.swift */; };
+		12F7D60F1F19B010000154BC /* MDMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F7D60E1F19B010000154BC /* MDMedia.swift */; };
+		12F7D6111F19B7F4000154BC /* MDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F7D6101F19B7CC000154BC /* MDModel.swift */; };
 		1D28B073AEB1AAC3D2DFC36B /* Pods_Mediator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A221F2C22B5358FFCED8FD9F /* Pods_Mediator.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +38,7 @@
 		120B5A861F11A1630001F23C /* MDMediaImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDMediaImporter.swift; sourceTree = "<group>"; };
 		121A35BD1F0B9F3D005843E9 /* MDPlayingCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDPlayingCenter.swift; sourceTree = "<group>"; };
 		121A35BF1F0BA78C005843E9 /* IMG_0648.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; name = IMG_0648.m4v; path = Mediator/VideoScreen/IMG_0648.m4v; sourceTree = SOURCE_ROOT; };
+		122E2A7B1F1B5EA500EB21A5 /* RealmPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = RealmPlayground.playground; path = "../../../../Practice/Realm Playground/RealmPlayground.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		123DE6181F0F528000B7281D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		12580B531F064EAF00B3CF1D /* Mediator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mediator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12580B561F064EAF00B3CF1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,24 +50,20 @@
 		12580B6D1F06536100B3CF1D /* MDVideoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MDVideoProvider.swift; path = Mediator/VideoScreen/MDVideoProvider.swift; sourceTree = SOURCE_ROOT; };
 		12580B6F1F06581000B3CF1D /* VideoList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = VideoList.plist; path = Mediator/VideoScreen/VideoList.plist; sourceTree = SOURCE_ROOT; };
 		12580B791F065D6700B3CF1D /* MDCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDCollectionViewDataSource.swift; sourceTree = "<group>"; };
-		12580B7A1F065D6700B3CF1D /* MDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDModel.swift; sourceTree = "<group>"; };
 		12580B811F065F9800B3CF1D /* MDProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDProtocols.swift; sourceTree = "<group>"; };
 		12580B831F06696E00B3CF1D /* MDVideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MDVideoModel.swift; path = Mediator/VideoScreen/MDVideoModel.swift; sourceTree = SOURCE_ROOT; };
 		125FA2331F079A8100320E5E /* MDPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDPlayerView.swift; sourceTree = "<group>"; };
 		126A82E91F0CE84500E63C23 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurator.swift; sourceTree = "<group>"; };
+		1276A8931F245AA6008410B5 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		129358761F07AABD003AAA33 /* 123.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 123.jpg; path = Mediator/VideoScreen/123.jpg; sourceTree = SOURCE_ROOT; };
+		12A2B34D1F218E8D0028F268 /* MDDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDDBManager.swift; sourceTree = "<group>"; };
 		12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDVideoDataSource.swift; path = Mediator/VideoScreen/MDVideoDataSource.swift; sourceTree = SOURCE_ROOT; };
 		12B8A3891F18AAED00D5D14B /* . gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = ". gitattributes"; sourceTree = "<group>"; };
-		12B8A38C1F18B2B800D5D14B /* Meditate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Meditate.xcdatamodel; sourceTree = "<group>"; };
-		12B8A3971F18BB4D00D5D14B /* _MDMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _MDMedia.swift; sourceTree = "<group>"; };
-		12B8A3981F18BB5100D5D14B /* MDMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDMedia.swift; sourceTree = "<group>"; };
-		12B8A3991F18BC3700D5D14B /* MDVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDVideo.swift; sourceTree = "<group>"; };
-		12B8A39A1F18BC3700D5D14B /* MDLivePhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDLivePhotos.swift; sourceTree = "<group>"; };
-		12B8A39B1F18BC3D00D5D14B /* _MDLivePhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _MDLivePhotos.swift; sourceTree = "<group>"; };
-		12B8A39C1F18BC3D00D5D14B /* _MDVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _MDVideo.swift; sourceTree = "<group>"; };
 		12B8A39D1F18C14200D5D14B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		12D079941F0670720022EF1E /* MDVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDVideoViewController.swift; path = Mediator/VideoScreen/MDVideoViewController.swift; sourceTree = SOURCE_ROOT; };
+		12F7D60E1F19B010000154BC /* MDMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDMedia.swift; sourceTree = "<group>"; };
+		12F7D6101F19B7CC000154BC /* MDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDModel.swift; sourceTree = "<group>"; };
 		630B904E0648E8832FE09CB9 /* Pods-Mediator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mediator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mediator/Pods-Mediator.debug.xcconfig"; sourceTree = "<group>"; };
 		72A47FA57CA8B23CCFE577BE /* Pods-Mediator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mediator.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mediator/Pods-Mediator.release.xcconfig"; sourceTree = "<group>"; };
 		A221F2C22B5358FFCED8FD9F /* Pods_Mediator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mediator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +93,7 @@
 		12580B4A1F064EAF00B3CF1D = {
 			isa = PBXGroup;
 			children = (
+				12B8A39D1F18C14200D5D14B /* Podfile */,
 				12580B551F064EAF00B3CF1D /* Mediator */,
 				12580B541F064EAF00B3CF1D /* Products */,
 				123DE6171F0F528000B7281D /* Frameworks */,
@@ -130,11 +116,11 @@
 				126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */,
 				12580B6A1F06522900B3CF1D /* VideoScreen */,
 				12580B5A1F064EAF00B3CF1D /* Main.storyboard */,
-				12B8A38B1F18B2B800D5D14B /* Meditate.xcdatamodeld */,
-				12580B781F065D6700B3CF1D /* MDBase */,
 				12B8A3931F18B95C00D5D14B /* Models */,
+				1276A88F1F2459D4008410B5 /* Utilities */,
 				12580B5D1F064EAF00B3CF1D /* Assets.xcassets */,
 				12580B5F1F064EAF00B3CF1D /* LaunchScreen.storyboard */,
+				12580B621F064EAF00B3CF1D /* Info.plist */,
 				12B8A39E1F18C20100D5D14B /* Supporting Files */,
 			);
 			path = Mediator;
@@ -156,24 +142,75 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
-		12580B781F065D6700B3CF1D /* MDBase */ = {
+		12580B781F065D6700B3CF1D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				12F7D6101F19B7CC000154BC /* MDModel.swift */,
+			);
+			name = Base;
+			path = Mediator/Models/Base;
+			sourceTree = SOURCE_ROOT;
+		};
+		1276A88F1F2459D4008410B5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1276A8921F245A51008410B5 /* Views */,
+				1276A8911F245A3E008410B5 /* Helpers */,
+				1276A8901F2459ED008410B5 /* Protocols */,
+				1276A8951F245ABD008410B5 /* Extension */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		1276A8901F2459ED008410B5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				12580B811F065F9800B3CF1D /* MDProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1276A8911F245A3E008410B5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				12580B791F065D6700B3CF1D /* MDCollectionViewDataSource.swift */,
-				120B5A861F11A1630001F23C /* MDMediaImporter.swift */,
-				121A35BD1F0B9F3D005843E9 /* MDPlayingCenter.swift */,
-				12580B7A1F065D6700B3CF1D /* MDModel.swift */,
-				12580B811F065F9800B3CF1D /* MDProtocols.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1276A8921F245A51008410B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				125FA2331F079A8100320E5E /* MDPlayerView.swift */,
 			);
-			name = MDBase;
-			path = Mediator/MDBase;
-			sourceTree = SOURCE_ROOT;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1276A8951F245ABD008410B5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1276A8931F245AA6008410B5 /* FileManager+Extension.swift */,
+			);
+			name = Extension;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		12A2B34F1F219D460028F268 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				12A2B34D1F218E8D0028F268 /* MDDBManager.swift */,
+				120B5A861F11A1630001F23C /* MDMediaImporter.swift */,
+				121A35BD1F0B9F3D005843E9 /* MDPlayingCenter.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
 		};
 		12B8A3931F18B95C00D5D14B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				12A2B34F1F219D460028F268 /* Managers */,
 				12B8A3941F18B95C00D5D14B /* CoreData */,
+				12580B781F065D6700B3CF1D /* Base */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,39 +218,17 @@
 		12B8A3941F18B95C00D5D14B /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				12B8A3951F18B95C00D5D14B /* HumanFiles */,
-				12B8A3961F18B95C00D5D14B /* MachineFiles */,
+				12F7D60E1F19B010000154BC /* MDMedia.swift */,
 			);
 			path = CoreData;
-			sourceTree = "<group>";
-		};
-		12B8A3951F18B95C00D5D14B /* HumanFiles */ = {
-			isa = PBXGroup;
-			children = (
-				12B8A39A1F18BC3700D5D14B /* MDLivePhotos.swift */,
-				12B8A3991F18BC3700D5D14B /* MDVideo.swift */,
-				12B8A3981F18BB5100D5D14B /* MDMedia.swift */,
-			);
-			path = HumanFiles;
-			sourceTree = "<group>";
-		};
-		12B8A3961F18B95C00D5D14B /* MachineFiles */ = {
-			isa = PBXGroup;
-			children = (
-				12B8A39B1F18BC3D00D5D14B /* _MDLivePhotos.swift */,
-				12B8A39C1F18BC3D00D5D14B /* _MDVideo.swift */,
-				12B8A3971F18BB4D00D5D14B /* _MDMedia.swift */,
-			);
-			path = MachineFiles;
 			sourceTree = "<group>";
 		};
 		12B8A39E1F18C20100D5D14B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				12580B621F064EAF00B3CF1D /* Info.plist */,
 				126A82E91F0CE84500E63C23 /* .gitignore */,
 				12B8A3891F18AAED00D5D14B /* . gitattributes */,
-				12B8A39D1F18C14200D5D14B /* Podfile */,
+				122E2A7B1F1B5EA500EB21A5 /* RealmPlayground.playground */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -263,9 +278,6 @@
 					12580B521F064EAF00B3CF1D = {
 						CreatedOnToolsVersion = 9.0;
 					};
-					12B8A38E1F18B84100D5D14B = {
-						CreatedOnToolsVersion = 9.0;
-					};
 				};
 			};
 			buildConfigurationList = 12580B4E1F064EAF00B3CF1D /* Build configuration list for PBXProject "Mediator" */;
@@ -282,7 +294,6 @@
 			projectRoot = "";
 			targets = (
 				12580B521F064EAF00B3CF1D /* Mediator */,
-				12B8A38E1F18B84100D5D14B /* Run Mogenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -306,19 +317,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		12B8A3921F18B87200D5D14B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "mogenerator --swift -m Mediator/Meditate.xcdatamodeld --template-var arc=true -M Mediator/Models/CoreData/MachineFiles -H Mediator/Models/CoreData/HumanFiles";
-		};
 		7B97F6469765B0416AC6FE89 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -373,15 +371,17 @@
 			files = (
 				126A82EC1F0CF12B00E63C23 /* AppConfigurator.swift in Sources */,
 				12B3B0EA1F119CF3006168C0 /* MDVideoDataSource.swift in Sources */,
+				12A2B34E1F218E8D0028F268 /* MDDBManager.swift in Sources */,
 				121A35BE1F0B9F3D005843E9 /* MDPlayingCenter.swift in Sources */,
 				12580B7E1F065E0F00B3CF1D /* MDCollectionViewDataSource.swift in Sources */,
-				12580B7F1F065E0F00B3CF1D /* MDModel.swift in Sources */,
 				12580B7D1F065E0900B3CF1D /* MDVideoCell.swift in Sources */,
 				125FA2341F079A8100320E5E /* MDPlayerView.swift in Sources */,
+				12F7D6111F19B7F4000154BC /* MDModel.swift in Sources */,
+				12F7D60F1F19B010000154BC /* MDMedia.swift in Sources */,
+				1276A8941F245AA6008410B5 /* FileManager+Extension.swift in Sources */,
 				12580B571F064EAF00B3CF1D /* AppDelegate.swift in Sources */,
 				120B5A871F11A1630001F23C /* MDMediaImporter.swift in Sources */,
 				12580B6E1F06536100B3CF1D /* MDVideoProvider.swift in Sources */,
-				12B8A38D1F18B2B800D5D14B /* Meditate.xcdatamodeld in Sources */,
 				12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */,
 				12580B841F06696E00B3CF1D /* MDVideoModel.swift in Sources */,
 				12580B821F065F9800B3CF1D /* MDProtocols.swift in Sources */,
@@ -545,20 +545,6 @@
 			};
 			name = Release;
 		};
-		12B8A3901F18B84100D5D14B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		12B8A3911F18B84100D5D14B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -580,29 +566,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		12B8A38F1F18B84100D5D14B /* Build configuration list for PBXAggregateTarget "Run Mogenerator" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				12B8A3901F18B84100D5D14B /* Debug */,
-				12B8A3911F18B84100D5D14B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		12B8A38B1F18B2B800D5D14B /* Meditate.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				12B8A38C1F18B2B800D5D14B /* Meditate.xcdatamodel */,
-			);
-			currentVersion = 12B8A38C1F18B2B800D5D14B /* Meditate.xcdatamodel */;
-			path = Meditate.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 12580B4B1F064EAF00B3CF1D /* Project object */;
 }

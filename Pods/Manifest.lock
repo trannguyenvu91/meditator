@@ -1,12 +1,17 @@
 PODS:
-  - MagicalRecord/Shorthand (2.2)
+  - Realm (2.8.1):
+    - Realm/Headers (= 2.8.1)
+  - Realm/Headers (2.8.1)
+  - RealmSwift (2.8.1):
+    - Realm (= 2.8.1)
 
 DEPENDENCIES:
-  - MagicalRecord/Shorthand
+  - RealmSwift
 
 SPEC CHECKSUMS:
-  MagicalRecord: 2dc87179ae7c1f2a274442624ec65a07d4357a6f
+  Realm: 2627602ad6818451f0cb8c2a6e072f7f10a5f360
+  RealmSwift: 4764ca7657f2193c256fb032c0b123926f70dbcd
 
-PODFILE CHECKSUM: b7e5fd166dd40785cd75dff449bf4ac2313a4109
+PODFILE CHECKSUM: b08f5dcf2a68bae21d770eeca2176b43d3f0b9d0
 
 COCOAPODS: 1.2.1

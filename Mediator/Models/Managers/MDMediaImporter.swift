@@ -28,12 +28,26 @@ class MDMediaImporter: NSObject {
     }
 }
 
+//MARK: - Picker Delegates
 extension MDMediaImporter: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         fromViewController?.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        do {
+            try importMedia(info: info)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        fromViewController?.dismiss(animated: true, completion: nil)
+    }
+}
+
+//MARK: - File processing
+fileprivate extension MDMediaImporter {
+    
+    func importMedia(info: [String : Any]) throws {
         let fileURL = info[UIImagePickerControllerMediaURL] as! URL
         
         let video = MDMedia()
@@ -48,15 +62,9 @@ extension MDMediaImporter: UIImagePickerControllerDelegate, UINavigationControll
                 MDDBManager.defaultManager.add(video)
             }
         } catch let error {
-            print(error.localizedDescription)
+            throw error
         }
-        
-        fromViewController?.dismiss(animated: true, completion: nil)
     }
-}
-
-//MARK: - Thumbnails
-fileprivate extension MDMediaImporter {
     
     func saveThumbnailFrom(videoURL: URL, toURL thumbURL: URL) throws {
         do {

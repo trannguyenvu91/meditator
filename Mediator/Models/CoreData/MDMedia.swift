@@ -21,8 +21,11 @@ class MDMedia: Object, MDModelProtocol {
 
 //MARK: Thumbnail and URL
 extension MDMedia {
-    func generateThumbName() {
-        thumbName = (fileName.components(separatedBy: ".").first?.appending(".png"))!
+    func generatePaths(from fileURL: URL) {
+        let uniqueID = UUID().uuidString
+        let fileExtension = fileURL.pathComponents.last?.components(separatedBy: ".").last
+        fileName = uniqueID.appending(".\(fileExtension!)")
+        thumbName = uniqueID.appending(".png")
     }
     
     func getVideoURL() -> URL {

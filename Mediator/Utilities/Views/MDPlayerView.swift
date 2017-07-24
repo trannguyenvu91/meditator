@@ -24,7 +24,7 @@ class MDPlayerView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         playerLayer.frame = bounds
-        playerLayer.contentsGravity = kCAGravityResizeAspectFill
+        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         backgroundColor = UIColor.clear
         playerLayer.backgroundColor = UIColor.clear.cgColor
         self.layer.addSublayer(playerLayer)

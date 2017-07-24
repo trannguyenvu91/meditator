@@ -20,12 +20,13 @@ class MDPlayingCenter: NSObject {
         registerRemoteCommandCenter()
     }
     
+    var media: MDMedia?
     var playerLayer: AVPlayerLayer?
     
-    var currentPlayer: AVPlayer? {
+    var player: AVPlayer? {
         willSet {
-            if currentPlayer != newValue {
-                currentPlayer?.pause()
+            if player != newValue {
+                player?.pause()
             }
         }
         didSet {
@@ -33,21 +34,27 @@ class MDPlayingCenter: NSObject {
         }
     }
     
+    func update(_player: AVPlayer, at _layer: AVPlayerLayer, with _media: MDMedia?) {
+        player = _player
+        playerLayer = _layer
+        media = _media
+    }
+    
     //MARK: Control functionalities
     func play() {
-        currentPlayer?.isMuted = true
-        currentPlayer?.play()
-        updateNowPlayingCenter(title: "Meditator", previewImage: #imageLiteral(resourceName: "123.jpg"))
+        player?.isMuted = true
+        player?.play()
+        updateNowPlayingCenter()
     }
     
     func pause() {
-        currentPlayer?.pause()
+        player?.pause()
     }
     
     func loopPlayer() {
         NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { notification in
-            self.currentPlayer?.seek(to: kCMTimeZero)
-            self.currentPlayer?.play()
+            self.player?.seek(to: kCMTimeZero)
+            self.player?.play()
         }
     }
     
@@ -62,7 +69,7 @@ extension MDPlayingCenter {
     }
     
     func willEnterForeground() {
-        playerLayer?.player = currentPlayer
+        playerLayer?.player = player
         play()
     }
     
@@ -103,12 +110,15 @@ extension MDPlayingCenter {
         commandCenter.dislikeCommand.localizedTitle = "Thumb Down"
     }
     
-    func updateNowPlayingCenter(title: String, previewImage: UIImage?) {
+    func updateNowPlayingCenter() {
+        let title = "Meditation"
         let info = MPNowPlayingInfoCenter.default()
         var playingInfo = [MPMediaItemPropertyTitle: title] as [String : Any]
-        if let image = previewImage {
-            playingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: image)
+        
+        if let _media = media, let preview = UIImage(contentsOfFile: _media.getThumbURL().path) {
+            playingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: preview)
         }
+        
         info.nowPlayingInfo = playingInfo
     }
     

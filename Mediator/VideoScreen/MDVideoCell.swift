@@ -36,10 +36,15 @@ extension MDVideoCell {
             let playItem = AVPlayerItem(url: url)
             let avPlayer:AVPlayer = AVPlayer(playerItem: playItem)
             videoPlayerView.player = avPlayer
-            MDPlayingCenter.sharedInstance.currentPlayer = avPlayer
-            MDPlayingCenter.sharedInstance.playerLayer = videoPlayerView.playerLayer
+            MDPlayingCenter.sharedInstance.update(_player: avPlayer,
+                                                  at: videoPlayerView.playerLayer,
+                                                  with: media)
             videoPlayerView.isHidden = false
         }
+    }
+    
+    func didEndDisplaying() {
+        videoPlayerView.isHidden = true
     }
     
 }

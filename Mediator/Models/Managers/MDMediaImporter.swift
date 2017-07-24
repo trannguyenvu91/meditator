@@ -51,8 +51,7 @@ fileprivate extension MDMediaImporter {
         let fileURL = info[UIImagePickerControllerMediaURL] as! URL
         
         let video = MDMedia()
-        video.fileName = fileURL.lastPathComponent
-        video.generateThumbName()
+        video.generatePaths(from: fileURL)
         let videoURL = video.getVideoURL()
         //move items
         do {

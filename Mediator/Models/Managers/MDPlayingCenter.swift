@@ -35,9 +35,9 @@ class MDPlayingCenter: NSObject {
     }
     
     func update(_player: AVPlayer, at _layer: AVPlayerLayer, with _media: MDMedia?) {
+        media = _media
         player = _player
         playerLayer = _layer
-        media = _media
     }
     
     //MARK: Control functionalities

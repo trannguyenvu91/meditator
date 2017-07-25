@@ -10,22 +10,30 @@ import Foundation
 import RealmSwift
 
 class MDMedia: Object, MDModelProtocol {
-    @objc dynamic var id: Int = 0
+    @objc dynamic var id = ""
     @objc dynamic var title = ""
     @objc dynamic var fileName = ""
     @objc dynamic var thumbName = ""
     @objc dynamic var importDate = Date()
     @objc dynamic var type: Int = 0
     
+    override static func primaryKey() -> String? {
+        return "id"
+        
+    }
+    
+    override static func indexedProperties() -> [String] {
+        return ["importDate"]
+    }
 }
 
-//MARK: Thumbnail and URL
+//MARK: Thumbnail and URLs
 extension MDMedia {
     func generatePaths(from fileURL: URL) {
-        let uniqueID = UUID().uuidString
+        id = UUID().uuidString
         let fileExtension = fileURL.pathComponents.last?.components(separatedBy: ".").last
-        fileName = uniqueID.appending(".\(fileExtension!)")
-        thumbName = uniqueID.appending(".png")
+        fileName = id.appending(".\(fileExtension!)")
+        thumbName = id.appending(".png")
     }
     
     func getVideoURL() -> URL {

@@ -35,6 +35,6 @@ class MDDBManager: NSObject {
 
 extension MDDBManager {
     func getMedias() -> Results<MDMedia> {
-        return realm.objects(MDMedia.self)
+        return realm.objects(MDMedia.self).sorted(byKeyPath: "importDate", ascending: true)
     }
 }

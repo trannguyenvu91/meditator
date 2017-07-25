@@ -12,12 +12,10 @@ import MobileCoreServices
 
 class MDMediaImporter: NSObject {
     static let sharedInstance = MDMediaImporter()
-    weak var fromViewController: UIViewController?
     
     @discardableResult class func presentImagePickerVC(fromVC: UIViewController,
                                     animated flag: Bool,
                                     completion: (() -> Swift.Void)? = nil) -> UIImagePickerController {
-        self.sharedInstance.fromViewController = fromVC
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self.sharedInstance
@@ -26,12 +24,13 @@ class MDMediaImporter: NSObject {
         fromVC.present(picker, animated: flag, completion: completion)
         return picker
     }
+    
 }
 
 //MARK: - Picker Delegates
 extension MDMediaImporter: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        fromViewController?.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -40,8 +39,9 @@ extension MDMediaImporter: UIImagePickerControllerDelegate, UINavigationControll
         } catch let error {
             print(error.localizedDescription)
         }
-        fromViewController?.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
     }
+    
 }
 
 //MARK: - File processing
@@ -61,6 +61,9 @@ fileprivate extension MDMediaImporter {
                 MDDBManager.defaultManager.add(video)
             }
         } catch let error {
+            try! FileManager.default.removeItem(at: fileURL)
+            try! FileManager.default.removeItem(at: videoURL)
+            try! FileManager.default.removeItem(at: video.getThumbURL())
             throw error
         }
     }
@@ -87,5 +90,6 @@ fileprivate extension MDMediaImporter {
             throw error
         }
     }
+    
 }
 

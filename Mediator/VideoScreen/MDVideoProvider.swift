@@ -9,10 +9,9 @@
 import UIKit
 
 class MDVideoProvider: NSObject, MDListProviderProtocol {
+    var data = MDDBManager.defaultManager.getMedias()
     
-    var data: [MDModel] = MDVideoProvider.getVideoModels()
-    
-    func model(at indexPath: IndexPath) -> MDModel? {
+    func model(at indexPath: IndexPath) -> MDModelProtocol? {
         guard indexPath.row < data.count else {
             return nil
         }
@@ -32,18 +31,6 @@ class MDVideoProvider: NSObject, MDListProviderProtocol {
 //MARK: Get Data
 extension MDVideoProvider {
     
-    class func getVideoModels() -> [MDVideoModel] {
-        var videoModels = [MDVideoModel]()
-        if let filePath = Bundle.main.path(forResource: "VideoList", ofType: "plist"),
-            let videoPaths:[String] = NSArray.init(contentsOf: URL(fileURLWithPath: filePath)) as? [String] {
-            
-            for videoPath in videoPaths {
-                let model = MDVideoModel(fileName: videoPath)
-                videoModels.append(model)
-            }
-        }
-        return videoModels
-    }
     
 }
 

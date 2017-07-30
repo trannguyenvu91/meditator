@@ -22,6 +22,18 @@
 		126A82EC1F0CF12B00E63C23 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */; };
 		1276A8941F245AA6008410B5 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1276A8931F245AA6008410B5 /* FileManager+Extension.swift */; };
 		12A2B34E1F218E8D0028F268 /* MDDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2B34D1F218E8D0028F268 /* MDDBManager.swift */; };
+		12B013291F2C8C0800F3A909 /* 60-rainonleaves.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 12B013131F2C8C0700F3A909 /* 60-rainonleaves.m4a */; };
+		12B0132A1F2C8C0800F3A909 /* 60-rainonleaves.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 12B013151F2C8C0700F3A909 /* 60-rainonleaves.mp4 */; };
+		12B0132B1F2C8C0800F3A909 /* video_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12B013161F2C8C0700F3A909 /* video_info.plist */; };
+		12B0132C1F2C8C0800F3A909 /* scene-bg-OE6oKvgzM.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 12B013191F2C8C0700F3A909 /* scene-bg-OE6oKvgzM.m4a */; };
+		12B0132D1F2C8C0800F3A909 /* scene-bg-OE6oKvgzM.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 12B0131B1F2C8C0700F3A909 /* scene-bg-OE6oKvgzM.mp4 */; };
+		12B0132E1F2C8C0800F3A909 /* video_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12B0131C1F2C8C0700F3A909 /* video_info.plist */; };
+		12B0132F1F2C8C0800F3A909 /* 58-mountainlake.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 12B0131F1F2C8C0700F3A909 /* 58-mountainlake.m4a */; };
+		12B013301F2C8C0800F3A909 /* 58-mountainlake.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 12B013211F2C8C0700F3A909 /* 58-mountainlake.mp4 */; };
+		12B013311F2C8C0800F3A909 /* video_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12B013221F2C8C0700F3A909 /* video_info.plist */; };
+		12B013321F2C8C0800F3A909 /* scene-bg-WdVY0QGD4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 12B013251F2C8C0700F3A909 /* scene-bg-WdVY0QGD4.m4a */; };
+		12B013331F2C8C0800F3A909 /* scene-bg-WdVY0QGD4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 12B013271F2C8C0700F3A909 /* scene-bg-WdVY0QGD4.mp4 */; };
+		12B013341F2C8C0800F3A909 /* video_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12B013281F2C8C0700F3A909 /* video_info.plist */; };
 		12B3B0EA1F119CF3006168C0 /* MDVideoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */; };
 		12B8A38A1F18AAED00D5D14B /* . gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 12B8A3891F18AAED00D5D14B /* . gitattributes */; };
 		12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D079941F0670720022EF1E /* MDVideoViewController.swift */; };
@@ -49,6 +61,18 @@
 		126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurator.swift; sourceTree = "<group>"; };
 		1276A8931F245AA6008410B5 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		12A2B34D1F218E8D0028F268 /* MDDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDDBManager.swift; sourceTree = "<group>"; };
+		12B013131F2C8C0700F3A909 /* 60-rainonleaves.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "60-rainonleaves.m4a"; sourceTree = "<group>"; };
+		12B013151F2C8C0700F3A909 /* 60-rainonleaves.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "60-rainonleaves.mp4"; sourceTree = "<group>"; };
+		12B013161F2C8C0700F3A909 /* video_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = video_info.plist; sourceTree = "<group>"; };
+		12B013191F2C8C0700F3A909 /* scene-bg-OE6oKvgzM.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "scene-bg-OE6oKvgzM.m4a"; sourceTree = "<group>"; };
+		12B0131B1F2C8C0700F3A909 /* scene-bg-OE6oKvgzM.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "scene-bg-OE6oKvgzM.mp4"; sourceTree = "<group>"; };
+		12B0131C1F2C8C0700F3A909 /* video_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = video_info.plist; sourceTree = "<group>"; };
+		12B0131F1F2C8C0700F3A909 /* 58-mountainlake.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "58-mountainlake.m4a"; sourceTree = "<group>"; };
+		12B013211F2C8C0700F3A909 /* 58-mountainlake.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "58-mountainlake.mp4"; sourceTree = "<group>"; };
+		12B013221F2C8C0700F3A909 /* video_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = video_info.plist; sourceTree = "<group>"; };
+		12B013251F2C8C0700F3A909 /* scene-bg-WdVY0QGD4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "scene-bg-WdVY0QGD4.m4a"; sourceTree = "<group>"; };
+		12B013271F2C8C0700F3A909 /* scene-bg-WdVY0QGD4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "scene-bg-WdVY0QGD4.mp4"; sourceTree = "<group>"; };
+		12B013281F2C8C0700F3A909 /* video_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = video_info.plist; sourceTree = "<group>"; };
 		12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDVideoDataSource.swift; path = Mediator/VideoScreen/MDVideoDataSource.swift; sourceTree = SOURCE_ROOT; };
 		12B8A3891F18AAED00D5D14B /* . gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = ". gitattributes"; sourceTree = "<group>"; };
 		12B8A39D1F18C14200D5D14B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -124,8 +148,7 @@
 				12580B6D1F06536100B3CF1D /* MDVideoProvider.swift */,
 				12580B6C1F06526600B3CF1D /* MDVideoCell.swift */,
 			);
-			name = VideoScreen;
-			path = "New Group";
+			path = VideoScreen;
 			sourceTree = "<group>";
 		};
 		12580B781F065D6700B3CF1D /* Base */ = {
@@ -143,6 +166,7 @@
 				1276A8911F245A3E008410B5 /* Helpers */,
 				1276A8901F2459ED008410B5 /* Protocols */,
 				1276A8951F245ABD008410B5 /* Extension */,
+				12B013101F2C8C0700F3A909 /* video_files */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -188,6 +212,121 @@
 				121A35BD1F0B9F3D005843E9 /* MDPlayingCenter.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		12B013101F2C8C0700F3A909 /* video_files */ = {
+			isa = PBXGroup;
+			children = (
+				12B013111F2C8C0700F3A909 /* KRenfJ2WcN */,
+				12B013171F2C8C0700F3A909 /* p9Kb0nj05 */,
+				12B0131D1F2C8C0700F3A909 /* S38pOgKsfM */,
+				12B013231F2C8C0700F3A909 /* ZzwjdY1rq */,
+			);
+			path = video_files;
+			sourceTree = "<group>";
+		};
+		12B013111F2C8C0700F3A909 /* KRenfJ2WcN */ = {
+			isa = PBXGroup;
+			children = (
+				12B013121F2C8C0700F3A909 /* ambient */,
+				12B013141F2C8C0700F3A909 /* video */,
+				12B013161F2C8C0700F3A909 /* video_info.plist */,
+			);
+			path = KRenfJ2WcN;
+			sourceTree = "<group>";
+		};
+		12B013121F2C8C0700F3A909 /* ambient */ = {
+			isa = PBXGroup;
+			children = (
+				12B013131F2C8C0700F3A909 /* 60-rainonleaves.m4a */,
+			);
+			path = ambient;
+			sourceTree = "<group>";
+		};
+		12B013141F2C8C0700F3A909 /* video */ = {
+			isa = PBXGroup;
+			children = (
+				12B013151F2C8C0700F3A909 /* 60-rainonleaves.mp4 */,
+			);
+			path = video;
+			sourceTree = "<group>";
+		};
+		12B013171F2C8C0700F3A909 /* p9Kb0nj05 */ = {
+			isa = PBXGroup;
+			children = (
+				12B013181F2C8C0700F3A909 /* ambient */,
+				12B0131A1F2C8C0700F3A909 /* video */,
+				12B0131C1F2C8C0700F3A909 /* video_info.plist */,
+			);
+			path = p9Kb0nj05;
+			sourceTree = "<group>";
+		};
+		12B013181F2C8C0700F3A909 /* ambient */ = {
+			isa = PBXGroup;
+			children = (
+				12B013191F2C8C0700F3A909 /* scene-bg-OE6oKvgzM.m4a */,
+			);
+			path = ambient;
+			sourceTree = "<group>";
+		};
+		12B0131A1F2C8C0700F3A909 /* video */ = {
+			isa = PBXGroup;
+			children = (
+				12B0131B1F2C8C0700F3A909 /* scene-bg-OE6oKvgzM.mp4 */,
+			);
+			path = video;
+			sourceTree = "<group>";
+		};
+		12B0131D1F2C8C0700F3A909 /* S38pOgKsfM */ = {
+			isa = PBXGroup;
+			children = (
+				12B0131E1F2C8C0700F3A909 /* ambient */,
+				12B013201F2C8C0700F3A909 /* video */,
+				12B013221F2C8C0700F3A909 /* video_info.plist */,
+			);
+			path = S38pOgKsfM;
+			sourceTree = "<group>";
+		};
+		12B0131E1F2C8C0700F3A909 /* ambient */ = {
+			isa = PBXGroup;
+			children = (
+				12B0131F1F2C8C0700F3A909 /* 58-mountainlake.m4a */,
+			);
+			path = ambient;
+			sourceTree = "<group>";
+		};
+		12B013201F2C8C0700F3A909 /* video */ = {
+			isa = PBXGroup;
+			children = (
+				12B013211F2C8C0700F3A909 /* 58-mountainlake.mp4 */,
+			);
+			path = video;
+			sourceTree = "<group>";
+		};
+		12B013231F2C8C0700F3A909 /* ZzwjdY1rq */ = {
+			isa = PBXGroup;
+			children = (
+				12B013241F2C8C0700F3A909 /* ambient */,
+				12B013261F2C8C0700F3A909 /* video */,
+				12B013281F2C8C0700F3A909 /* video_info.plist */,
+			);
+			path = ZzwjdY1rq;
+			sourceTree = "<group>";
+		};
+		12B013241F2C8C0700F3A909 /* ambient */ = {
+			isa = PBXGroup;
+			children = (
+				12B013251F2C8C0700F3A909 /* scene-bg-WdVY0QGD4.m4a */,
+			);
+			path = ambient;
+			sourceTree = "<group>";
+		};
+		12B013261F2C8C0700F3A909 /* video */ = {
+			isa = PBXGroup;
+			children = (
+				12B013271F2C8C0700F3A909 /* scene-bg-WdVY0QGD4.mp4 */,
+			);
+			path = video;
 			sourceTree = "<group>";
 		};
 		12B8A3931F18B95C00D5D14B /* Models */ = {
@@ -288,11 +427,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12B013331F2C8C0800F3A909 /* scene-bg-WdVY0QGD4.mp4 in Resources */,
 				12B8A38A1F18AAED00D5D14B /* . gitattributes in Resources */,
+				12B013301F2C8C0800F3A909 /* 58-mountainlake.mp4 in Resources */,
+				12B013321F2C8C0800F3A909 /* scene-bg-WdVY0QGD4.m4a in Resources */,
+				12B0132E1F2C8C0800F3A909 /* video_info.plist in Resources */,
 				126A82EA1F0CE84500E63C23 /* .gitignore in Resources */,
 				12580B611F064EAF00B3CF1D /* LaunchScreen.storyboard in Resources */,
+				12B0132A1F2C8C0800F3A909 /* 60-rainonleaves.mp4 in Resources */,
+				12B013341F2C8C0800F3A909 /* video_info.plist in Resources */,
+				12B013311F2C8C0800F3A909 /* video_info.plist in Resources */,
+				12B0132C1F2C8C0800F3A909 /* scene-bg-OE6oKvgzM.m4a in Resources */,
+				12B0132B1F2C8C0800F3A909 /* video_info.plist in Resources */,
 				12580B5E1F064EAF00B3CF1D /* Assets.xcassets in Resources */,
 				12580B5C1F064EAF00B3CF1D /* Main.storyboard in Resources */,
+				12B0132F1F2C8C0800F3A909 /* 58-mountainlake.m4a in Resources */,
+				12B0132D1F2C8C0800F3A909 /* scene-bg-OE6oKvgzM.mp4 in Resources */,
+				12B013291F2C8C0800F3A909 /* 60-rainonleaves.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

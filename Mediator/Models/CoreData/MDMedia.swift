@@ -8,12 +8,14 @@
 
 import Foundation
 import RealmSwift
+import AVFoundation
 
 class MDMedia: Object, MDModelProtocol {
     @objc dynamic var id = ""
     @objc dynamic var title = ""
     @objc dynamic var fileName = ""
     @objc dynamic var thumbName = ""
+    @objc dynamic var audioName: String? = nil
     @objc dynamic var importDate = Date()
     @objc dynamic var type: Int = 0
     
@@ -24,6 +26,22 @@ class MDMedia: Object, MDModelProtocol {
     
     override static func indexedProperties() -> [String] {
         return ["importDate"]
+    }
+    
+}
+//MARK: Players
+extension MDMedia {
+    
+    func getVideoPlayer() -> AVPlayer {
+        let playItem = AVPlayerItem(url: getVideoURL())
+        return AVPlayer(playerItem: playItem)
+    }
+    
+    func getAudioPlayer() -> AVAudioPlayer? {
+        if let url = getAudioURL() {
+            return try! AVAudioPlayer(contentsOf: url)
+        }
+        return nil
     }
 }
 
@@ -42,6 +60,13 @@ extension MDMedia {
     
     func getThumbURL() -> URL {
         return MDMedia.getFolerURL().appendingPathComponent(thumbName, isDirectory: true)
+    }
+    
+    func getAudioURL() -> URL? {
+        if let audioFileName = audioName {
+            return MDMedia.getFolerURL().appendingPathComponent(audioFileName, isDirectory: true)
+        }
+        return nil
     }
     
     class func getFolderName() -> String {

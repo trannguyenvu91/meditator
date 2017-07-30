@@ -21,7 +21,8 @@ class MDPlayingCenter: NSObject {
     }
     
     var media: MDMedia?
-    var playerLayer: AVPlayerLayer?
+    var videoLayer: AVPlayerLayer?
+    var audioPlayer: AVAudioPlayer?
     
     var player: AVPlayer? {
         willSet {
@@ -34,16 +35,20 @@ class MDPlayingCenter: NSObject {
         }
     }
     
-    func update(_player: AVPlayer, at _layer: AVPlayerLayer, with _media: MDMedia?) {
+    func play(_ _media: MDMedia, at _videoLayer:AVPlayerLayer ) throws {
         media = _media
-        player = _player
-        playerLayer = _layer
+        videoLayer = _videoLayer
+        player = media?.getVideoPlayer()
+        audioPlayer = media?.getAudioPlayer()
+        videoLayer?.player = player
     }
     
     //MARK: Control functionalities
     func play() {
         player?.isMuted = true
         player?.play()
+        audioPlayer?.play()
+        audioPlayer?.numberOfLoops = Int.max
         updateNowPlayingCenter()
     }
     
@@ -65,11 +70,11 @@ class MDPlayingCenter: NSObject {
 extension MDPlayingCenter {
     
     func didEnterBackground() {
-        playerLayer?.player = nil
+        videoLayer?.player = nil
     }
     
     func willEnterForeground() {
-        playerLayer?.player = player
+        videoLayer?.player = player
         play()
     }
     

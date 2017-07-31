@@ -201,8 +201,7 @@
 				12371A081F2ED0F2008F2F4D /* FileManager+Extension.swift */,
 				12371A2D1F2EDC78008F2F4D /* UserDefaultsExtension.swift */,
 			);
-			name = Extension;
-			path = "New Group";
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		12A2B34F1F219D460028F268 /* Managers */ = {

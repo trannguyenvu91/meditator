@@ -78,8 +78,8 @@ extension MDVideoDataSource {
 //MARK: Overiding Functions
 extension MDVideoDataSource {
     
-    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        super.scrollViewDidEndDragging(scrollView, willDecelerate: deldecelerate)
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        super.scrollViewDidEndDecelerating(scrollView)
         playVideoOnVisibleCell()
     }
     

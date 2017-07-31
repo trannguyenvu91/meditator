@@ -29,9 +29,6 @@ class MDVideoCell: UICollectionViewCell, MDModelViewProtocol {
 extension MDVideoCell {
     
     func playVideo() {
-        if let player = videoPlayerView.player, player.isPlaying() == true {
-            return
-        }
         if let _media = media {
             try! MDPlayingCenter.sharedInstance.play(_media, at: videoPlayerView.playerLayer)
             videoPlayerView.isHidden = false

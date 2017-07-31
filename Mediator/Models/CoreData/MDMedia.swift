@@ -47,11 +47,14 @@ extension MDMedia {
 
 //MARK: Thumbnail and URLs
 extension MDMedia {
-    func generatePaths(from fileURL: URL) {
+    func generatePaths(from _videoURL: URL, audioURL: URL?) {
         id = UUID().uuidString
-        let fileExtension = fileURL.pathComponents.last?.components(separatedBy: ".").last
-        fileName = id.appending(".\(fileExtension!)")
+        let videoExtension = _videoURL.pathComponents.last?.components(separatedBy: ".").last
+        fileName = id.appending(".\(videoExtension!)")
         thumbName = id.appending(".png")
+        if let audioExtension = audioURL?.pathComponents.last?.components(separatedBy: ".").last {
+            audioName = id.appending(".\(audioExtension)")
+        }
     }
     
     func getVideoURL() -> URL {

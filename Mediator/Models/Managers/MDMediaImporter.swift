@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import MobileCoreServices
 
+
 class MDMediaImporter: NSObject {
     static let sharedInstance = MDMediaImporter()
     
@@ -51,7 +52,7 @@ fileprivate extension MDMediaImporter {
         let fileURL = info[UIImagePickerControllerMediaURL] as! URL
         
         let video = MDMedia()
-        video.generatePaths(from: fileURL)
+        video.generatePaths(from: fileURL, audioURL: nil)
         let videoURL = video.getVideoURL()
         //move items
         do {
@@ -91,5 +92,54 @@ fileprivate extension MDMediaImporter {
         }
     }
     
+}
+
+//MARK: Import Media Samples
+extension MDMediaImporter {
+    
+    func loadMediaSamples() {
+        guard let dataURL = Bundle.main.url(forResource: "video_files", withExtension: "plist"),
+        UserDefaults.standard.hasImportedSamples() != true else { return }
+        do {
+            let data = try Data(contentsOf: dataURL)
+            let plist = try PropertyListSerialization.propertyList(from: data, options: .mutableContainers, format: nil) as! [String]
+            for code in plist {
+                try importSample(code: code)
+            }
+            UserDefaults.standard.didImportSamples(true)
+        } catch let error {
+            print(error.localizedDescription)
+            UserDefaults.standard.didImportSamples(false)
+        }
+    }
+    
+    func importSample(code: String) throws {
+        guard let infoURL = Bundle.main.url(forResource: "video_info", withExtension: "plist", subdirectory: code) else { return }
+        do {
+            let data = try Data(contentsOf: infoURL)
+            let plist = try PropertyListSerialization.propertyList(from: data, options: .mutableContainers, format: nil) as! [String: String]
+            if let audioName = plist["audio"],
+                let videoName = plist["video"],
+                let videoURL = Bundle.main.url(forResource: videoName, withExtension: "mp4", subdirectory: "\(code)/video"),
+                let audioURL = Bundle.main.url(forResource: audioName, withExtension: "m4a", subdirectory: "\(code)/ambient")
+            {
+                let video = MDMedia()
+                video.generatePaths(from: videoURL, audioURL: audioURL)
+                //move items
+                do {
+                    try FileManager.default.copyItem(at: videoURL, to: video.getVideoURL())
+                    try FileManager.default.copyItem(at: audioURL, to: video.getAudioURL()!)
+                    try saveThumbnailFrom(videoURL: video.getVideoURL(), toURL: video.getThumbURL())
+                    try MDDBManager.defaultManager.write {
+                        MDDBManager.defaultManager.add(video)
+                    }
+                } catch let error {
+                    throw error
+                }
+            }
+        } catch let error {
+            throw error
+        }
+    }
 }
 

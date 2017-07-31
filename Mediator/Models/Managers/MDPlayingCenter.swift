@@ -22,7 +22,16 @@ class MDPlayingCenter: NSObject {
     
     var media: MDMedia?
     var videoLayer: AVPlayerLayer?
-    var audioPlayer: AVAudioPlayer?
+    var audioPlayer: AVAudioPlayer? {
+        willSet {
+            if audioPlayer != newValue {
+                audioPlayer?.pause()
+            }
+        }
+        didSet {
+            play()
+        }
+    }
     
     var player: AVPlayer? {
         willSet {
@@ -36,6 +45,10 @@ class MDPlayingCenter: NSObject {
     }
     
     func play(_ _media: MDMedia, at _videoLayer:AVPlayerLayer ) throws {
+        if media == _media && videoLayer == _videoLayer {
+            play()
+            return
+        }
         media = _media
         videoLayer = _videoLayer
         player = media?.getVideoPlayer()
@@ -54,6 +67,7 @@ class MDPlayingCenter: NSObject {
     
     func pause() {
         player?.pause()
+        audioPlayer?.pause()
     }
     
     func loopPlayer() {

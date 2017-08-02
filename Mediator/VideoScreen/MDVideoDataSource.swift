@@ -85,7 +85,7 @@ extension MDVideoDataSource {
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         super.collectionView(collectionView, willDisplay: cell, forItemAt: indexPath)
-        if (MDPlayingCenter.sharedInstance.player == nil) {
+        if (!MDPlayingCenter.sharedInstance.isPlaying()) {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
                 self.playVideoOnVisibleCell()
             }

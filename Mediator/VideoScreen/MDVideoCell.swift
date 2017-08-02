@@ -30,7 +30,7 @@ extension MDVideoCell {
     
     func playVideo() {
         if let _media = media {
-            try! MDPlayingCenter.sharedInstance.play(_media, at: videoPlayerView.playerLayer)
+            MDPlayingCenter.sharedInstance.play(_media, at: videoPlayerView.playerLayer)
             videoPlayerView.isHidden = false
         }
     }

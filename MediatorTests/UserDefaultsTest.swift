@@ -29,5 +29,4 @@ class UserDefaultsTest: MDBaseTests {
         XCTAssert(!user.hasImportedSamples(), "After imported failed, the value must be false")
     }
     
-    
 }

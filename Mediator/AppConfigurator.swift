@@ -11,9 +11,9 @@ import AVFoundation
 
 final class AppConfigurator: NSObject {
     func didFinishLaunching() {
-        FileManager.createMDDirectory()
-        MDPlayingCenter.sharedInstance.registerBackgroundPlaying()
-        MDMediaImporter.sharedInstance.loadMediaSamples()
+        try! FileManager.createMDDirectory()
+        try! MDPlayingCenter.sharedInstance.registerBackgroundPlaying()
+        try! MDMediaImporter.sharedInstance.loadMediaSamples()
     }
     
     func didEnterBackground() {

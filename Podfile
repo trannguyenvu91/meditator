@@ -8,3 +8,13 @@ target 'Mediator' do
 pod 'RealmSwift'
 
 end
+
+target 'MediatorTests' do
+    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    use_frameworks!
+    # Pods for Mediator
+    pod 'RealmSwift'
+    
+end
+
+

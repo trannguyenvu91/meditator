@@ -97,12 +97,13 @@ extension MDPlayingCenter {
 //MARK: Control Center and Background playing
 extension MDPlayingCenter {
     
-    func registerBackgroundPlaying() {
+    func registerBackgroundPlaying() throws {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
             try AVAudioSession.sharedInstance().setActive(true)
         } catch let error {
             print(error)
+            throw error
         }
     }
     
@@ -131,13 +132,13 @@ extension MDPlayingCenter {
     
     func updateNowPlayingCenter() {
         let title = "Meditation"
-        let info = MPNowPlayingInfoCenter.default()
         var playingInfo = [MPMediaItemPropertyTitle: title] as [String : Any]
         
         if let _media = media, let preview = UIImage(contentsOfFile: _media.getThumbURL().path) {
             playingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: preview)
         }
         
+        let info = MPNowPlayingInfoCenter.default()
         info.nowPlayingInfo = playingInfo
     }
     

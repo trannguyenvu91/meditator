@@ -46,7 +46,7 @@ extension MDMediaImporter: UIImagePickerControllerDelegate, UINavigationControll
 }
 
 //MARK: - File processing
-fileprivate extension MDMediaImporter {
+extension MDMediaImporter {
     
     func importMedia(info: [String : Any]) throws {
         let fileURL = info[UIImagePickerControllerMediaURL] as! URL
@@ -97,7 +97,7 @@ fileprivate extension MDMediaImporter {
 //MARK: Import Media Samples
 extension MDMediaImporter {
     
-    func loadMediaSamples() {
+    func loadMediaSamples() throws {
         guard let dataURL = Bundle.main.url(forResource: "video_files", withExtension: "plist"),
         UserDefaults.standard.hasImportedSamples() != true else { return }
         do {
@@ -108,8 +108,9 @@ extension MDMediaImporter {
             }
             UserDefaults.standard.didImportSamples(true)
         } catch let error {
-            print(error.localizedDescription)
             UserDefaults.standard.didImportSamples(false)
+            print(error.localizedDescription)
+            throw error
         }
     }
     

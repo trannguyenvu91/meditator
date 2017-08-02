@@ -69,7 +69,7 @@ extension MDMediaImporter {
         }
     }
     
-    private func saveThumbnailFrom(videoURL: URL, toURL thumbURL: URL) throws {
+    func saveThumbnailFrom(videoURL: URL, toURL thumbURL: URL) throws {
         do {
             let thumbnail = try getThumbnailFrom(videoURL: videoURL)
             let data = UIImageJPEGRepresentation(thumbnail, 1)
@@ -79,7 +79,7 @@ extension MDMediaImporter {
         }
     }
     
-    private func getThumbnailFrom(videoURL: URL) throws -> UIImage {
+    func getThumbnailFrom(videoURL: URL) throws -> UIImage {
         do {
             let asset = AVURLAsset(url: videoURL , options: nil)
             let imgGenerator = AVAssetImageGenerator(asset: asset)

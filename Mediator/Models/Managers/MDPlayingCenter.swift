@@ -64,7 +64,7 @@ class MDPlayingCenter: NSObject {
     }
     
     //MARK: Control functionalities
-    private func play() {
+    func play() {
         player?.isMuted = true
         player?.play()
         audioPlayer?.play()
@@ -72,7 +72,7 @@ class MDPlayingCenter: NSObject {
         updateNowPlayingCenter()
     }
     
-    private func pause() {
+    func pause() {
         player?.pause()
         audioPlayer?.pause()
     }

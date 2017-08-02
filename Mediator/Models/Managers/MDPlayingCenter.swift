@@ -20,9 +20,9 @@ class MDPlayingCenter: NSObject {
         registerRemoteCommandCenter()
     }
     
-    var media: MDMedia?
-    var videoLayer: AVPlayerLayer?
-    var audioPlayer: AVAudioPlayer? {
+    private var media: MDMedia?
+    private var videoLayer: AVPlayerLayer?
+    private var audioPlayer: AVAudioPlayer? {
         willSet {
             if audioPlayer != newValue {
                 audioPlayer?.pause()
@@ -33,7 +33,7 @@ class MDPlayingCenter: NSObject {
         }
     }
     
-    var player: AVPlayer? {
+    private var player: AVPlayer? {
         willSet {
             if player != newValue {
                 player?.pause()
@@ -44,7 +44,14 @@ class MDPlayingCenter: NSObject {
         }
     }
     
-    func play(_ _media: MDMedia, at _videoLayer:AVPlayerLayer ) throws {
+    func isPlaying() -> Bool {
+        if let _player = player {
+            return _player.isPlaying()
+        }
+        return false
+    }
+    
+    func play(_ _media: MDMedia, at _videoLayer:AVPlayerLayer ) {
         if media == _media && videoLayer == _videoLayer {
             play()
             return
@@ -70,7 +77,7 @@ class MDPlayingCenter: NSObject {
         audioPlayer?.pause()
     }
     
-    func loopPlayer() {
+    private func loopPlayer() {
         NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { notification in
             self.player?.seek(to: kCMTimeZero)
             self.player?.play()
@@ -97,12 +104,13 @@ extension MDPlayingCenter {
 //MARK: Control Center and Background playing
 extension MDPlayingCenter {
     
-    func registerBackgroundPlaying() {
+    func registerBackgroundPlaying() throws {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
             try AVAudioSession.sharedInstance().setActive(true)
         } catch let error {
             print(error)
+            throw error
         }
     }
     
@@ -131,13 +139,13 @@ extension MDPlayingCenter {
     
     func updateNowPlayingCenter() {
         let title = "Meditation"
-        let info = MPNowPlayingInfoCenter.default()
         var playingInfo = [MPMediaItemPropertyTitle: title] as [String : Any]
         
         if let _media = media, let preview = UIImage(contentsOfFile: _media.getThumbURL().path) {
             playingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: preview)
         }
         
+        let info = MPNowPlayingInfoCenter.default()
         info.nowPlayingInfo = playingInfo
     }
     

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Mediator
 
 class MDPlayingCenterTest: MDBaseTests {
     
@@ -20,15 +21,11 @@ class MDPlayingCenterTest: MDBaseTests {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testRegisterBackgroundPlaying() {
+        do {
+            try MDPlayingCenter.sharedInstance.registerBackgroundPlaying()
+        } catch let error {
+            XCTAssert(false, error.localizedDescription)
         }
     }
     

@@ -14,11 +14,15 @@ class MDDBManager: NSObject {
     fileprivate let realm = try! Realm()
     static let defaultManager = MDDBManager()
     
-    public func add(_ object: Object) {
+    func add(_ object: Object) {
         realm.add(object)
     }
     
-    public func write(_ block: (() throws -> Swift.Void)) throws {
+    func delete(_ object: Object) {
+        realm.delete(object)
+    }
+    
+    func write(_ block: (() throws -> Swift.Void)) throws {
         do {
             try realm.write({
                 do {

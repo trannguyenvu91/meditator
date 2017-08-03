@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 import AVFoundation
 
-public class MDMedia: Object, MDModelProtocol {
+class MDMedia: Object, MDModelProtocol {
     @objc dynamic var id = ""
     @objc dynamic var title = ""
     @objc dynamic var fileName = ""
@@ -19,12 +19,23 @@ public class MDMedia: Object, MDModelProtocol {
     @objc dynamic var importDate = Date()
     @objc dynamic var type: Int = 0
     
-    override public static func primaryKey() -> String? {
+    override static func primaryKey() -> String? {
         return "id"
     }
     
-    override public static func indexedProperties() -> [String] {
+    override static func indexedProperties() -> [String] {
         return ["importDate"]
+    }
+    
+    func copyMedia() -> MDMedia {
+        let media = MDMedia()
+        media.id = id
+        media.title = title
+        media.fileName = fileName
+        media.thumbName = thumbName
+        media.audioName = audioName
+        media.type = type
+        return media
     }
     
 }

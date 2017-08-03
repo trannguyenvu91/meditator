@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		120B5A871F11A1630001F23C /* MDMediaImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B5A861F11A1630001F23C /* MDMediaImporter.swift */; };
 		121A35BE1F0B9F3D005843E9 /* MDPlayingCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A35BD1F0B9F3D005843E9 /* MDPlayingCenter.swift */; };
+		1224CB7E1F3313910040A7CC /* MDVideoProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1224CB7D1F3313910040A7CC /* MDVideoProviderTest.swift */; };
 		12371A271F2ED198008F2F4D /* p9Kb0nj05 in Resources */ = {isa = PBXBuildFile; fileRef = 12371A231F2ED197008F2F4D /* p9Kb0nj05 */; };
 		12371A281F2ED198008F2F4D /* S38pOgKsfM in Resources */ = {isa = PBXBuildFile; fileRef = 12371A241F2ED198008F2F4D /* S38pOgKsfM */; };
 		12371A291F2ED198008F2F4D /* KRenfJ2WcN in Resources */ = {isa = PBXBuildFile; fileRef = 12371A251F2ED198008F2F4D /* KRenfJ2WcN */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		120B5A861F11A1630001F23C /* MDMediaImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDMediaImporter.swift; sourceTree = "<group>"; };
 		121A35BD1F0B9F3D005843E9 /* MDPlayingCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDPlayingCenter.swift; sourceTree = "<group>"; };
+		1224CB7D1F3313910040A7CC /* MDVideoProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDVideoProviderTest.swift; sourceTree = "<group>"; };
 		122E2A7B1F1B5EA500EB21A5 /* RealmPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = RealmPlayground.playground; path = "../../../../Practice/Realm Playground/RealmPlayground.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		12371A081F2ED0F2008F2F4D /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FileManager+Extension.swift"; path = "Mediator/Utilities/Extension/FileManager+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		12371A1C1F2ED111008F2F4D /* video_files.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = video_files.plist; sourceTree = "<group>"; };
@@ -288,13 +290,14 @@
 		12F90C971F301A8A0076073E /* MediatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				12F90CA11F301E9A0076073E /* VideoTest.m4v */,
 				12F90C981F301A8A0076073E /* MDBaseTests.swift */,
 				12F90C8D1F30195E0076073E /* MDMediaImporterTest.swift */,
 				1258FF551F317F0F00123821 /* MDMediaTest.swift */,
 				1258FF571F31821000123821 /* FileManagerTest.swift */,
 				1258FF591F3182FA00123821 /* UserDefaultsTest.swift */,
 				1258FF5B1F31842400123821 /* MDPlayingCenterTest.swift */,
+				1224CB7D1F3313910040A7CC /* MDVideoProviderTest.swift */,
+				12F90CA11F301E9A0076073E /* VideoTest.m4v */,
 				12F90C9A1F301A8A0076073E /* Info.plist */,
 			);
 			path = MediatorTests;
@@ -542,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1258FF5A1F3182FA00123821 /* UserDefaultsTest.swift in Sources */,
+				1224CB7E1F3313910040A7CC /* MDVideoProviderTest.swift in Sources */,
 				12F90C991F301A8A0076073E /* MDBaseTests.swift in Sources */,
 				1258FF561F317F0F00123821 /* MDMediaTest.swift in Sources */,
 				12F90CA01F301A9C0076073E /* MDMediaImporterTest.swift in Sources */,

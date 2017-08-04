@@ -12,9 +12,9 @@ class BreathingExerciseViewController: UIViewController {
     
     let breathView = UIBreathingView(frame: CGRect.zero,
                                      duration: 15,
-                                     inhaleFragments: [0, 0.4],
-                                     exhaleFragments: [0.6, 1],
-                                     holdingFraments: [0.4, 0.6],
+                                     inhaleFragments: [0.0..<0.4],
+                                     exhaleFragments: [0.6..<1.0],
+                                     holdingFraments: [0.4..<0.6],
                                      labelRatio: 0.75,
                                      inhaleColor: UIColor.green,
                                      exhaleColor: UIColor.brown,
@@ -24,7 +24,6 @@ class BreathingExerciseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupBreathView()
     }
 

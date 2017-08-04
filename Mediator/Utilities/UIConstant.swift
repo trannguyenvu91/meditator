@@ -17,3 +17,7 @@ public struct UIConstant {
     static let autoLayoutPriority_High = 750.0
     static let autoLayoutPriority_Low = 250.0
 }
+
+func DEGREES_TO_RADIANS(_ degrees: Double) -> Double {
+    return (.pi * degrees) / 90.0
+}

@@ -34,6 +34,9 @@
 		126A82EA1F0CE84500E63C23 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 126A82E91F0CE84500E63C23 /* .gitignore */; };
 		126A82EC1F0CF12B00E63C23 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */; };
 		12A2B34E1F218E8D0028F268 /* MDDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2B34D1F218E8D0028F268 /* MDDBManager.swift */; };
+		12AE441A1F3433A40017DA50 /* UIBreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE44191F3433A40017DA50 /* UIBreathingView.swift */; };
+		12AE441C1F3436AA0017DA50 /* BreathingExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE441B1F3436AA0017DA50 /* BreathingExerciseViewController.swift */; };
+		12AE44201F3439B80017DA50 /* UIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE441F1F3439B80017DA50 /* UIConstant.swift */; };
 		12B3B0EA1F119CF3006168C0 /* MDVideoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */; };
 		12B8A38A1F18AAED00D5D14B /* . gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 12B8A3891F18AAED00D5D14B /* . gitattributes */; };
 		12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D079941F0670720022EF1E /* MDVideoViewController.swift */; };
@@ -85,6 +88,9 @@
 		126A82E91F0CE84500E63C23 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurator.swift; sourceTree = "<group>"; };
 		12A2B34D1F218E8D0028F268 /* MDDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDDBManager.swift; sourceTree = "<group>"; };
+		12AE44191F3433A40017DA50 /* UIBreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBreathingView.swift; sourceTree = "<group>"; };
+		12AE441B1F3436AA0017DA50 /* BreathingExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingExerciseViewController.swift; sourceTree = "<group>"; };
+		12AE441F1F3439B80017DA50 /* UIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIConstant.swift; path = Mediator/Utilities/UIConstant.swift; sourceTree = SOURCE_ROOT; };
 		12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDVideoDataSource.swift; path = Mediator/VideoScreen/MDVideoDataSource.swift; sourceTree = SOURCE_ROOT; };
 		12B8A3891F18AAED00D5D14B /* . gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = ". gitattributes"; sourceTree = "<group>"; };
 		12B8A39D1F18C14200D5D14B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -175,6 +181,7 @@
 				126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */,
 				12580B6A1F06522900B3CF1D /* VideoScreen */,
 				12580B5A1F064EAF00B3CF1D /* Main.storyboard */,
+				12AE441E1F3436EF0017DA50 /* BreatheScreen */,
 				12B8A3931F18B95C00D5D14B /* Models */,
 				1276A88F1F2459D4008410B5 /* Utilities */,
 				12580B5D1F064EAF00B3CF1D /* Assets.xcassets */,
@@ -207,6 +214,7 @@
 		1276A88F1F2459D4008410B5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				12AE441F1F3439B80017DA50 /* UIConstant.swift */,
 				1276A8921F245A51008410B5 /* Views */,
 				1276A8911F245A3E008410B5 /* Helpers */,
 				1276A8901F2459ED008410B5 /* Protocols */,
@@ -236,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				125FA2331F079A8100320E5E /* MDPlayerView.swift */,
+				12AE44191F3433A40017DA50 /* UIBreathingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,6 +266,14 @@
 				121A35BD1F0B9F3D005843E9 /* MDPlayingCenter.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		12AE441E1F3436EF0017DA50 /* BreatheScreen */ = {
+			isa = PBXGroup;
+			children = (
+				12AE441B1F3436AA0017DA50 /* BreathingExerciseViewController.swift */,
+			);
+			path = BreatheScreen;
 			sourceTree = "<group>";
 		};
 		12B8A3931F18B95C00D5D14B /* Models */ = {
@@ -527,6 +544,8 @@
 				12A2B34E1F218E8D0028F268 /* MDDBManager.swift in Sources */,
 				121A35BE1F0B9F3D005843E9 /* MDPlayingCenter.swift in Sources */,
 				12580B7E1F065E0F00B3CF1D /* MDCollectionViewDataSource.swift in Sources */,
+				12AE44201F3439B80017DA50 /* UIConstant.swift in Sources */,
+				12AE441C1F3436AA0017DA50 /* BreathingExerciseViewController.swift in Sources */,
 				12371A2E1F2EDC78008F2F4D /* UserDefaultsExtension.swift in Sources */,
 				12371A2B1F2ED24F008F2F4D /* FileManager+Extension.swift in Sources */,
 				12580B7D1F065E0900B3CF1D /* MDVideoCell.swift in Sources */,
@@ -535,6 +554,7 @@
 				12580B571F064EAF00B3CF1D /* AppDelegate.swift in Sources */,
 				120B5A871F11A1630001F23C /* MDMediaImporter.swift in Sources */,
 				12580B6E1F06536100B3CF1D /* MDVideoProvider.swift in Sources */,
+				12AE441A1F3433A40017DA50 /* UIBreathingView.swift in Sources */,
 				12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */,
 				12580B821F065F9800B3CF1D /* MDProtocols.swift in Sources */,
 			);

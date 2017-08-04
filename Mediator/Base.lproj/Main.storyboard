@@ -72,11 +72,20 @@
                                     <action selector="didPressImportBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nfC-VK-spa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktM-5N-oo9">
+                                <rect key="frame" x="160" y="617" width="54" height="30"/>
+                                <state key="normal" title="Breathe"/>
+                                <connections>
+                                    <segue destination="sqo-ae-lfs" kind="presentation" id="heS-y3-HbT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gnc-Bx-Soc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Cqa-li-ctc"/>
                             <constraint firstAttribute="trailing" secondItem="gnc-Bx-Soc" secondAttribute="trailing" id="I5n-Xk-ORH"/>
+                            <constraint firstItem="ktM-5N-oo9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IHV-tO-Hpr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ktM-5N-oo9" secondAttribute="bottom" constant="20" id="IlK-4N-7C3"/>
                             <constraint firstItem="UAF-rv-61Y" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="JOQ-bu-dro"/>
                             <constraint firstAttribute="trailing" secondItem="gnc-Bx-Soc" secondAttribute="trailing" id="JyR-SC-Fyo"/>
                             <constraint firstItem="gnc-Bx-Soc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VeV-z7-Knm"/>
@@ -93,7 +102,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-559" y="75"/>
+            <point key="canvasLocation" x="-559.20000000000005" y="74.212893553223395"/>
+        </scene>
+        <!--Breathing Exercise View Controller-->
+        <scene sceneID="99T-xr-vhU">
+            <objects>
+                <viewController id="sqo-ae-lfs" customClass="BreathingExerciseViewController" customModule="Mediator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2c4-wp-4Az"/>
+                        <viewControllerLayoutGuide type="bottom" id="JMd-ZJ-YDt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mzL-B0-Rjq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xb8-dZ-ViG">
+                                <rect key="frame" x="168.5" y="617" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="btnDoneClicked:" destination="sqo-ae-lfs" eventType="touchUpInside" id="KyA-oI-U9R"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JMd-ZJ-YDt" firstAttribute="top" secondItem="xb8-dZ-ViG" secondAttribute="bottom" constant="20" id="hlG-WD-n9v"/>
+                            <constraint firstItem="xb8-dZ-ViG" firstAttribute="centerX" secondItem="mzL-B0-Rjq" secondAttribute="centerX" id="xN8-ze-sEV"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pS6-Yc-GmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="310" y="71"/>
         </scene>
     </scenes>
 </document>

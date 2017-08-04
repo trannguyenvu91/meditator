@@ -12,11 +12,11 @@ import Foundation
 extension UserDefaults {
     
     func hasImportedSamples() -> Bool {
-        return UserDefaults.standard.bool(forKey: "ImportedSamples")
+        return UserDefaults.standard.bool(forKey: UIConstant.didImportMediaSamples)
     }
     
     func didImportSamples(_ success: Bool) {
-        UserDefaults.standard.set(success, forKey: "ImportedSamples")
+        UserDefaults.standard.set(success, forKey: UIConstant.didImportMediaSamples)
         UserDefaults.standard.synchronize()
     }
     

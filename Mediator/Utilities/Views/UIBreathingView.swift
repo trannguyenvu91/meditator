@@ -26,7 +26,6 @@ public struct BreathFragment {
         }
     }
     
-    
     func getScaleFactor() -> CGFloat {
         switch state {
         case .inhale:
@@ -52,6 +51,7 @@ public struct BreathFragment {
             return "Hummmm"
         }
     }
+    
 }
 
 enum BreathState {

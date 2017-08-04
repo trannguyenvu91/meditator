@@ -106,7 +106,7 @@ class UIBreathingView: UIView {
 }
 
 //MARK: Drawing, layout views
-extension UIBreathingView {
+internal extension UIBreathingView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -128,7 +128,7 @@ extension UIBreathingView {
         setupMarkViews()
     }
     
-    private func setupLabel() {
+    func setupLabel() {
         addSubview(label)
         label.layer.masksToBounds = true
         label.text = breathFragments.first?.getTitle()
@@ -143,13 +143,13 @@ extension UIBreathingView {
         }
     }
     
-    private func setupMarkViews() {
+    func setupMarkViews() {
         movingIndicator = UIMarkView(arcRadius: Double(lineWith * 1.5), stand: Double(lineWith), color: UIColor.white)
         movingIndicator.isHidden = true
         addSubview(movingIndicator)
     }
     
-    private func drawArc(at center: CGPoint,
+    func drawArc(at center: CGPoint,
                          radius: Float,
                          fragment: BreathFragment) {
         let range = fragment.range!

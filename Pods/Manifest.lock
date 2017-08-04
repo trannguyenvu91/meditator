@@ -4,14 +4,27 @@ PODS:
   - Realm/Headers (2.8.1)
   - RealmSwift (2.8.1):
     - Realm (= 2.8.1)
+  - SnapKit (3.2.0)
 
 DEPENDENCIES:
   - RealmSwift
+  - SnapKit (from `https://github.com/SnapKit/SnapKit.git`, branch `swift-4`)
+
+EXTERNAL SOURCES:
+  SnapKit:
+    :branch: swift-4
+    :git: https://github.com/SnapKit/SnapKit.git
+
+CHECKOUT OPTIONS:
+  SnapKit:
+    :commit: d31148f449abe819fd1a58d5e07e94874c7e6003
+    :git: https://github.com/SnapKit/SnapKit.git
 
 SPEC CHECKSUMS:
   Realm: 2627602ad6818451f0cb8c2a6e072f7f10a5f360
   RealmSwift: 4764ca7657f2193c256fb032c0b123926f70dbcd
+  SnapKit: c71c530b73cedd2a8b998098687001baff265086
 
-PODFILE CHECKSUM: d07b7179a2d1f59d239def70a4505d78c15a6bb1
+PODFILE CHECKSUM: bbe35b89b7094d80bbfec17fd809a0eefd807f0f
 
 COCOAPODS: 1.2.1

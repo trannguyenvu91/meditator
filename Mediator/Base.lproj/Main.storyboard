@@ -123,13 +123,25 @@
                                     <action selector="btnDoneClicked:" destination="sqo-ae-lfs" eventType="touchUpInside" id="KyA-oI-U9R"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDX-H3-dOe">
+                                <rect key="frame" x="166.5" y="553" width="42" height="30"/>
+                                <state key="normal" title="Pause"/>
+                                <connections>
+                                    <action selector="btnPlayClicked:" destination="sqo-ae-lfs" eventType="touchUpInside" id="Yi6-wx-3X0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xb8-dZ-ViG" firstAttribute="top" secondItem="kDX-H3-dOe" secondAttribute="bottom" constant="34" id="Bpx-rT-rvm"/>
                             <constraint firstItem="JMd-ZJ-YDt" firstAttribute="top" secondItem="xb8-dZ-ViG" secondAttribute="bottom" constant="20" id="hlG-WD-n9v"/>
+                            <constraint firstItem="kDX-H3-dOe" firstAttribute="centerX" secondItem="mzL-B0-Rjq" secondAttribute="centerX" id="wPV-iP-Tzj"/>
                             <constraint firstItem="xb8-dZ-ViG" firstAttribute="centerX" secondItem="mzL-B0-Rjq" secondAttribute="centerX" id="xN8-ze-sEV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnPlay" destination="kDX-H3-dOe" id="7bN-0y-BXo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pS6-Yc-GmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

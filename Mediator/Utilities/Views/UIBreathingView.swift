@@ -26,6 +26,20 @@ public struct BreathFragment {
         }
     }
     
+    
+    func getScaleFactor() -> CGFloat {
+        switch state {
+        case .inhale:
+            return 1.3
+        case .hold:
+            return 1.0
+        case .exhale:
+            return 1.3
+        default:
+            return 1.0
+        }
+    }
+    
     func getTitle() -> String {
         switch state {
         case .inhale:
@@ -78,13 +92,14 @@ class UIBreathingView: UIView {
         setupLayout()
     }
     
-    
-    
     func animate(_ enable: Bool) {
-        if enable {
+        if enable && hasAnimations() {
+            resumeAllAnimations()
+        } else if enable {
             animateIndicator()
+            animateBreathing()
         } else {
-            removeAllAnimations()
+            pauseAllAnimations()
         }
     }
     
@@ -151,10 +166,25 @@ extension UIBreathingView {
 }
 
 //MARK: CAAnimation
-extension UIBreathingView {
+private extension UIBreathingView {
     
-    func removeAllAnimations() {
-        movingIndicator.layer.removeAllAnimations()
+    func hasAnimations() -> Bool {
+        if let indicatorAnimations = movingIndicator.layer.animationKeys(),
+            let breatheAnimation = layer.animationKeys()
+        {
+            return indicatorAnimations.contains(UIConstant.indicatorAnimation) && breatheAnimation.contains(UIConstant.breathingAnimation)
+        }
+        return false
+    }
+    
+    func resumeAllAnimations() {
+        movingIndicator.layer.resumeAnimation()
+        layer.resumeAnimation()
+    }
+    
+    func pauseAllAnimations() {
+        movingIndicator.layer.pauseAnimation()
+        layer.pauseAnimation()
     }
     
     func animateIndicator() {
@@ -173,7 +203,45 @@ extension UIBreathingView {
         orbit.rotationMode = kCAAnimationRotateAuto
         orbit.delegate = self
         movingIndicator.isHidden = false
-        movingIndicator.layer.add(orbit, forKey: "orbit")
+        movingIndicator.layer.add(orbit, forKey: UIConstant.indicatorAnimation)
+    }
+    
+    func animateBreathing() {
+        let animation = CAKeyframeAnimation(keyPath: "transform")
+        animation.duration = CFTimeInterval(cycleDuration)
+        animation.isAdditive = true
+        animation.repeatCount = HUGE
+        animation.isRemovedOnCompletion = false
+        animation.delegate = self
+        
+        let keyValues = getTransforms()
+        animation.values = keyValues.transforms
+        animation.keyTimes = keyValues.times
+        layer.add(animation, forKey: UIConstant.breathingAnimation)
+    }
+    
+    func getTransforms() -> (transforms: [CATransform3D], times: [NSNumber]) {
+        var transforms = [CATransform3D]()
+        var keyTimes = [NSNumber]()
+        
+        for fragment in breathFragments {
+            if fragment.state != .hold {
+                let scale: CGFloat = fragment.getScaleFactor()
+                var begin = CATransform3DIdentity
+                var end = CATransform3DMakeScale(scale, scale, 1)
+                let beginTime = NSNumber(value: fragment.range.lowerBound)
+                let endTime = NSNumber(value: fragment.range.upperBound)
+                
+                if fragment.state == .exhale {
+                    swap(&begin, &end)
+                }
+                transforms.append(begin)
+                transforms.append(end)
+                keyTimes.append(beginTime)
+                keyTimes.append(endTime)
+            }
+        }
+        return (transforms, keyTimes)
     }
     
 }

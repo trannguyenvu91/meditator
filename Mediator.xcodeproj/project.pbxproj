@@ -39,6 +39,7 @@
 		12AE44201F3439B80017DA50 /* UIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE441F1F3439B80017DA50 /* UIConstant.swift */; };
 		12AE44221F3469B60017DA50 /* UIMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE44211F3469B60017DA50 /* UIMarkView.swift */; };
 		12AE44241F346D650017DA50 /* MDBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE44231F346D650017DA50 /* MDBaseViewController.swift */; };
+		12AE44261F34DDF90017DA50 /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE44251F34DDF90017DA50 /* CALayerExtension.swift */; };
 		12B3B0EA1F119CF3006168C0 /* MDVideoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */; };
 		12B8A38A1F18AAED00D5D14B /* . gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 12B8A3891F18AAED00D5D14B /* . gitattributes */; };
 		12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D079941F0670720022EF1E /* MDVideoViewController.swift */; };
@@ -95,6 +96,7 @@
 		12AE441F1F3439B80017DA50 /* UIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIConstant.swift; path = Mediator/Utilities/UIConstant.swift; sourceTree = SOURCE_ROOT; };
 		12AE44211F3469B60017DA50 /* UIMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMarkView.swift; sourceTree = "<group>"; };
 		12AE44231F346D650017DA50 /* MDBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBaseViewController.swift; sourceTree = "<group>"; };
+		12AE44251F34DDF90017DA50 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 		12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDVideoDataSource.swift; path = Mediator/VideoScreen/MDVideoDataSource.swift; sourceTree = SOURCE_ROOT; };
 		12B8A3891F18AAED00D5D14B /* . gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = ". gitattributes"; sourceTree = "<group>"; };
 		12B8A39D1F18C14200D5D14B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -260,6 +262,7 @@
 			children = (
 				12371A081F2ED0F2008F2F4D /* FileManager+Extension.swift */,
 				12371A2D1F2EDC78008F2F4D /* UserDefaultsExtension.swift */,
+				12AE44251F34DDF90017DA50 /* CALayerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				12371A2B1F2ED24F008F2F4D /* FileManager+Extension.swift in Sources */,
 				12580B7D1F065E0900B3CF1D /* MDVideoCell.swift in Sources */,
 				125FA2341F079A8100320E5E /* MDPlayerView.swift in Sources */,
+				12AE44261F34DDF90017DA50 /* CALayerExtension.swift in Sources */,
 				12AE44221F3469B60017DA50 /* UIMarkView.swift in Sources */,
 				12F7D60F1F19B010000154BC /* MDMedia.swift in Sources */,
 				12580B571F064EAF00B3CF1D /* AppDelegate.swift in Sources */,

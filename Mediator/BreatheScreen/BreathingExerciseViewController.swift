@@ -8,23 +8,20 @@
 
 import UIKit
 
-class BreathingExerciseViewController: UIViewController {
-    
-    let breathView = UIBreathingView(frame: CGRect.zero,
-                                     duration: 15,
-                                     inhaleFragments: [0.0..<0.4],
-                                     exhaleFragments: [0.6..<1.0],
-                                     holdingFraments: [0.4..<0.6],
-                                     labelRatio: 0.75,
-                                     inhaleColor: UIColor.green,
-                                     exhaleColor: UIColor.brown,
-                                     holdingColor: UIColor.gray,
-                                     labelColor: UIColor.blue)
-    
+class BreathingExerciseViewController: MDBaseViewController {
+    let inhale = BreathFragment(range: 0.0..<0.4, state: .inhale)
+    let hold = BreathFragment(range: 0.4..<0.6, state: .hold)
+    let exhale = BreathFragment(range: 0.6..<1.0, state: .exhale)
+    var breathView: UIBreathingView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBreathView()
+        setupViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        breathView.animate(true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +29,13 @@ class BreathingExerciseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setupViews() {
+        view.backgroundColor = UIColor.cyan.withAlphaComponent(0.6)
+        setupBreathView()
+    }
+    
     func setupBreathView() {
+        breathView = UIBreathingView(frame: CGRect.zero, duration: 15.0, breathFragments: [inhale, hold, exhale], labelRatio: 0.8, labelColor: UIColor.blue)
         view.addSubview(breathView)
         breathView.snp.makeConstraints { (make) in
             make.center.equalTo(view.snp.center)

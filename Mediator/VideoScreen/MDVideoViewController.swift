@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MDVideoViewController: UIViewController {
+class MDVideoViewController: MDBaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     lazy var videoProvider = MDVideoProvider()

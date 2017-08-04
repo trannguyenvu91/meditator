@@ -78,6 +78,21 @@ class UIBreathingView: UIView {
         setupLayout()
     }
     
+    
+    
+    func animate(_ enable: Bool) {
+        if enable {
+            animateIndicator()
+        } else {
+            removeAllAnimations()
+        }
+    }
+    
+}
+
+//MARK: Drawing, layout views
+extension UIBreathingView {
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         label.layer.cornerRadius = label.frame.width / 2.0
@@ -119,25 +134,6 @@ class UIBreathingView: UIView {
         addSubview(movingIndicator)
     }
     
-    func animate(_ enable: Bool) {
-        let orbit = CAKeyframeAnimation()
-        orbit.keyPath = "position"
-        orbit.path = UIBezierPath(arcCenter: CGPoint(x: label.center.x - movingIndicator.frame.height / 2.0, y: label.center.y - movingIndicator.frame.height / 2.0),
-                                       radius: bounds.width / 2.0 - movingIndicator.frame.height / 2.0,
-                                       startAngle:  -.pi / 2.0,
-                                       endAngle: 1.5 * .pi,
-                                       clockwise: true).cgPath
-        orbit.duration = CFTimeInterval(cycleDuration)
-        orbit.isAdditive = true
-        orbit.repeatCount = HUGE
-        orbit.calculationMode = kCAAnimationPaced
-        orbit.isRemovedOnCompletion = false
-        orbit.rotationMode = kCAAnimationRotateAuto
-        orbit.delegate = self
-        movingIndicator.isHidden = false
-        movingIndicator.layer.add(orbit, forKey: "orbit")
-    }
-    
     private func drawArc(at center: CGPoint,
                          radius: Float,
                          fragment: BreathFragment) {
@@ -151,8 +147,38 @@ class UIBreathingView: UIView {
         fragment.getColor().setStroke()
         bezier.stroke()
     }
+    
 }
 
+//MARK: CAAnimation
+extension UIBreathingView {
+    
+    func removeAllAnimations() {
+        movingIndicator.layer.removeAllAnimations()
+    }
+    
+    func animateIndicator() {
+        let orbit = CAKeyframeAnimation()
+        orbit.keyPath = "position"
+        orbit.path = UIBezierPath(arcCenter: CGPoint(x: label.center.x - movingIndicator.frame.height / 2.0, y: label.center.y - movingIndicator.frame.height / 2.0),
+                                  radius: bounds.width / 2.0 - movingIndicator.frame.height / 2.0,
+                                  startAngle:  -.pi / 2.0,
+                                  endAngle: 1.5 * .pi,
+                                  clockwise: true).cgPath
+        orbit.duration = CFTimeInterval(cycleDuration)
+        orbit.isAdditive = true
+        orbit.repeatCount = HUGE
+        orbit.calculationMode = kCAAnimationPaced
+        orbit.isRemovedOnCompletion = false
+        orbit.rotationMode = kCAAnimationRotateAuto
+        orbit.delegate = self
+        movingIndicator.isHidden = false
+        movingIndicator.layer.add(orbit, forKey: "orbit")
+    }
+    
+}
+
+//MARK: CAAnimationDelegate
 extension UIBreathingView: CAAnimationDelegate {
     func animationDidStart(_ anim: CAAnimation) {
         

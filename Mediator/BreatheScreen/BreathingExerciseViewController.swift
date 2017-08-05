@@ -13,7 +13,8 @@ class BreathingExerciseViewController: MDBaseViewController {
     let hold = BreathFragment(range: 0.4..<0.6, state: .hold)
     let exhale = BreathFragment(range: 0.6..<1.0, state: .exhale)
     var breathView: UIBreathingView!
-
+    let breathPlayer = MDBreathePlayer()
+    
     @IBOutlet weak var btnPlay: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +23,7 @@ class BreathingExerciseViewController: MDBaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        breathView.animate(true)
-        updateBtnPlaye(play: true)
+        updateExercise(play: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,20 +52,26 @@ class BreathingExerciseViewController: MDBaseViewController {
     }
     
     @IBAction func btnPlayClicked(_ sender: Any) {
-        breathView.animate(!btnPlay.isSelected)
-        updateBtnPlaye(play: !btnPlay.isSelected)
+        updateExercise(play: !btnPlay.isSelected)
     }
     
-    func updateBtnPlaye(play: Bool) {
-        btnPlay.isSelected = play
+    func updateExercise(play: Bool) {
         btnPlay.setTitle(play ? "Pause" : "Play", for: .normal)
+        btnPlay.isSelected = play
+        breathView.animate(play)
+        if play {
+            breathPlayer.play()
+        } else {
+            breathPlayer.pause()
+        }
     }
     
 }
 
 extension BreathingExerciseViewController: UIBreathingViewDelegate {
     func didChange(fragment: BreathFragment) {
-        print(fragment.getTitle())
+        print(fragment.state.getTitle())
+        try! breathPlayer.playAudio(for: fragment.state)
     }
     
 }

@@ -33,6 +33,11 @@
 		125FA2341F079A8100320E5E /* MDPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125FA2331F079A8100320E5E /* MDPlayerView.swift */; };
 		126A82EA1F0CE84500E63C23 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 126A82E91F0CE84500E63C23 /* .gitignore */; };
 		126A82EC1F0CF12B00E63C23 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */; };
+		12991DD11F35BCE400A449D9 /* MDBreathePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12991DD01F35BB7100A449D9 /* MDBreathePlayer.swift */; };
+		12991DD21F35BCF100A449D9 /* breathe_bubble_exhale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12991DC51F35B5E200A449D9 /* breathe_bubble_exhale.wav */; };
+		12991DD31F35BCF500A449D9 /* breathe_bubble_inhale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12991DC71F35B5E200A449D9 /* breathe_bubble_inhale.wav */; };
+		12991DD41F35BCF500A449D9 /* breathe_bubble_pause.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12991DC61F35B5E200A449D9 /* breathe_bubble_pause.wav */; };
+		12991DD51F35BCF500A449D9 /* meditation_bell.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 12991DC41F35B5E200A449D9 /* meditation_bell.m4a */; };
 		12A2B34E1F218E8D0028F268 /* MDDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2B34D1F218E8D0028F268 /* MDDBManager.swift */; };
 		12AE441A1F3433A40017DA50 /* UIBreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE44191F3433A40017DA50 /* UIBreathingView.swift */; };
 		12AE441C1F3436AA0017DA50 /* BreathingExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE441B1F3436AA0017DA50 /* BreathingExerciseViewController.swift */; };
@@ -91,6 +96,11 @@
 		125FA2331F079A8100320E5E /* MDPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDPlayerView.swift; sourceTree = "<group>"; };
 		126A82E91F0CE84500E63C23 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurator.swift; sourceTree = "<group>"; };
+		12991DC41F35B5E200A449D9 /* meditation_bell.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = meditation_bell.m4a; sourceTree = "<group>"; };
+		12991DC51F35B5E200A449D9 /* breathe_bubble_exhale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = breathe_bubble_exhale.wav; sourceTree = "<group>"; };
+		12991DC61F35B5E200A449D9 /* breathe_bubble_pause.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = breathe_bubble_pause.wav; sourceTree = "<group>"; };
+		12991DC71F35B5E200A449D9 /* breathe_bubble_inhale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = breathe_bubble_inhale.wav; sourceTree = "<group>"; };
+		12991DD01F35BB7100A449D9 /* MDBreathePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MDBreathePlayer.swift; path = Mediator/Utilities/Players/MDBreathePlayer.swift; sourceTree = SOURCE_ROOT; };
 		12A2B34D1F218E8D0028F268 /* MDDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDDBManager.swift; sourceTree = "<group>"; };
 		12AE44191F3433A40017DA50 /* UIBreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBreathingView.swift; sourceTree = "<group>"; };
 		12AE441B1F3436AA0017DA50 /* BreathingExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingExerciseViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +202,7 @@
 				12AE441E1F3436EF0017DA50 /* BreatheScreen */,
 				12B8A3931F18B95C00D5D14B /* Models */,
 				1276A88F1F2459D4008410B5 /* Utilities */,
+				12AE442C1F35B4BA0017DA50 /* Resources */,
 				12580B5D1F064EAF00B3CF1D /* Assets.xcassets */,
 				12580B5F1F064EAF00B3CF1D /* LaunchScreen.storyboard */,
 				12580B621F064EAF00B3CF1D /* Info.plist */,
@@ -224,12 +235,12 @@
 			isa = PBXGroup;
 			children = (
 				12AE441F1F3439B80017DA50 /* UIConstant.swift */,
+				12991DCF1F35BB5100A449D9 /* Players */,
 				12AE442B1F355A4F0017DA50 /* Layers */,
 				1276A8921F245A51008410B5 /* Views */,
 				1276A8911F245A3E008410B5 /* Helpers */,
 				1276A8901F2459ED008410B5 /* Protocols */,
 				1276A8951F245ABD008410B5 /* Extension */,
-				12371A091F2ED111008F2F4D /* video_files */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -270,6 +281,26 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		12991DC81F35B5EE00A449D9 /* Audios */ = {
+			isa = PBXGroup;
+			children = (
+				12991DC51F35B5E200A449D9 /* breathe_bubble_exhale.wav */,
+				12991DC71F35B5E200A449D9 /* breathe_bubble_inhale.wav */,
+				12991DC61F35B5E200A449D9 /* breathe_bubble_pause.wav */,
+				12991DC41F35B5E200A449D9 /* meditation_bell.m4a */,
+			);
+			name = Audios;
+			sourceTree = "<group>";
+		};
+		12991DCF1F35BB5100A449D9 /* Players */ = {
+			isa = PBXGroup;
+			children = (
+				12991DD01F35BB7100A449D9 /* MDBreathePlayer.swift */,
+			);
+			name = Players;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		12A2B34F1F219D460028F268 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +325,15 @@
 				12AE44291F355A490017DA50 /* MDProgressLayer.swift */,
 			);
 			path = Layers;
+			sourceTree = "<group>";
+		};
+		12AE442C1F35B4BA0017DA50 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				12991DC81F35B5EE00A449D9 /* Audios */,
+				12371A091F2ED111008F2F4D /* video_files */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		12B8A3931F18B95C00D5D14B /* Models */ = {
@@ -447,8 +487,12 @@
 				1258FF541F3179D100123821 /* VideoTest.m4v in Resources */,
 				12580B5E1F064EAF00B3CF1D /* Assets.xcassets in Resources */,
 				12371A2A1F2ED198008F2F4D /* ZzwjdY1rq in Resources */,
+				12991DD51F35BCF500A449D9 /* meditation_bell.m4a in Resources */,
+				12991DD31F35BCF500A449D9 /* breathe_bubble_inhale.wav in Resources */,
+				12991DD21F35BCF100A449D9 /* breathe_bubble_exhale.wav in Resources */,
 				12371A2C1F2ED28F008F2F4D /* video_files.plist in Resources */,
 				12580B5C1F064EAF00B3CF1D /* Main.storyboard in Resources */,
+				12991DD41F35BCF500A449D9 /* breathe_bubble_pause.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +624,7 @@
 				12580B6E1F06536100B3CF1D /* MDVideoProvider.swift in Sources */,
 				12AE441A1F3433A40017DA50 /* UIBreathingView.swift in Sources */,
 				12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */,
+				12991DD11F35BCE400A449D9 /* MDBreathePlayer.swift in Sources */,
 				12580B821F065F9800B3CF1D /* MDProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

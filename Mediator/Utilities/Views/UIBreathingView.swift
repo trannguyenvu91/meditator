@@ -39,19 +39,6 @@ public struct BreathFragment: Equatable {
         }
     }
     
-    func getTitle() -> String {
-        switch state {
-        case .inhale:
-            return "Breathe in"
-        case .hold:
-            return "Hold"
-        case .exhale:
-            return "Breathe out"
-        default:
-            return "Hummmm"
-        }
-    }
-    
     public static func ==(first: BreathFragment, second: BreathFragment) -> Bool {
         return first.state == second.state && first.range == second.range
     }
@@ -62,6 +49,34 @@ enum BreathState {
     case inhale
     case hold
     case exhale
+    
+    func getTitle() -> String {
+        switch self {
+        case .inhale:
+            return UIConstant.breathing_Inhale
+        case .hold:
+            return UIConstant.breathing_hold
+        case .exhale:
+            return UIConstant.breathing_exhale
+        }
+    }
+    
+    func getAudioURL() -> URL? {
+        var fileName = ""
+        switch self {
+        case .inhale:
+            fileName = UIConstant.breathing_Inhale_file
+            break
+        case .hold:
+            fileName = UIConstant.breathing_hold_file
+            break
+        case .exhale:
+            fileName = UIConstant.breathing_exhale_file
+            break
+        }
+        return Bundle.main.url(forResource: fileName, withExtension: UIConstant.breathing_audio_extension)
+    }
+    
 }
 
 protocol UIBreathingViewDelegate: NSObjectProtocol {
@@ -143,7 +158,7 @@ internal extension UIBreathingView {
     func setupLabel() {
         addSubview(label)
         label.layer.masksToBounds = true
-        label.text = breathFragments.first?.getTitle()
+        label.text = breathFragments.first?.state.getTitle()
         label.textColor = UIColor.white
         label.textAlignment = NSTextAlignment.center
         label.backgroundColor = labelColor
@@ -296,7 +311,7 @@ extension UIBreathingView: MDProgressLayerProtocol {
     
     func nofityChange(fragment: BreathFragment) {
         currentFragment = fragment
-        label.text = fragment.getTitle()
+        label.text = fragment.state.getTitle()
         delegate?.didChange(fragment: fragment)
     }
     

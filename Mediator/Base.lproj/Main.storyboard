@@ -130,10 +130,18 @@
                                     <action selector="btnPlayClicked:" destination="sqo-ae-lfs" eventType="touchUpInside" id="Yi6-wx-3X0"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzl-IU-C8c">
+                                <rect key="frame" x="166" y="28" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.12407769097222222" green="0.5" blue="0.59136284722222221" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="xb8-dZ-ViG" firstAttribute="top" secondItem="kDX-H3-dOe" secondAttribute="bottom" constant="34" id="Bpx-rT-rvm"/>
+                            <constraint firstItem="nzl-IU-C8c" firstAttribute="centerX" secondItem="mzL-B0-Rjq" secondAttribute="centerX" id="MMF-xv-6Z0"/>
+                            <constraint firstItem="nzl-IU-C8c" firstAttribute="top" secondItem="2c4-wp-4Az" secondAttribute="bottom" constant="8" id="RWe-3J-W14"/>
                             <constraint firstItem="JMd-ZJ-YDt" firstAttribute="top" secondItem="xb8-dZ-ViG" secondAttribute="bottom" constant="20" id="hlG-WD-n9v"/>
                             <constraint firstItem="kDX-H3-dOe" firstAttribute="centerX" secondItem="mzL-B0-Rjq" secondAttribute="centerX" id="wPV-iP-Tzj"/>
                             <constraint firstItem="xb8-dZ-ViG" firstAttribute="centerX" secondItem="mzL-B0-Rjq" secondAttribute="centerX" id="xN8-ze-sEV"/>
@@ -141,11 +149,12 @@
                     </view>
                     <connections>
                         <outlet property="btnPlay" destination="kDX-H3-dOe" id="7bN-0y-BXo"/>
+                        <outlet property="timeLabel" destination="nzl-IU-C8c" id="xDD-lF-zZl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pS6-Yc-GmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="71"/>
+            <point key="canvasLocation" x="306" y="74"/>
         </scene>
     </scenes>
 </document>

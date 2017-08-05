@@ -48,6 +48,7 @@
 		12AE442A1F355A490017DA50 /* MDProgressLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE44291F355A490017DA50 /* MDProgressLayer.swift */; };
 		12B3B0EA1F119CF3006168C0 /* MDVideoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */; };
 		12B8A38A1F18AAED00D5D14B /* . gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 12B8A3891F18AAED00D5D14B /* . gitattributes */; };
+		12C92EBC1F361FC300EF8CDF /* MDProgressTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C92EBB1F361FC300EF8CDF /* MDProgressTimer.swift */; };
 		12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D079941F0670720022EF1E /* MDVideoViewController.swift */; };
 		12F7D60F1F19B010000154BC /* MDMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F7D60E1F19B010000154BC /* MDMedia.swift */; };
 		12F90C991F301A8A0076073E /* MDBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F90C981F301A8A0076073E /* MDBaseTests.swift */; };
@@ -112,6 +113,7 @@
 		12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDVideoDataSource.swift; path = Mediator/VideoScreen/MDVideoDataSource.swift; sourceTree = SOURCE_ROOT; };
 		12B8A3891F18AAED00D5D14B /* . gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = ". gitattributes"; sourceTree = "<group>"; };
 		12B8A39D1F18C14200D5D14B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		12C92EBB1F361FC300EF8CDF /* MDProgressTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDProgressTimer.swift; sourceTree = "<group>"; };
 		12D079941F0670720022EF1E /* MDVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDVideoViewController.swift; path = Mediator/VideoScreen/MDVideoViewController.swift; sourceTree = SOURCE_ROOT; };
 		12F7D60E1F19B010000154BC /* MDMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDMedia.swift; sourceTree = "<group>"; };
 		12F90C8D1F30195E0076073E /* MDMediaImporterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDMediaImporterTest.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				12AE441F1F3439B80017DA50 /* UIConstant.swift */,
+				12C92EBD1F361FE600EF8CDF /* ProgressTimer */,
 				12991DCF1F35BB5100A449D9 /* Players */,
 				12AE442B1F355A4F0017DA50 /* Layers */,
 				1276A8921F245A51008410B5 /* Views */,
@@ -297,8 +300,7 @@
 			children = (
 				12991DD01F35BB7100A449D9 /* MDBreathePlayer.swift */,
 			);
-			name = Players;
-			path = "New Group";
+			path = Players;
 			sourceTree = "<group>";
 		};
 		12A2B34F1F219D460028F268 /* Managers */ = {
@@ -362,6 +364,14 @@
 				122E2A7B1F1B5EA500EB21A5 /* RealmPlayground.playground */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		12C92EBD1F361FE600EF8CDF /* ProgressTimer */ = {
+			isa = PBXGroup;
+			children = (
+				12C92EBB1F361FC300EF8CDF /* MDProgressTimer.swift */,
+			);
+			path = ProgressTimer;
 			sourceTree = "<group>";
 		};
 		12F90C971F301A8A0076073E /* MediatorTests */ = {
@@ -610,6 +620,7 @@
 				12580B7E1F065E0F00B3CF1D /* MDCollectionViewDataSource.swift in Sources */,
 				12AE44201F3439B80017DA50 /* UIConstant.swift in Sources */,
 				12AE441C1F3436AA0017DA50 /* BreathingExerciseViewController.swift in Sources */,
+				12C92EBC1F361FC300EF8CDF /* MDProgressTimer.swift in Sources */,
 				12AE442A1F355A490017DA50 /* MDProgressLayer.swift in Sources */,
 				12371A2E1F2EDC78008F2F4D /* UserDefaultsExtension.swift in Sources */,
 				12AE44241F346D650017DA50 /* MDBaseViewController.swift in Sources */,

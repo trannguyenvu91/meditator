@@ -40,6 +40,7 @@
 		12AE44221F3469B60017DA50 /* UIMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE44211F3469B60017DA50 /* UIMarkView.swift */; };
 		12AE44241F346D650017DA50 /* MDBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE44231F346D650017DA50 /* MDBaseViewController.swift */; };
 		12AE44261F34DDF90017DA50 /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE44251F34DDF90017DA50 /* CALayerExtension.swift */; };
+		12AE442A1F355A490017DA50 /* MDProgressLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE44291F355A490017DA50 /* MDProgressLayer.swift */; };
 		12B3B0EA1F119CF3006168C0 /* MDVideoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */; };
 		12B8A38A1F18AAED00D5D14B /* . gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 12B8A3891F18AAED00D5D14B /* . gitattributes */; };
 		12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D079941F0670720022EF1E /* MDVideoViewController.swift */; };
@@ -97,6 +98,7 @@
 		12AE44211F3469B60017DA50 /* UIMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMarkView.swift; sourceTree = "<group>"; };
 		12AE44231F346D650017DA50 /* MDBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBaseViewController.swift; sourceTree = "<group>"; };
 		12AE44251F34DDF90017DA50 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
+		12AE44291F355A490017DA50 /* MDProgressLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDProgressLayer.swift; sourceTree = "<group>"; };
 		12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDVideoDataSource.swift; path = Mediator/VideoScreen/MDVideoDataSource.swift; sourceTree = SOURCE_ROOT; };
 		12B8A3891F18AAED00D5D14B /* . gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = ". gitattributes"; sourceTree = "<group>"; };
 		12B8A39D1F18C14200D5D14B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				12AE441F1F3439B80017DA50 /* UIConstant.swift */,
+				12AE442B1F355A4F0017DA50 /* Layers */,
 				1276A8921F245A51008410B5 /* Views */,
 				1276A8911F245A3E008410B5 /* Helpers */,
 				1276A8901F2459ED008410B5 /* Protocols */,
@@ -283,6 +286,14 @@
 				12AE441B1F3436AA0017DA50 /* BreathingExerciseViewController.swift */,
 			);
 			path = BreatheScreen;
+			sourceTree = "<group>";
+		};
+		12AE442B1F355A4F0017DA50 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				12AE44291F355A490017DA50 /* MDProgressLayer.swift */,
+			);
+			path = Layers;
 			sourceTree = "<group>";
 		};
 		12B8A3931F18B95C00D5D14B /* Models */ = {
@@ -555,6 +566,7 @@
 				12580B7E1F065E0F00B3CF1D /* MDCollectionViewDataSource.swift in Sources */,
 				12AE44201F3439B80017DA50 /* UIConstant.swift in Sources */,
 				12AE441C1F3436AA0017DA50 /* BreathingExerciseViewController.swift in Sources */,
+				12AE442A1F355A490017DA50 /* MDProgressLayer.swift in Sources */,
 				12371A2E1F2EDC78008F2F4D /* UserDefaultsExtension.swift in Sources */,
 				12AE44241F346D650017DA50 /* MDBaseViewController.swift in Sources */,
 				12371A2B1F2ED24F008F2F4D /* FileManager+Extension.swift in Sources */,

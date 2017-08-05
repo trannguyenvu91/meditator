@@ -37,7 +37,8 @@ class BreathingExerciseViewController: MDBaseViewController {
     }
     
     func setupBreathView() {
-        breathView = UIBreathingView(frame: CGRect.zero, duration: 15.0, breathFragments: [inhale, hold, exhale], labelRatio: 0.8, labelColor: UIColor.blue)
+        breathView = UIBreathingView(frame: CGRect.zero, duration: 12.0, breathFragments: [inhale, hold, exhale], labelRatio: 0.8, labelColor: UIColor.blue)
+        breathView.delegate = self
         view.addSubview(breathView)
         breathView.snp.makeConstraints { (make) in
             make.center.equalTo(view.snp.center)
@@ -58,6 +59,13 @@ class BreathingExerciseViewController: MDBaseViewController {
     func updateBtnPlaye(play: Bool) {
         btnPlay.isSelected = play
         btnPlay.setTitle(play ? "Pause" : "Play", for: .normal)
+    }
+    
+}
+
+extension BreathingExerciseViewController: UIBreathingViewDelegate {
+    func didChange(fragment: BreathFragment) {
+        print(fragment.getTitle())
     }
     
 }

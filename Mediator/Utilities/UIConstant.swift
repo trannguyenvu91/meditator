@@ -20,6 +20,7 @@ public struct UIConstant {
     //Breathe Animation
     static let indicatorAnimation = "indicatorAnimation"
     static let breathingAnimation = "breathingAnimation"
+    static let progressAnimation = "progress"
     
 }
 

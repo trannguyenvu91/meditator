@@ -27,7 +27,7 @@ class MDMedia: Object, MDModelProtocol {
         return ["importDate"]
     }
     
-    func copyMedia() -> MDMedia {
+    func clone() -> MDMedia {
         let media = MDMedia()
         media.id = id
         media.title = title

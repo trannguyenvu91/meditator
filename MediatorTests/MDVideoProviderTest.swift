@@ -27,7 +27,7 @@ class MDVideoProviderTest: MDBaseTests {
         XCTAssert(medias.count == provider.numberOfItems(in: 0), "Number of models in provider must be equal!")
         
         if let lastMedia = medias.last {
-            let insertMedia = lastMedia.copyMedia()
+            let insertMedia = lastMedia.clone()
             try! MDDBManager.defaultManager.write {
                 MDDBManager.defaultManager.delete(lastMedia)
             }

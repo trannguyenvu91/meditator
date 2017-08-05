@@ -9,15 +9,77 @@
 import UIKit
 import SnapKit
 
+public struct BreathFragment: Equatable {
+    let range: Range<Double>!
+    let state: BreathState!
+    
+    func getColor() -> UIColor {
+        switch state {
+        case .inhale:
+            return UIColor.green
+        case .hold:
+            return UIColor.lightGray
+        case .exhale:
+            return UIColor.brown
+        default:
+            return UIColor.brown
+        }
+    }
+    
+    func getScaleFactor() -> CGFloat {
+        switch state {
+        case .inhale:
+            return 1.3
+        case .hold:
+            return 1.0
+        case .exhale:
+            return 1.3
+        default:
+            return 1.0
+        }
+    }
+    
+    func getTitle() -> String {
+        switch state {
+        case .inhale:
+            return "Breathe in"
+        case .hold:
+            return "Hold"
+        case .exhale:
+            return "Breathe out"
+        default:
+            return "Hummmm"
+        }
+    }
+    
+    public static func ==(first: BreathFragment, second: BreathFragment) -> Bool {
+        return first.state == second.state && first.range == second.range
+    }
+    
+}
+
+enum BreathState {
+    case inhale
+    case hold
+    case exhale
+}
+
+protocol UIBreathingViewDelegate: NSObjectProtocol {
+    func didChange(fragment: BreathFragment)
+}
+
 class UIBreathingView: UIView {
-    private var inhaleColor, exhaleColor, holdingColor, labelColor: UIColor!
-    private var inhaleFragments, holdingFraments, exhaleFragments: [Range<Double>]!
+    private var labelColor: UIColor!
+    private var breathFragments: [BreathFragment]!
     private var cycleDuration: Float!
     private var labelRatio: Float!
-    let lineWith: CGFloat = 8.0
+    private let lineWith: CGFloat = 5.0
+    private var movingIndicator: UIMarkView!
+    private var progressLayer: MDProgressLayer!
+    private var label = UILabel()
+    private var currentFragment: BreathFragment?
     
-    private var inhaleText = "Breathe in", holdText = "Hold", exhale = "Breathe out"
-    var label = UILabel()
+    weak var delegate: UIBreathingViewDelegate?
     
     internal required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -29,57 +91,59 @@ class UIBreathingView: UIView {
     
     convenience init(frame:CGRect,
                      duration: Float,
-                     inhaleFragments: [Range<Double>],
-                     exhaleFragments: [Range<Double>],
-                     holdingFraments: [Range<Double>],
+                     breathFragments: [BreathFragment],
                      labelRatio:Float,
-                     inhaleColor: UIColor,
-                     exhaleColor: UIColor,
-                     holdingColor: UIColor,
                      labelColor: UIColor) {
-        
         self.init(frame: frame)
         self.cycleDuration = duration
-        self.inhaleFragments = inhaleFragments
-        self.holdingFraments = holdingFraments
-        self.exhaleFragments = exhaleFragments
+        self.breathFragments = breathFragments
         self.labelRatio = labelRatio
-        self.inhaleColor = inhaleColor
-        self.holdingColor = holdingColor
-        self.exhaleColor = exhaleColor
         self.labelColor = labelColor
-        backgroundColor = UIColor.clear
         setupLayout()
+    }
+    
+    func animate(_ enable: Bool) {
+        progressLayer.animateProgress(enable: enable)
+        if enable && hasAnimations() {
+            resumeAllAnimations()
+        } else if enable {
+            animateIndicator()
+            animateBreathing()
+        } else {
+            pauseAllAnimations()
+        }
+    }
+    
+}
+
+//MARK: Drawing, layout views
+internal extension UIBreathingView {
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        label.layer.cornerRadius = label.frame.width / 2.0
     }
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        
-        label.layer.cornerRadius = label.frame.width / 2.0
-        label.layer.masksToBounds = true
         let center = label.center
         let radius = Float(min(rect.width, rect.height)) / 2.0
-        //inhale lines
-        for range in inhaleFragments {
-            drawArc(at: center, radius: radius, between: range, color: inhaleColor)
-        }
-        //holding lines
-        for range in holdingFraments {
-            drawArc(at: center, radius: radius, between: range, color: holdingColor)
-        }
-        //exhale lines
-        for range in exhaleFragments {
-            drawArc(at: center, radius: radius, between: range, color: exhaleColor)
+        for fragment in breathFragments {
+            drawArc(at: center, radius: radius, fragment: fragment)
         }
     }
     
     func setupLayout() {
+        backgroundColor = UIColor.clear
         setupLabel()
+        setupMarkViews()
+        setupProgressLayer()
     }
     
-    private func setupLabel() {
-        self.addSubview(label)
-        label.text = inhaleText
+    func setupLabel() {
+        addSubview(label)
+        label.layer.masksToBounds = true
+        label.text = breathFragments.first?.getTitle()
         label.textColor = UIColor.white
         label.textAlignment = NSTextAlignment.center
         label.backgroundColor = labelColor
@@ -91,18 +155,149 @@ class UIBreathingView: UIView {
         }
     }
     
-    private func drawArc(at center: CGPoint,
-                 radius: Float,
-                 between range: Range<Double>,
-                 color: UIColor) {
+    func setupMarkViews() {
+        movingIndicator = UIMarkView(arcRadius: Double(lineWith * 1.5), stand: Double(lineWith), color: UIColor.white)
+        movingIndicator.isHidden = true
+        addSubview(movingIndicator)
+    }
+    
+    func setupProgressLayer() {
+        progressLayer = MDProgressLayer(duration: Double(cycleDuration), delegate: self)
+        progressLayer.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
+        progressLayer.backgroundColor = UIColor.clear.cgColor
+        layer.addSublayer(progressLayer)
+        progressLayer.progress = 0.0
+        progressLayer.needsDisplay()
+    }
+    
+    func drawArc(at center: CGPoint,
+                         radius: Float,
+                         fragment: BreathFragment) {
+        let range = fragment.range!
         let bezier = UIBezierPath(arcCenter: center,
-                                  radius: CGFloat(radius) - lineWith,
+                                  radius: CGFloat(radius) - lineWith / 2.0,
                                   startAngle: CGFloat(.pi * 2 * range.lowerBound - .pi / 2.0),
                                   endAngle: CGFloat(.pi * 2 * range.upperBound - .pi / 2.0),
                                   clockwise: true)
         bezier.lineWidth = lineWith
-        color.setStroke()
+        fragment.getColor().setStroke()
         bezier.stroke()
+    }
+    
+}
+
+//MARK: CAAnimation
+private extension UIBreathingView {
+    
+    func hasAnimations() -> Bool {
+        if let indicatorAnimations = movingIndicator.layer.animationKeys(),
+            let breatheAnimation = layer.animationKeys()
+        {
+            return indicatorAnimations.contains(UIConstant.indicatorAnimation) && breatheAnimation.contains(UIConstant.breathingAnimation)
+        }
+        return false
+    }
+    
+    func resumeAllAnimations() {
+        movingIndicator.layer.resumeAnimation()
+        layer.resumeAnimation()
+    }
+    
+    func pauseAllAnimations() {
+        movingIndicator.layer.pauseAnimation()
+        layer.pauseAnimation()
+    }
+    
+    func animateIndicator() {
+        let orbit = CAKeyframeAnimation()
+        orbit.keyPath = "position"
+        orbit.path = UIBezierPath(arcCenter: CGPoint(x: label.center.x - movingIndicator.frame.height / 2.0, y: label.center.y - movingIndicator.frame.height / 2.0),
+                                  radius: bounds.width / 2.0 - movingIndicator.frame.height / 2.0,
+                                  startAngle:  -.pi / 2.0,
+                                  endAngle: 1.5 * .pi,
+                                  clockwise: true).cgPath
+        orbit.duration = CFTimeInterval(cycleDuration)
+        orbit.isAdditive = true
+        orbit.repeatCount = HUGE
+        orbit.calculationMode = kCAAnimationPaced
+        orbit.isRemovedOnCompletion = false
+        orbit.rotationMode = kCAAnimationRotateAuto
+        orbit.delegate = self
+        movingIndicator.isHidden = false
+        movingIndicator.layer.add(orbit, forKey: UIConstant.indicatorAnimation)
+    }
+    
+    func animateBreathing() {
+        let animation = CAKeyframeAnimation(keyPath: "transform")
+        animation.duration = CFTimeInterval(cycleDuration)
+        animation.isAdditive = true
+        animation.repeatCount = HUGE
+        animation.isRemovedOnCompletion = false
+        animation.delegate = self
+        
+        let keyValues = getTransforms()
+        animation.values = keyValues.transforms
+        animation.keyTimes = keyValues.times
+        layer.add(animation, forKey: UIConstant.breathingAnimation)
+    }
+    
+    func getTransforms() -> (transforms: [CATransform3D], times: [NSNumber]) {
+        var transforms = [CATransform3D]()
+        var keyTimes = [NSNumber]()
+        
+        for fragment in breathFragments {
+            if fragment.state != .hold {
+                let scale: CGFloat = fragment.getScaleFactor()
+                var begin = CATransform3DIdentity
+                var end = CATransform3DMakeScale(scale, scale, 1)
+                let beginTime = NSNumber(value: fragment.range.lowerBound)
+                let endTime = NSNumber(value: fragment.range.upperBound)
+                
+                if fragment.state == .exhale {
+                    swap(&begin, &end)
+                }
+                transforms.append(begin)
+                transforms.append(end)
+                keyTimes.append(beginTime)
+                keyTimes.append(endTime)
+            }
+        }
+        return (transforms, keyTimes)
+    }
+    
+}
+
+//MARK: CAAnimationDelegate
+extension UIBreathingView: CAAnimationDelegate {
+    func animationDidStart(_ anim: CAAnimation) {
+        
+    }
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        
+    }
+    
+}
+
+//MARK: MDProgressLayerProtocol
+extension UIBreathingView: MDProgressLayerProtocol {
+    
+    func progress(layer: MDProgressLayer, update progress: Double) {
+        for fragment in breathFragments {
+            if let _current = currentFragment, fragment.range.contains(progress), _current != fragment {
+                nofityChange(fragment: fragment)
+                break
+            } else if currentFragment == nil {
+                nofityChange(fragment: fragment)
+                break
+            }
+        }
+    }
+    
+    func nofityChange(fragment: BreathFragment) {
+        currentFragment = fragment
+        label.text = fragment.getTitle()
+        delegate?.didChange(fragment: fragment)
     }
     
 }

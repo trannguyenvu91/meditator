@@ -8,8 +8,8 @@
 
 import UIKit
 
-public extension FileManager {
-    public class func createMDDirectory() throws {
+extension FileManager {
+    class func createMDDirectory() throws {
         let directoryURL = MDMedia.getFolerURL()
         do {
             try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true, attributes: nil)

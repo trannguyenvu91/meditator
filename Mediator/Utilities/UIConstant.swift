@@ -16,6 +16,12 @@ public struct UIConstant {
     static let autoLayoutPriority_Required = 1000.0
     static let autoLayoutPriority_High = 750.0
     static let autoLayoutPriority_Low = 250.0
+    
+    //Breathe Animation
+    static let indicatorAnimation = "indicatorAnimation"
+    static let breathingAnimation = "breathingAnimation"
+    static let progressAnimation = "progress"
+    
 }
 
 func DEGREES_TO_RADIANS(_ degrees: Double) -> Double {

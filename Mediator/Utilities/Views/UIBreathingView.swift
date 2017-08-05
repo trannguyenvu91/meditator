@@ -81,6 +81,7 @@ enum BreathState {
 
 protocol UIBreathingViewDelegate: NSObjectProtocol {
     func didChange(fragment: BreathFragment)
+    func didUpdate(totalTime: Double)
 }
 
 class UIBreathingView: UIView {
@@ -90,9 +91,10 @@ class UIBreathingView: UIView {
     private var labelRatio: Float!
     private let lineWith: CGFloat = 5.0
     private var movingIndicator: UIMarkView!
-    private var progressLayer: MDProgressLayer!
     private var label = UILabel()
     private var currentFragment: BreathFragment?
+    var progressTimer: MDProgressTimer!
+    
     
     weak var delegate: UIBreathingViewDelegate?
     
@@ -118,13 +120,15 @@ class UIBreathingView: UIView {
     }
     
     func animate(_ enable: Bool) {
-        progressLayer.animateProgress(enable: enable)
         if enable && hasAnimations() {
             resumeAllAnimations()
+            progressTimer.fire(restart: false)
         } else if enable {
             animateIndicator()
             animateBreathing()
+            progressTimer.fire(restart: true)
         } else {
+            progressTimer.pause()
             pauseAllAnimations()
         }
     }
@@ -177,12 +181,7 @@ internal extension UIBreathingView {
     }
     
     func setupProgressLayer() {
-        progressLayer = MDProgressLayer(duration: Double(cycleDuration), delegate: self)
-        progressLayer.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
-        progressLayer.backgroundColor = UIColor.clear.cgColor
-        layer.addSublayer(progressLayer)
-        progressLayer.progress = 0.0
-        progressLayer.needsDisplay()
+        progressTimer = MDProgressTimer(duration: Double(cycleDuration), delegate: self)
     }
     
     func drawArc(at center: CGPoint,
@@ -237,7 +236,6 @@ private extension UIBreathingView {
         orbit.calculationMode = kCAAnimationPaced
         orbit.isRemovedOnCompletion = false
         orbit.rotationMode = kCAAnimationRotateAuto
-        orbit.delegate = self
         movingIndicator.isHidden = false
         movingIndicator.layer.add(orbit, forKey: UIConstant.indicatorAnimation)
     }
@@ -248,7 +246,6 @@ private extension UIBreathingView {
         animation.isAdditive = true
         animation.repeatCount = HUGE
         animation.isRemovedOnCompletion = false
-        animation.delegate = self
         
         let keyValues = getTransforms()
         animation.values = keyValues.transforms
@@ -282,22 +279,10 @@ private extension UIBreathingView {
     
 }
 
-//MARK: CAAnimationDelegate
-extension UIBreathingView: CAAnimationDelegate {
-    func animationDidStart(_ anim: CAAnimation) {
-        
-    }
-    
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        
-    }
-    
-}
-
-//MARK: MDProgressLayerProtocol
-extension UIBreathingView: MDProgressLayerProtocol {
-    
-    func progress(layer: MDProgressLayer, update progress: Double) {
+//MARK: MDProgressTimerDelegate
+extension UIBreathingView: MDProgressTimerDelegate {
+    func didUpdate(timer: MDProgressTimer, progress: Double) {
+        delegate?.didUpdate(totalTime: timer.totalTime)
         for fragment in breathFragments {
             if let _current = currentFragment, fragment.range.contains(progress), _current != fragment {
                 nofityChange(fragment: fragment)

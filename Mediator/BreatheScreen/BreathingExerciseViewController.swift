@@ -16,6 +16,7 @@ class BreathingExerciseViewController: MDBaseViewController {
     let breathPlayer = MDBreathePlayer()
     
     @IBOutlet weak var btnPlay: UIButton!
+    @IBOutlet weak var timeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -32,7 +33,6 @@ class BreathingExerciseViewController: MDBaseViewController {
     }
     
     func setupViews() {
-        view.backgroundColor = UIColor.cyan.withAlphaComponent(0.6)
         setupBreathView()
     }
     
@@ -72,6 +72,11 @@ extension BreathingExerciseViewController: UIBreathingViewDelegate {
     func didChange(fragment: BreathFragment) {
         print(fragment.state.getTitle())
         try! breathPlayer.playAudio(for: fragment.state)
+    }
+    
+    func didUpdate(totalTime: Double) {
+        let timeText = "\(Int(totalTime / 60))" + ":" + "\(Int(totalTime.remainder(dividingBy: 60)))"
+        timeLabel.text = timeText
     }
     
 }

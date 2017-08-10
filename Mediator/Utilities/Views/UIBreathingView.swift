@@ -133,6 +133,10 @@ class UIBreathingView: UIView {
         }
     }
     
+    deinit {
+        progressTimer.pause()
+    }
+    
 }
 
 //MARK: Drawing, layout views

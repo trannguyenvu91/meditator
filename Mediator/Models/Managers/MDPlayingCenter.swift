@@ -20,7 +20,7 @@ class MDPlayingCenter: NSObject {
         registerRemoteCommandCenter()
     }
     
-    private var media: MDMedia?
+    private weak var media: MDMedia?
     private var videoLayer: AVPlayerLayer?
     private var audioPlayer: AVAudioPlayer? {
         willSet {

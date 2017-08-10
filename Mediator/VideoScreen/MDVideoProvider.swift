@@ -25,16 +25,13 @@ class MDVideoProvider: NSObject, MDListProviderProtocol {
         notificationToken = data.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
-                // Results are now populated and can be accessed without blocking the UI
                 self?.reloadNotification?()
                 break
             case .update(_, let deletions, let insertions, let modifications):
-                // Query results have changed, so apply them to the UITableView
                 self?.updatesNotification?(deletions.map({ IndexPath(row: $0, section: 0) }),
                                            insertions.map({ IndexPath(row: $0, section: 0) }),
                                            modifications.map({ IndexPath(row: $0, section: 0) }))
             case .error(let error):
-                // An error occurred while opening the Realm file on the background worker thread
                 fatalError("\(error)")
                 break
             }

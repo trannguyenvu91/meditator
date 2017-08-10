@@ -1,5 +1,5 @@
 //
-//  BreathingExerciseViewController.swift
+//  MDBreatheViewController.swift
 //  Mediator
 //
 //  Created by VuVince on 8/4/17.
@@ -8,15 +8,13 @@
 
 import UIKit
 
-class BreathingExerciseViewController: MDBaseViewController {
-    let inhale = BreathFragment(range: 0.0..<0.4, state: .inhale)
-    let hold = BreathFragment(range: 0.4..<0.6, state: .hold)
-    let exhale = BreathFragment(range: 0.6..<1.0, state: .exhale)
+class MDBreatheViewController: MDBaseViewController {
+    let viewModel = MDBreatheViewModel()
     var breathView: UIBreathingView!
-    let breathPlayer = MDBreathePlayer()
     
     @IBOutlet weak var btnPlay: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -37,7 +35,10 @@ class BreathingExerciseViewController: MDBaseViewController {
     }
     
     func setupBreathView() {
-        breathView = UIBreathingView(frame: CGRect.zero, duration: 12.0, breathFragments: [inhale, hold, exhale], labelRatio: 0.8, labelColor: UIColor.blue)
+        breathView = UIBreathingView(frame: CGRect.zero,
+                                     duration: viewModel.breatheModel.duration,
+                                     breathFragments: viewModel.breatheModel.fragments,
+                                     labelRatio: 0.8, labelColor: UIColor.blue)
         breathView.delegate = self
         view.addSubview(breathView)
         breathView.snp.makeConstraints { (make) in
@@ -60,18 +61,18 @@ class BreathingExerciseViewController: MDBaseViewController {
         btnPlay.isSelected = play
         breathView.animate(play)
         if play {
-            breathPlayer.play()
+            viewModel.resumePlaying()
         } else {
-            breathPlayer.pause()
+            viewModel.pausePlaying()
         }
     }
     
 }
 
-extension BreathingExerciseViewController: UIBreathingViewDelegate {
+extension MDBreatheViewController: UIBreathingViewDelegate {
     func didChange(fragment: BreathFragment) {
         print(fragment.state.getTitle())
-        try! breathPlayer.playAudio(for: fragment.state)
+        viewModel.playAudio(for: fragment.state)
     }
     
     func didUpdate(totalTime: Double) {

@@ -33,6 +33,8 @@
 		125FA2341F079A8100320E5E /* MDPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125FA2331F079A8100320E5E /* MDPlayerView.swift */; };
 		126A82EA1F0CE84500E63C23 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 126A82E91F0CE84500E63C23 /* .gitignore */; };
 		126A82EC1F0CF12B00E63C23 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */; };
+		127928E21F3C3F8300424879 /* MDVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127928E11F3C3F8300424879 /* MDVideoViewModel.swift */; };
+		127928E41F3C4CFB00424879 /* MDBreatheViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127928E31F3C4CFB00424879 /* MDBreatheViewModel.swift */; };
 		12991DD11F35BCE400A449D9 /* MDBreathePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12991DD01F35BB7100A449D9 /* MDBreathePlayer.swift */; };
 		12991DD21F35BCF100A449D9 /* breathe_bubble_exhale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12991DC51F35B5E200A449D9 /* breathe_bubble_exhale.wav */; };
 		12991DD31F35BCF500A449D9 /* breathe_bubble_inhale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12991DC71F35B5E200A449D9 /* breathe_bubble_inhale.wav */; };
@@ -40,13 +42,12 @@
 		12991DD51F35BCF500A449D9 /* meditation_bell.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 12991DC41F35B5E200A449D9 /* meditation_bell.m4a */; };
 		12A2B34E1F218E8D0028F268 /* MDDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2B34D1F218E8D0028F268 /* MDDBManager.swift */; };
 		12AE441A1F3433A40017DA50 /* UIBreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE44191F3433A40017DA50 /* UIBreathingView.swift */; };
-		12AE441C1F3436AA0017DA50 /* BreathingExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE441B1F3436AA0017DA50 /* BreathingExerciseViewController.swift */; };
+		12AE441C1F3436AA0017DA50 /* MDBreatheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE441B1F3436AA0017DA50 /* MDBreatheViewController.swift */; };
 		12AE44201F3439B80017DA50 /* UIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE441F1F3439B80017DA50 /* UIConstant.swift */; };
 		12AE44221F3469B60017DA50 /* UIMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE44211F3469B60017DA50 /* UIMarkView.swift */; };
 		12AE44241F346D650017DA50 /* MDBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE44231F346D650017DA50 /* MDBaseViewController.swift */; };
 		12AE44261F34DDF90017DA50 /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE44251F34DDF90017DA50 /* CALayerExtension.swift */; };
 		12AE442A1F355A490017DA50 /* MDProgressLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AE44291F355A490017DA50 /* MDProgressLayer.swift */; };
-		12B3B0EA1F119CF3006168C0 /* MDVideoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */; };
 		12B8A38A1F18AAED00D5D14B /* . gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 12B8A3891F18AAED00D5D14B /* . gitattributes */; };
 		12C92EBC1F361FC300EF8CDF /* MDProgressTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C92EBB1F361FC300EF8CDF /* MDProgressTimer.swift */; };
 		12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D079941F0670720022EF1E /* MDVideoViewController.swift */; };
@@ -97,6 +98,8 @@
 		125FA2331F079A8100320E5E /* MDPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDPlayerView.swift; sourceTree = "<group>"; };
 		126A82E91F0CE84500E63C23 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurator.swift; sourceTree = "<group>"; };
+		127928E11F3C3F8300424879 /* MDVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDVideoViewModel.swift; sourceTree = "<group>"; };
+		127928E31F3C4CFB00424879 /* MDBreatheViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBreatheViewModel.swift; sourceTree = "<group>"; };
 		12991DC41F35B5E200A449D9 /* meditation_bell.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = meditation_bell.m4a; sourceTree = "<group>"; };
 		12991DC51F35B5E200A449D9 /* breathe_bubble_exhale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = breathe_bubble_exhale.wav; sourceTree = "<group>"; };
 		12991DC61F35B5E200A449D9 /* breathe_bubble_pause.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = breathe_bubble_pause.wav; sourceTree = "<group>"; };
@@ -104,13 +107,12 @@
 		12991DD01F35BB7100A449D9 /* MDBreathePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MDBreathePlayer.swift; path = Mediator/Utilities/Players/MDBreathePlayer.swift; sourceTree = SOURCE_ROOT; };
 		12A2B34D1F218E8D0028F268 /* MDDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDDBManager.swift; sourceTree = "<group>"; };
 		12AE44191F3433A40017DA50 /* UIBreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBreathingView.swift; sourceTree = "<group>"; };
-		12AE441B1F3436AA0017DA50 /* BreathingExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingExerciseViewController.swift; sourceTree = "<group>"; };
+		12AE441B1F3436AA0017DA50 /* MDBreatheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBreatheViewController.swift; sourceTree = "<group>"; };
 		12AE441F1F3439B80017DA50 /* UIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIConstant.swift; path = Mediator/Utilities/UIConstant.swift; sourceTree = SOURCE_ROOT; };
 		12AE44211F3469B60017DA50 /* UIMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMarkView.swift; sourceTree = "<group>"; };
 		12AE44231F346D650017DA50 /* MDBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBaseViewController.swift; sourceTree = "<group>"; };
 		12AE44251F34DDF90017DA50 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 		12AE44291F355A490017DA50 /* MDProgressLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDProgressLayer.swift; sourceTree = "<group>"; };
-		12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDVideoDataSource.swift; path = Mediator/VideoScreen/MDVideoDataSource.swift; sourceTree = SOURCE_ROOT; };
 		12B8A3891F18AAED00D5D14B /* . gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = ". gitattributes"; sourceTree = "<group>"; };
 		12B8A39D1F18C14200D5D14B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		12C92EBB1F361FC300EF8CDF /* MDProgressTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDProgressTimer.swift; sourceTree = "<group>"; };
@@ -217,7 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				12D079941F0670720022EF1E /* MDVideoViewController.swift */,
-				12B3B0E91F119CF3006168C0 /* MDVideoDataSource.swift */,
+				127928E11F3C3F8300424879 /* MDVideoViewModel.swift */,
 				12580B6D1F06536100B3CF1D /* MDVideoProvider.swift */,
 				12580B6C1F06526600B3CF1D /* MDVideoCell.swift */,
 			);
@@ -316,7 +318,8 @@
 		12AE441E1F3436EF0017DA50 /* BreatheScreen */ = {
 			isa = PBXGroup;
 			children = (
-				12AE441B1F3436AA0017DA50 /* BreathingExerciseViewController.swift */,
+				12AE441B1F3436AA0017DA50 /* MDBreatheViewController.swift */,
+				127928E31F3C4CFB00424879 /* MDBreatheViewModel.swift */,
 			);
 			path = BreatheScreen;
 			sourceTree = "<group>";
@@ -614,16 +617,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				126A82EC1F0CF12B00E63C23 /* AppConfigurator.swift in Sources */,
-				12B3B0EA1F119CF3006168C0 /* MDVideoDataSource.swift in Sources */,
 				12A2B34E1F218E8D0028F268 /* MDDBManager.swift in Sources */,
 				121A35BE1F0B9F3D005843E9 /* MDPlayingCenter.swift in Sources */,
 				12580B7E1F065E0F00B3CF1D /* MDCollectionViewDataSource.swift in Sources */,
 				12AE44201F3439B80017DA50 /* UIConstant.swift in Sources */,
-				12AE441C1F3436AA0017DA50 /* BreathingExerciseViewController.swift in Sources */,
+				12AE441C1F3436AA0017DA50 /* MDBreatheViewController.swift in Sources */,
 				12C92EBC1F361FC300EF8CDF /* MDProgressTimer.swift in Sources */,
 				12AE442A1F355A490017DA50 /* MDProgressLayer.swift in Sources */,
 				12371A2E1F2EDC78008F2F4D /* UserDefaultsExtension.swift in Sources */,
 				12AE44241F346D650017DA50 /* MDBaseViewController.swift in Sources */,
+				127928E41F3C4CFB00424879 /* MDBreatheViewModel.swift in Sources */,
 				12371A2B1F2ED24F008F2F4D /* FileManager+Extension.swift in Sources */,
 				12580B7D1F065E0900B3CF1D /* MDVideoCell.swift in Sources */,
 				125FA2341F079A8100320E5E /* MDPlayerView.swift in Sources */,
@@ -636,6 +639,7 @@
 				12AE441A1F3433A40017DA50 /* UIBreathingView.swift in Sources */,
 				12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */,
 				12991DD11F35BCE400A449D9 /* MDBreathePlayer.swift in Sources */,
+				127928E21F3C3F8300424879 /* MDVideoViewModel.swift in Sources */,
 				12580B821F065F9800B3CF1D /* MDProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

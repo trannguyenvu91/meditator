@@ -29,8 +29,8 @@ class MDVideoProviderTest: MDBaseTests {
         
         if let lastMedia = medias.last {
             let expectDeletion = expectation(description: "Provider must notify Deletion")
-            provider.updatesNotification = { deletions, insertions, modifications in
-                self.provider.updatesNotification = nil
+            provider.updatesNotification = {[weak self] deletions, insertions, modifications in
+                self?.provider.updatesNotification = nil
                 print("Delete scene info: insert \(insertions.count), delete \(deletions.count), modify \(modifications.count)")
                 XCTAssert(deletions.count == 1, "No more than 1 model is deleted")
                 expectDeletion.fulfill()
@@ -39,7 +39,7 @@ class MDVideoProviderTest: MDBaseTests {
                 MDDBManager.defaultManager.delete(lastMedia)
             }
             XCTAssert(medias.count == provider.numberOfItems(in: 0), "Media items must be updated after deletion!")
-            waitForExpectations(timeout: 2.0, handler: nil)
+            waitForExpectations(timeout: 0.5, handler: nil)
         }
     }
     
@@ -49,8 +49,8 @@ class MDVideoProviderTest: MDBaseTests {
         if let lastMedia = medias.last {
             let insertMedia = lastMedia.clone()
             let expectInsertion = expectation(description: "Provider must notify Insertion")
-            provider.updatesNotification = { deletions, insertions, modifications in
-                self.provider.updatesNotification = nil
+            provider.updatesNotification = {[weak self] deletions, insertions, modifications in
+                self?.provider.updatesNotification = nil
                 print("Insert scene info: insert \(insertions.count), delete \(deletions.count), modify \(modifications.count)")
                 XCTAssert(insertions.count == 1, "No more than 1 model is inserted")
                 expectInsertion.fulfill()
@@ -59,7 +59,7 @@ class MDVideoProviderTest: MDBaseTests {
                 MDDBManager.defaultManager.add(insertMedia)
             }
             XCTAssert(medias.count == provider.numberOfItems(in: 0), "Media items must be updated after adding!")
-            waitForExpectations(timeout: 2.0, handler: nil)
+            waitForExpectations(timeout: 0.5, handler: nil)
             
         }
     }

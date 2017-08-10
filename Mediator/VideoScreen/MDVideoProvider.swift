@@ -10,10 +10,8 @@ import UIKit
 import RealmSwift
 
 class MDVideoProvider: NSObject, MDListProviderProtocol {
+    var updatesNotification: (([IndexPath], [IndexPath], [IndexPath]) -> Void)?
     var reloadNotification: (() -> Void)?
-    var insertItemsNotification: (([IndexPath]) -> Void)?
-    var deleteItemsNotification: (([IndexPath]) -> Void)?
-    var reloadItemsNotification: (([IndexPath]) -> Void)?
     var notificationToken: NotificationToken? = nil
     var data = MDDBManager.defaultManager.getMedias()
     
@@ -32,9 +30,9 @@ class MDVideoProvider: NSObject, MDListProviderProtocol {
                 break
             case .update(_, let deletions, let insertions, let modifications):
                 // Query results have changed, so apply them to the UITableView
-                self?.insertItemsNotification?(insertions.map({ IndexPath(row: $0, section: 0) }))
-                self?.deleteItemsNotification?(deletions.map({ IndexPath(row: $0, section: 0) }))
-                self?.reloadItemsNotification?(modifications.map({ IndexPath(row: $0, section: 0) }))
+                self?.updatesNotification?(deletions.map({ IndexPath(row: $0, section: 0) }),
+                                           insertions.map({ IndexPath(row: $0, section: 0) }),
+                                           modifications.map({ IndexPath(row: $0, section: 0) }))
             case .error(let error):
                 // An error occurred while opening the Realm file on the background worker thread
                 fatalError("\(error)")
@@ -63,10 +61,3 @@ class MDVideoProvider: NSObject, MDListProviderProtocol {
     }
     
 }
-
-//MARK: Get Data
-extension MDVideoProvider {
-    
-    
-}
-

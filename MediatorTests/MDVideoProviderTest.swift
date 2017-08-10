@@ -29,8 +29,10 @@ class MDVideoProviderTest: MDBaseTests {
         
         if let lastMedia = medias.last {
             let expectDeletion = expectation(description: "Provider must notify Deletion")
-            provider.deleteItemsNotification = { indexPaths in
-                XCTAssert(indexPaths.count == 1, "No more than 1 model is inserted")
+            provider.updatesNotification = { deletions, insertions, modifications in
+                self.provider.updatesNotification = nil
+                print("Delete scene info: insert \(insertions.count), delete \(deletions.count), modify \(modifications.count)")
+                XCTAssert(deletions.count == 1, "No more than 1 model is deleted")
                 expectDeletion.fulfill()
             }
             try! MDDBManager.defaultManager.write {
@@ -47,8 +49,10 @@ class MDVideoProviderTest: MDBaseTests {
         if let lastMedia = medias.last {
             let insertMedia = lastMedia.clone()
             let expectInsertion = expectation(description: "Provider must notify Insertion")
-            provider.insertItemsNotification = { indexPaths in
-                XCTAssert(indexPaths.count == 1, "No more than 1 model is inserted")
+            provider.updatesNotification = { deletions, insertions, modifications in
+                self.provider.updatesNotification = nil
+                print("Insert scene info: insert \(insertions.count), delete \(deletions.count), modify \(modifications.count)")
+                XCTAssert(insertions.count == 1, "No more than 1 model is inserted")
                 expectInsertion.fulfill()
             }
             try! MDDBManager.defaultManager.write {

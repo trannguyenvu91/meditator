@@ -87,7 +87,7 @@ protocol UIBreathingViewDelegate: NSObjectProtocol {
 class UIBreathingView: UIView {
     private var labelColor: UIColor!
     private var breathFragments: [BreathFragment]!
-    private var cycleDuration: Float!
+    private var cycleDuration: Double!
     private var labelRatio: Float!
     private let lineWith: CGFloat = 5.0
     private var movingIndicator: UIMarkView!
@@ -107,7 +107,7 @@ class UIBreathingView: UIView {
     }
     
     convenience init(frame:CGRect,
-                     duration: Float,
+                     duration: Double,
                      breathFragments: [BreathFragment],
                      labelRatio:Float,
                      labelColor: UIColor) {
@@ -181,7 +181,7 @@ internal extension UIBreathingView {
     }
     
     func setupProgressLayer() {
-        progressTimer = MDProgressTimer(duration: Double(cycleDuration), delegate: self)
+        progressTimer = MDProgressTimer(duration: cycleDuration, delegate: self)
     }
     
     func drawArc(at center: CGPoint,
@@ -227,7 +227,7 @@ private extension UIBreathingView {
         orbit.keyPath = "position"
         orbit.path = UIBezierPath(arcCenter: CGPoint(x: label.center.x - movingIndicator.frame.height / 2.0, y: label.center.y - movingIndicator.frame.height / 2.0),
                                   radius: bounds.width / 2.0 - movingIndicator.frame.height / 2.0,
-                                  startAngle:  -.pi / 2.0,
+                                  startAngle:  CGFloat(-.pi / 2.0),
                                   endAngle: 1.5 * .pi,
                                   clockwise: true).cgPath
         orbit.duration = CFTimeInterval(cycleDuration)

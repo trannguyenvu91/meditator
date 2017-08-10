@@ -29,7 +29,7 @@ class MDMedia: Object, MDModelProtocol {
     
     func clone() -> MDMedia {
         let media = MDMedia()
-        media.id = id
+        media.id = UUID().uuidString
         media.title = title
         media.fileName = fileName
         media.thumbName = thumbName

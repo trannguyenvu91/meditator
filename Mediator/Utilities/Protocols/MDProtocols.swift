@@ -10,9 +10,13 @@ import UIKit
 
 //MARK: MDListProviderProtocol
 protocol MDListProviderProtocol: NSObjectProtocol {
+    //Data source
     func model(at indexPath: IndexPath) -> MDModelProtocol?
     func numberOfSections() -> Int
     func numberOfItems(in section: Int) -> Int
+    //Notify changes
+    var reloadNotification:(() -> Void)? { set get }
+    var updatesNotification:((_ deletedIndexPaths: [IndexPath], _ insertIndexPaths: [IndexPath], _ modifyIndexPaths: [IndexPath]) -> Void)? { set get }
 }
 
 //MARK: MDModelViewProtocol

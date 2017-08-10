@@ -36,7 +36,18 @@ class MDCollectionViewDataSource: NSObject {
     func setup() {
         collectionView.dataSource = self
         collectionView.delegate = self
+        dataProvider.updatesNotification = {[weak self] deletions, insertions, modifications in
+            self?.collectionView.performBatchUpdates({[weak self] in
+                self?.collectionView.insertItems(at: insertions)
+                self?.collectionView.deleteItems(at: deletions)
+                self?.collectionView.reloadItems(at: modifications)
+            }, completion: nil)
+        }
+        dataProvider.reloadNotification = {[weak self] in
+            self?.collectionView.reloadData()
+        }
     }
+    
 }
 
 //MARK: UICollectionViewDataSource

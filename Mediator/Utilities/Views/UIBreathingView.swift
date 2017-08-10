@@ -227,7 +227,7 @@ private extension UIBreathingView {
         orbit.keyPath = "position"
         orbit.path = UIBezierPath(arcCenter: CGPoint(x: label.center.x - movingIndicator.frame.height / 2.0, y: label.center.y - movingIndicator.frame.height / 2.0),
                                   radius: bounds.width / 2.0 - movingIndicator.frame.height / 2.0,
-                                  startAngle:  -.pi / 2.0,
+                                  startAngle:  CGFloat(-.pi / 2.0),
                                   endAngle: 1.5 * .pi,
                                   clockwise: true).cgPath
         orbit.duration = CFTimeInterval(cycleDuration)

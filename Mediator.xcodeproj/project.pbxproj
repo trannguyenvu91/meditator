@@ -53,6 +53,7 @@
 		12C5B4B51F3E98D0000A9523 /* MDSceneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C5B4B41F3E98D0000A9523 /* MDSceneCell.swift */; };
 		12C5B4B71F3E9AFA000A9523 /* MDTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C5B4B61F3E9AFA000A9523 /* MDTableViewDataSource.swift */; };
 		12C5B4B91F3E9F5B000A9523 /* MDSceneListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C5B4B81F3E9F5B000A9523 /* MDSceneListViewModel.swift */; };
+		12C5B4BB1F3F06D5000A9523 /* MDSceneListAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C5B4BA1F3F06D5000A9523 /* MDSceneListAnimator.swift */; };
 		12C92EBC1F361FC300EF8CDF /* MDProgressTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C92EBB1F361FC300EF8CDF /* MDProgressTimer.swift */; };
 		12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D079941F0670720022EF1E /* MDVideoViewController.swift */; };
 		12F7D60F1F19B010000154BC /* MDMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F7D60E1F19B010000154BC /* MDMedia.swift */; };
@@ -123,6 +124,7 @@
 		12C5B4B41F3E98D0000A9523 /* MDSceneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDSceneCell.swift; sourceTree = "<group>"; };
 		12C5B4B61F3E9AFA000A9523 /* MDTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDTableViewDataSource.swift; sourceTree = "<group>"; };
 		12C5B4B81F3E9F5B000A9523 /* MDSceneListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDSceneListViewModel.swift; sourceTree = "<group>"; };
+		12C5B4BA1F3F06D5000A9523 /* MDSceneListAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDSceneListAnimator.swift; sourceTree = "<group>"; };
 		12C92EBB1F361FC300EF8CDF /* MDProgressTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDProgressTimer.swift; sourceTree = "<group>"; };
 		12D079941F0670720022EF1E /* MDVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDVideoViewController.swift; path = Mediator/ViewControllers/VideoScreen/MDVideoViewController.swift; sourceTree = SOURCE_ROOT; };
 		12F7D60E1F19B010000154BC /* MDMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDMedia.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				12AE441F1F3439B80017DA50 /* UIConstant.swift */,
+				12C5B4BC1F3F06DA000A9523 /* Animators */,
 				12C92EBD1F361FE600EF8CDF /* ProgressTimer */,
 				12991DCF1F35BB5100A449D9 /* Players */,
 				12AE442B1F355A4F0017DA50 /* Layers */,
@@ -395,6 +398,14 @@
 				12C5B4B41F3E98D0000A9523 /* MDSceneCell.swift */,
 			);
 			path = SceneList;
+			sourceTree = "<group>";
+		};
+		12C5B4BC1F3F06DA000A9523 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				12C5B4BA1F3F06D5000A9523 /* MDSceneListAnimator.swift */,
+			);
+			path = Animators;
 			sourceTree = "<group>";
 		};
 		12C92EBD1F361FE600EF8CDF /* ProgressTimer */ = {
@@ -662,6 +673,7 @@
 				125FA2341F079A8100320E5E /* MDPlayerView.swift in Sources */,
 				12AE44261F34DDF90017DA50 /* CALayerExtension.swift in Sources */,
 				12AE44221F3469B60017DA50 /* UIMarkView.swift in Sources */,
+				12C5B4BB1F3F06D5000A9523 /* MDSceneListAnimator.swift in Sources */,
 				12F7D60F1F19B010000154BC /* MDMedia.swift in Sources */,
 				12580B571F064EAF00B3CF1D /* AppDelegate.swift in Sources */,
 				120B5A871F11A1630001F23C /* MDMediaImporter.swift in Sources */,

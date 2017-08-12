@@ -11,4 +11,11 @@ import UIKit
 class MDVideoViewModel: NSObject {
     lazy var dataProvider = MDVideoProvider()
     
+    func getIndexPath(for media: MDMedia) -> IndexPath? {
+        if let index = dataProvider.data.index(of: media) {
+            return IndexPath(row: index, section: 0)
+        }
+        return nil
+    }
+    
 }

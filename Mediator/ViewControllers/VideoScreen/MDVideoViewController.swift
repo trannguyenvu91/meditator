@@ -12,6 +12,7 @@ class MDVideoViewController: MDBaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var dataSource: MDCollectionViewDataSource!
     let viewModel = MDVideoViewModel()
+    var currentMedia: MDMedia?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,23 @@ class MDVideoViewController: MDBaseViewController {
     
     @IBAction func didPressImportBtn(_ sender: Any) {
         MDMediaImporter.presentImagePickerVC(fromVC: self, animated: true, completion: nil)
+    }
+    
+}
+
+//MARK: Navigation
+
+extension MDVideoViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if let identifier = segue.identifier,
+            identifier == "MDSceneListViewController",
+            let scenesNavi = segue.destination as? UINavigationController,
+            let scenesVC = scenesNavi.viewControllers.first as? MDSceneListViewController {
+            scenesVC.delegate = self
+            scenesVC.modalPresentationStyle = .custom
+            scenesVC.transitioningDelegate = scenesVC
+        }
     }
     
 }
@@ -57,8 +75,10 @@ extension MDVideoViewController: MDCollectionViewDataSourceProtocol {
     func playVideoOnVisibleCell() {
         var midOffset = collectionView.contentOffset
         midOffset.x += view.frame.width / 2.0;
+        midOffset.y = collectionView.frame.height / 2.0
         if let indexPath = collectionView.indexPathForItem(at: midOffset), let cell = collectionView.cellForItem(at: indexPath) {
             videoCell(cell: cell)?.playVideo()
+            currentMedia = videoCell(cell: cell)?.media
         }
     }
     
@@ -71,3 +91,18 @@ extension MDVideoViewController: MDCollectionViewDataSourceProtocol {
     
 }
 
+//MARK: MDSceneListViewControllerDelegate
+extension MDVideoViewController: MDSceneListViewControllerDelegate {
+    func getCurrentMedia() -> MDMedia? {
+        return currentMedia
+    }
+    
+    func play(media: MDMedia) {
+        if let indexPath = viewModel.getIndexPath(for: media) {
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            collectionView.setNeedsDisplay()
+            playVideoOnVisibleCell()
+        }
+    }
+    
+}

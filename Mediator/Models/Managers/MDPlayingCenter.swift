@@ -141,7 +141,7 @@ extension MDPlayingCenter {
         let title = "Meditation"
         var playingInfo = [MPMediaItemPropertyTitle: title] as [String : Any]
         
-        if let _media = media, let preview = UIImage(contentsOfFile: _media.getThumbURL().path) {
+        if let _media = media, let preview = _media.thumbImage {
             playingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: preview)
         }
         

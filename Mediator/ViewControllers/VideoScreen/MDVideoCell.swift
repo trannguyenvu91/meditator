@@ -19,7 +19,7 @@ class MDVideoCell: UICollectionViewCell, MDModelViewProtocol {
     func setup(with model: MDModelProtocol?) {
         guard let videoModel = model as? MDMedia else { return }
         media = videoModel
-        imageView.image = UIImage(contentsOfFile: videoModel.getThumbURL().path)
+        imageView.image = videoModel.thumbImage
         videoPlayerView.isHidden = true
     }
     

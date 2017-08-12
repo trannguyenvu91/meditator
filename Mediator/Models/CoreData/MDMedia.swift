@@ -19,6 +19,8 @@ class MDMedia: Object, MDModelProtocol {
     @objc dynamic var importDate = Date()
     @objc dynamic var type: Int = 0
     
+    lazy var thumbImage = UIImage(contentsOfFile: getThumbURL().path)
+    
     override static func primaryKey() -> String? {
         return "id"
     }
@@ -36,6 +38,18 @@ class MDMedia: Object, MDModelProtocol {
         media.audioName = audioName
         media.type = type
         return media
+    }
+    
+    func deleteAndCleanFiles() {
+        do {
+            try FileManager.default.removeItem(at: getVideoURL())
+            try FileManager.default.removeItem(at: getThumbURL())
+            if let audioURL = getAudioURL() {
+                try FileManager.default.removeItem(at: audioURL)
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
     
 }

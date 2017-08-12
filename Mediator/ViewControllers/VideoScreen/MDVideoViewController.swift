@@ -42,8 +42,7 @@ extension MDVideoViewController {
             let scenesNavi = segue.destination as? UINavigationController,
             let scenesVC = scenesNavi.viewControllers.first as? MDSceneListViewController {
             scenesVC.delegate = self
-            scenesVC.modalPresentationStyle = .custom
-            scenesVC.transitioningDelegate = scenesVC
+            scenesNavi.transitioningDelegate = scenesVC
         }
     }
     
@@ -65,6 +64,9 @@ extension MDVideoViewController: MDCollectionViewDataSourceProtocol {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
                 self.playVideoOnVisibleCell()
             }
+        } else if !AppConfigurator.isTopViewController(self) {
+            videoCell(cell: cell)?.playVideo()
+            currentMedia = videoCell(cell: cell)?.media
         }
     }
     

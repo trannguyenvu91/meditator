@@ -35,6 +35,9 @@ public struct UIConstant {
     static let breathing_audio_extension = "wav"
     static let breathing_unknown_file = "meditation_bell"
     
+    //Scene screen
+    static let minimumSceneRowHeight: CGFloat = 110.0
+    static let transitionDuration = 0.3
     
 }
 

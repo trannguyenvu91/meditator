@@ -24,4 +24,14 @@ final class AppConfigurator: NSObject {
         MDPlayingCenter.sharedInstance.willEnterForeground()
     }
     
+    class func isTopViewController(_ vc: UIViewController) -> Bool {
+        if var topController = UIApplication.shared.keyWindow?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            return topController == vc
+        }
+        return false
+    }
+    
 }

@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -65,13 +66,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAF-rv-61Y">
-                                <rect key="frame" x="313" y="20" width="46" height="30"/>
-                                <state key="normal" title="Import"/>
-                                <connections>
-                                    <action selector="didPressImportBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nfC-VK-spa"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktM-5N-oo9">
                                 <rect key="frame" x="160.5" y="617" width="54" height="30"/>
                                 <state key="normal" title="Breathe"/>
@@ -80,10 +74,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ae-Ic-lgk">
-                                <rect key="frame" x="16" y="20" width="51" height="30"/>
+                                <rect key="frame" x="316" y="20" width="51" height="30"/>
                                 <state key="normal" title="Scenes"/>
                                 <connections>
-                                    <segue destination="kkl-eF-NhG" kind="presentation" id="ZAL-7B-u1k"/>
+                                    <segue destination="kkl-eF-NhG" kind="presentation" identifier="MDSceneListViewController" id="ZAL-7B-u1k">
+                                        <segue key="commit" inheritsFrom="parent" id="Ku0-MY-zl5"/>
+                                        <segue key="preview" inheritsFrom="commit" id="yn4-Gb-YXo"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -93,18 +90,15 @@
                             <constraint firstAttribute="trailing" secondItem="gnc-Bx-Soc" secondAttribute="trailing" id="I5n-Xk-ORH"/>
                             <constraint firstItem="ktM-5N-oo9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IHV-tO-Hpr"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ktM-5N-oo9" secondAttribute="bottom" constant="20" id="IlK-4N-7C3"/>
-                            <constraint firstItem="UAF-rv-61Y" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="JOQ-bu-dro"/>
                             <constraint firstAttribute="trailing" secondItem="gnc-Bx-Soc" secondAttribute="trailing" id="JyR-SC-Fyo"/>
                             <constraint firstItem="gnc-Bx-Soc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="VeV-z7-Knm"/>
-                            <constraint firstItem="9ae-Ic-lgk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="W69-V2-BDT"/>
+                            <constraint firstItem="9ae-Ic-lgk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="W69-V2-BDT"/>
                             <constraint firstItem="9ae-Ic-lgk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Y41-KZ-yjw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gnc-Bx-Soc" secondAttribute="bottom" id="c0f-LA-kms"/>
                             <constraint firstItem="gnc-Bx-Soc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ctU-bY-Nta"/>
                             <constraint firstItem="gnc-Bx-Soc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lNq-2v-ZtT"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gnc-Bx-Soc" secondAttribute="bottom" id="lgf-D2-LiJ"/>
-                            <constraint firstItem="UAF-rv-61Y" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="mbI-xX-jkb"/>
-                            <constraint firstItem="UAF-rv-61Y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pJx-NR-UH2"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9ae-Ic-lgk" secondAttribute="trailingMargin" id="uct-HW-ccx"/>
+                            <constraint firstAttribute="trailing" secondItem="9ae-Ic-lgk" secondAttribute="trailingMargin" constant="16" id="uct-HW-ccx"/>
                         </constraints>
                     </view>
                     <connections>
@@ -164,7 +158,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.23529411764705882" green="0.1764705882352941" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.23529411764705882" green="0.1764705882352941" blue="0.2196078431372549" alpha="0.88433754280821919" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Kon-0n-WMd" secondAttribute="trailing" id="9YW-YH-29q"/>
                             <constraint firstItem="Kon-0n-WMd" firstAttribute="leading" secondItem="R3k-Eu-T1i" secondAttribute="leading" id="Kd2-nR-NFF"/>
@@ -264,4 +258,7 @@
             <point key="canvasLocation" x="-561.60000000000002" y="839.28035982008998"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZAL-7B-u1k"/>
+    </inferredMetricsTieBreakers>
 </document>

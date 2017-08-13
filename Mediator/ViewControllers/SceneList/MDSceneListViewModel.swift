@@ -11,6 +11,10 @@ import UIKit
 class MDSceneListViewModel: NSObject {
     lazy var dataProvider = MDVideoProvider()
     
+    func getMedia(at indexPath: IndexPath) -> MDMedia {
+        return dataProvider.model(at: indexPath) as! MDMedia
+    }
+    
     func canEditRowAt(_ indexPath: IndexPath) -> Bool {
         return true
     }

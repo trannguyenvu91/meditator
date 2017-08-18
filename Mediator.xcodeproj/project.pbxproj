@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120362401F46CB3900DAD77E /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1203623F1F46CB3900DAD77E /* UINavigationControllerExtension.swift */; };
+		120362421F46CC8800DAD77E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120362411F46CC8800DAD77E /* UIColorExtension.swift */; };
 		120B5A871F11A1630001F23C /* MDMediaImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B5A861F11A1630001F23C /* MDMediaImporter.swift */; };
 		121A35BE1F0B9F3D005843E9 /* MDPlayingCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A35BD1F0B9F3D005843E9 /* MDPlayingCenter.swift */; };
 		1224CB7E1F3313910040A7CC /* MDVideoProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1224CB7D1F3313910040A7CC /* MDVideoProviderTest.swift */; };
@@ -74,6 +76,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1203623F1F46CB3900DAD77E /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
+		120362411F46CC8800DAD77E /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		120B5A861F11A1630001F23C /* MDMediaImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDMediaImporter.swift; sourceTree = "<group>"; };
 		121A35BD1F0B9F3D005843E9 /* MDPlayingCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDPlayingCenter.swift; sourceTree = "<group>"; };
 		1224CB7D1F3313910040A7CC /* MDVideoProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDVideoProviderTest.swift; sourceTree = "<group>"; };
@@ -248,6 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				12AE441F1F3439B80017DA50 /* UIConstant.swift */,
+				1203623F1F46CB3900DAD77E /* UINavigationControllerExtension.swift */,
+				120362411F46CC8800DAD77E /* UIColorExtension.swift */,
 				12C5B4BC1F3F06DA000A9523 /* Animators */,
 				12C92EBD1F361FE600EF8CDF /* ProgressTimer */,
 				12991DCF1F35BB5100A449D9 /* Players */,
@@ -658,6 +664,7 @@
 				126A82EC1F0CF12B00E63C23 /* AppConfigurator.swift in Sources */,
 				12C5B4B21F3E9708000A9523 /* MDSceneListViewController.swift in Sources */,
 				12A2B34E1F218E8D0028F268 /* MDDBManager.swift in Sources */,
+				120362401F46CB3900DAD77E /* UINavigationControllerExtension.swift in Sources */,
 				121A35BE1F0B9F3D005843E9 /* MDPlayingCenter.swift in Sources */,
 				12580B7E1F065E0F00B3CF1D /* MDCollectionViewDataSource.swift in Sources */,
 				12AE44201F3439B80017DA50 /* UIConstant.swift in Sources */,
@@ -665,6 +672,7 @@
 				12C92EBC1F361FC300EF8CDF /* MDProgressTimer.swift in Sources */,
 				12AE442A1F355A490017DA50 /* MDProgressLayer.swift in Sources */,
 				12371A2E1F2EDC78008F2F4D /* UserDefaultsExtension.swift in Sources */,
+				120362421F46CC8800DAD77E /* UIColorExtension.swift in Sources */,
 				12AE44241F346D650017DA50 /* MDBaseViewController.swift in Sources */,
 				127928E41F3C4CFB00424879 /* MDBreatheViewModel.swift in Sources */,
 				12371A2B1F2ED24F008F2F4D /* FileManager+Extension.swift in Sources */,

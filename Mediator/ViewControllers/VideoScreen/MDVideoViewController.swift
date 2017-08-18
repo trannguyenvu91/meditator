@@ -13,6 +13,7 @@ class MDVideoViewController: MDBaseViewController {
     var dataSource: MDCollectionViewDataSource!
     let viewModel = MDVideoViewModel()
     var currentMedia: MDMedia?
+    lazy var animator = MDSceneListAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +38,14 @@ class MDVideoViewController: MDBaseViewController {
 extension MDVideoViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        if let identifier = segue.identifier,
-            identifier == "MDSceneListViewController",
+        guard let identifier = segue.identifier else { return }
+        if identifier == "MDSceneListViewController",
             let scenesNavi = segue.destination as? UINavigationController,
             let scenesVC = scenesNavi.viewControllers.first as? MDSceneListViewController {
             scenesVC.delegate = self
-            scenesNavi.transitioningDelegate = scenesVC
+            scenesNavi.transitioningDelegate = animator
+        } else if identifier == "MDBreatheViewController" {
+            segue.destination.transitioningDelegate = animator
         }
     }
     

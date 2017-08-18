@@ -23,14 +23,14 @@ class MDSceneListAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         switch type {
         case .present:
-            let scenesNavi = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! UINavigationController
+            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
             let videoVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! MDVideoViewController
-            present(scenesNavi: scenesNavi, from: videoVC, in: transitionContext)
+            present(toViewController: toVC!, from: videoVC, in: transitionContext)
             break
         default:
-            let scenesNavi = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! UINavigationController
+            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
             let videoVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! MDVideoViewController
-            dismiss(scenesNavi: scenesNavi, from: videoVC, in: transitionContext)
+            dismiss(toViewController: toVC!, from: videoVC, in: transitionContext)
             break
         }
     }
@@ -38,28 +38,46 @@ class MDSceneListAnimator: NSObject, UIViewControllerAnimatedTransitioning {
 }
 
 private extension MDSceneListAnimator {
-    func present(scenesNavi: UINavigationController, from videoVC: MDVideoViewController, in context: UIViewControllerContextTransitioning) {
+    func present(toViewController: UIViewController, from videoVC: MDVideoViewController, in context: UIViewControllerContextTransitioning) {
         let container = context.containerView
-        scenesNavi.view.frame = container.bounds
-        scenesNavi.view.alpha = 0
-        container.insertSubview(scenesNavi.view, aboveSubview: videoVC.view)
-        UIView.animate(withDuration: transitionDuration(using: context), animations: {
-            scenesNavi.view.alpha = 1
+        toViewController.view.frame = getOffScreenFrame(container.bounds)
+        container.insertSubview(toViewController.view, aboveSubview: videoVC.view)
+        
+        UIView.animate(withDuration: transitionDuration(using: context), delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
+            toViewController.view.frame = container.bounds
         }) { (finished) in
             context.completeTransition(finished)
-            container.insertSubview(videoVC.view, belowSubview: scenesNavi.view)
+            container.insertSubview(videoVC.view, belowSubview: toViewController.view)
         }
     }
     
-    func dismiss(scenesNavi: UINavigationController, from videoVC: MDVideoViewController, in context: UIViewControllerContextTransitioning) {
+    func dismiss(toViewController: UIViewController, from videoVC: MDVideoViewController, in context: UIViewControllerContextTransitioning) {
         let container = context.containerView
         videoVC.view.frame = container.bounds
-        container.insertSubview(videoVC.view, belowSubview: scenesNavi.view)
-        UIView.animate(withDuration: transitionDuration(using: context), animations: {
-            scenesNavi.view.alpha = 0
+        container.insertSubview(videoVC.view, belowSubview: toViewController.view)
+        
+        UIView.animate(withDuration: transitionDuration(using: context), delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
+            toViewController.view.frame = self.getOffScreenFrame(container.bounds)
         }) { (finished) in
             context.completeTransition(finished)
         }
+    }
+    
+    func getOffScreenFrame(_ screenFrame: CGRect) -> CGRect {
+        return CGRect(x: screenFrame.minX, y: screenFrame.maxY, width: screenFrame.width, height: screenFrame.height)
+    }
+    
+}
+
+extension MDSceneListAnimator: UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        type = .dismiss
+        return self
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        type = .present
+        return self
     }
     
 }

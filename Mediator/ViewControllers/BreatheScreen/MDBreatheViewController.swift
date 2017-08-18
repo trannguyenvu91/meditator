@@ -32,6 +32,7 @@ class MDBreatheViewController: MDBaseViewController {
     
     func setupViews() {
         setupBreathView()
+        setBlurBackground()
     }
     
     func setupBreathView() {

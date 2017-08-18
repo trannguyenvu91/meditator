@@ -13,13 +13,12 @@ import UIKit
     @objc optional func play(media: MDMedia)
 }
 
-class MDSceneListViewController: UIViewController {
+class MDSceneListViewController: MDBaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnClose: UIBarButtonItem!
     var dataSource: MDTableViewDataSource!
     let viewModel = MDSceneListViewModel()
     weak var delegate: MDSceneListViewControllerDelegate?
-    let animator = MDSceneListAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +26,7 @@ class MDSceneListViewController: UIViewController {
                                            owner: self,
                                            dataProvider: viewModel.dataProvider,
                                            reusedCellID: "Cell")
+        setupViews()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +34,10 @@ class MDSceneListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func setupViews() {
+        setBlurBackground()
+    }
+    
     @IBAction func btnCloseDidClicked(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -41,7 +45,7 @@ class MDSceneListViewController: UIViewController {
     @IBAction func btnImportClicked(_ sender: Any) {
         MDMediaImporter.presentImagePickerVC(fromVC: self, animated: true, completion: nil)
     }
-    
+
 }
 
 extension MDSceneListViewController: MDTableViewDataSourceProtocol {
@@ -66,15 +70,3 @@ extension MDSceneListViewController: MDTableViewDataSourceProtocol {
     
 }
 
-extension MDSceneListViewController: UIViewControllerTransitioningDelegate {
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        animator.type = .dismiss
-        return animator
-    }
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        animator.type = .present
-        return animator
-    }
-    
-}

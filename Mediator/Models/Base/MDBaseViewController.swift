@@ -40,6 +40,7 @@ class MDBaseViewController: UIViewController {
             make.height.equalTo(view.snp.height)
             make.width.equalTo(view.snp.width)
         }
+        view.backgroundColor = UIColor.clear
     }
 
     

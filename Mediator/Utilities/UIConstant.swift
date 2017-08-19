@@ -37,10 +37,15 @@ public struct UIConstant {
     
     //Scene screen
     static let minimumSceneRowHeight: CGFloat = 110.0
-    static let transitionDuration = 0.3
+    static let transitionDuration = 0.35
     
     //Navigation style
     static let navigationBackgroundColor = UIColor(rgb: 0x0c0c0c).withAlphaComponent(0.6)
+    
+    //Stories Screen
+    static let storiesHeaderStandardHeight: CGFloat = 200.0
+    static let storiesHeaderMinHeight: CGFloat = 64.0
+    static let storiesRowHeight: CGFloat = 76.0
     
 }
 

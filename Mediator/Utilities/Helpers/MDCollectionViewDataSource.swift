@@ -9,7 +9,13 @@
 import UIKit
 
 @objc protocol MDCollectionViewDataSourceProtocol: NSObjectProtocol {
-    func itemSize(at indexPath: IndexPath) -> CGSize
+    //Data source
+    @objc optional func collectionView(_ collectionView: UICollectionView, referenceSizeForHeaderInSection section: Int) -> CGSize
+    @objc optional func collectionView(_ collectionView: UICollectionView, referenceSizeForFooterInSection section: Int) -> CGSize
+    @objc optional func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
+    func collectionView(_ collectionView: UICollectionView, dequeueReusableCellAt indexPath: IndexPath) -> UICollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, itemSizeAt indexPath: IndexPath) -> CGSize
+    //collection View delegates
     @objc optional func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     @objc optional func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath)
     @objc optional func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
@@ -24,12 +30,11 @@ class MDCollectionViewDataSource: NSObject {
     weak var dataProvider: MDListProviderProtocol!
     var reusedCellID: String!
     
-    init(collectionView: UICollectionView, owner: MDCollectionViewDataSourceProtocol, dataProvider: MDListProviderProtocol, reusedCellID: String) {
+    init(collectionView: UICollectionView, owner: MDCollectionViewDataSourceProtocol, dataProvider: MDListProviderProtocol) {
         super.init()
         self.collectionView = collectionView
         self.owner = owner
         self.dataProvider = dataProvider
-        self.reusedCellID = reusedCellID
         setup()
     }
     
@@ -61,17 +66,36 @@ extension MDCollectionViewDataSource: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusedCellID, for: indexPath) as! UICollectionViewCell & MDModelViewProtocol
+        let cell = owner.collectionView(collectionView, dequeueReusableCellAt: indexPath) as! UICollectionViewCell & MDModelViewProtocol
         let model = dataProvider.model(at: indexPath)
         cell.setup(with: model)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let reusableView = owner.collectionView!(collectionView, viewForSupplementaryElementOfKind: kind, at: indexPath)
+        return reusableView
     }
 }
 
 //MARK: UICollectionViewDelegateFlowLayout
 extension MDCollectionViewDataSource: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return owner.itemSize(at: indexPath)
+        return owner.collectionView(collectionView, itemSizeAt: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if let size = owner.collectionView?(collectionView, referenceSizeForHeaderInSection: section) {
+            return size
+        }
+        return CGSize.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        if let size = owner.collectionView?(collectionView, referenceSizeForFooterInSection: section) {
+            return size
+        }
+        return CGSize.zero
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

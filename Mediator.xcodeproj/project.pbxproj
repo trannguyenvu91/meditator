@@ -37,6 +37,12 @@
 		126A82EC1F0CF12B00E63C23 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */; };
 		127928E21F3C3F8300424879 /* MDVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127928E11F3C3F8300424879 /* MDVideoViewModel.swift */; };
 		127928E41F3C4CFB00424879 /* MDBreatheViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127928E31F3C4CFB00424879 /* MDBreatheViewModel.swift */; };
+		1295250E1F47E9E3007347AD /* MDStoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1295250D1F47E9E3007347AD /* MDStoriesListViewController.swift */; };
+		129525111F47EA43007347AD /* MDStoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129525101F47EA43007347AD /* MDStoryCell.swift */; };
+		129525131F47EB88007347AD /* MDStoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129525121F47EB88007347AD /* MDStoryHeaderView.swift */; };
+		129525151F47EC11007347AD /* MDStoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129525141F47EC11007347AD /* MDStoriesViewModel.swift */; };
+		129525171F47EC2C007347AD /* MDStoriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129525161F47EC2C007347AD /* MDStoriesProvider.swift */; };
+		129525191F47ECA9007347AD /* MDStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129525181F47ECA9007347AD /* MDStory.swift */; };
 		12991DD11F35BCE400A449D9 /* MDBreathePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12991DD01F35BB7100A449D9 /* MDBreathePlayer.swift */; };
 		12991DD21F35BCF100A449D9 /* breathe_bubble_exhale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12991DC51F35B5E200A449D9 /* breathe_bubble_exhale.wav */; };
 		12991DD31F35BCF500A449D9 /* breathe_bubble_inhale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 12991DC71F35B5E200A449D9 /* breathe_bubble_inhale.wav */; };
@@ -109,6 +115,12 @@
 		126A82EB1F0CF12B00E63C23 /* AppConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurator.swift; sourceTree = "<group>"; };
 		127928E11F3C3F8300424879 /* MDVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDVideoViewModel.swift; sourceTree = "<group>"; };
 		127928E31F3C4CFB00424879 /* MDBreatheViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBreatheViewModel.swift; sourceTree = "<group>"; };
+		1295250D1F47E9E3007347AD /* MDStoriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDStoriesListViewController.swift; sourceTree = "<group>"; };
+		129525101F47EA43007347AD /* MDStoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDStoryCell.swift; sourceTree = "<group>"; };
+		129525121F47EB88007347AD /* MDStoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDStoryHeaderView.swift; sourceTree = "<group>"; };
+		129525141F47EC11007347AD /* MDStoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDStoriesViewModel.swift; sourceTree = "<group>"; };
+		129525161F47EC2C007347AD /* MDStoriesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDStoriesProvider.swift; sourceTree = "<group>"; };
+		129525181F47ECA9007347AD /* MDStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDStory.swift; sourceTree = "<group>"; };
 		12991DC41F35B5E200A449D9 /* meditation_bell.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = meditation_bell.m4a; sourceTree = "<group>"; };
 		12991DC51F35B5E200A449D9 /* breathe_bubble_exhale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = breathe_bubble_exhale.wav; sourceTree = "<group>"; };
 		12991DC61F35B5E200A449D9 /* breathe_bubble_pause.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = breathe_bubble_pause.wav; sourceTree = "<group>"; };
@@ -303,6 +315,18 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		1295250F1F47E9EA007347AD /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				1295250D1F47E9E3007347AD /* MDStoriesListViewController.swift */,
+				129525141F47EC11007347AD /* MDStoriesViewModel.swift */,
+				129525161F47EC2C007347AD /* MDStoriesProvider.swift */,
+				129525101F47EA43007347AD /* MDStoryCell.swift */,
+				129525121F47EB88007347AD /* MDStoryHeaderView.swift */,
+			);
+			path = Stories;
+			sourceTree = "<group>";
+		};
 		12991DC81F35B5EE00A449D9 /* Audios */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +388,7 @@
 				12A2B34F1F219D460028F268 /* Managers */,
 				12B8A3941F18B95C00D5D14B /* CoreData */,
 				12580B781F065D6700B3CF1D /* Base */,
+				129525181F47ECA9007347AD /* MDStory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -392,6 +417,7 @@
 				12580B6A1F06522900B3CF1D /* VideoScreen */,
 				12AE441E1F3436EF0017DA50 /* BreatheScreen */,
 				12C5B4B31F3E970D000A9523 /* SceneList */,
+				1295250F1F47E9EA007347AD /* Stories */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -679,20 +705,26 @@
 				12C5B4B91F3E9F5B000A9523 /* MDSceneListViewModel.swift in Sources */,
 				12580B7D1F065E0900B3CF1D /* MDVideoCell.swift in Sources */,
 				125FA2341F079A8100320E5E /* MDPlayerView.swift in Sources */,
+				129525191F47ECA9007347AD /* MDStory.swift in Sources */,
 				12AE44261F34DDF90017DA50 /* CALayerExtension.swift in Sources */,
 				12AE44221F3469B60017DA50 /* UIMarkView.swift in Sources */,
+				129525151F47EC11007347AD /* MDStoriesViewModel.swift in Sources */,
 				12C5B4BB1F3F06D5000A9523 /* MDSceneListAnimator.swift in Sources */,
 				12F7D60F1F19B010000154BC /* MDMedia.swift in Sources */,
 				12580B571F064EAF00B3CF1D /* AppDelegate.swift in Sources */,
 				120B5A871F11A1630001F23C /* MDMediaImporter.swift in Sources */,
+				129525111F47EA43007347AD /* MDStoryCell.swift in Sources */,
 				12580B6E1F06536100B3CF1D /* MDVideoProvider.swift in Sources */,
 				12C5B4B71F3E9AFA000A9523 /* MDTableViewDataSource.swift in Sources */,
 				12AE441A1F3433A40017DA50 /* UIBreathingView.swift in Sources */,
 				12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */,
 				12991DD11F35BCE400A449D9 /* MDBreathePlayer.swift in Sources */,
+				129525131F47EB88007347AD /* MDStoryHeaderView.swift in Sources */,
 				127928E21F3C3F8300424879 /* MDVideoViewModel.swift in Sources */,
+				129525171F47EC2C007347AD /* MDStoriesProvider.swift in Sources */,
 				12C5B4B51F3E98D0000A9523 /* MDSceneCell.swift in Sources */,
 				12580B821F065F9800B3CF1D /* MDProtocols.swift in Sources */,
+				1295250E1F47E9E3007347AD /* MDStoriesListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,7 +886,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7C79529L3A;
 				INFOPLIST_FILE = Mediator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tranvince.Mediator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -870,7 +902,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7C79529L3A;
 				INFOPLIST_FILE = Mediator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tranvince.Mediator;
 				PRODUCT_NAME = "$(TARGET_NAME)";

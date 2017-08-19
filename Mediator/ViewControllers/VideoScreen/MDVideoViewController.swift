@@ -19,8 +19,7 @@ class MDVideoViewController: MDBaseViewController {
         super.viewDidLoad()
         dataSource = MDCollectionViewDataSource(collectionView: collectionView,
                                                 owner: self,
-                                                dataProvider: viewModel.dataProvider,
-                                                reusedCellID: "Cell")
+                                                dataProvider: viewModel.dataProvider)
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,13 +38,11 @@ extension MDVideoViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         guard let identifier = segue.identifier else { return }
+        segue.destination.transitioningDelegate = animator
         if identifier == "MDSceneListViewController",
             let scenesNavi = segue.destination as? UINavigationController,
             let scenesVC = scenesNavi.viewControllers.first as? MDSceneListViewController {
             scenesVC.delegate = self
-            scenesNavi.transitioningDelegate = animator
-        } else if identifier == "MDBreatheViewController" {
-            segue.destination.transitioningDelegate = animator
         }
     }
     
@@ -54,12 +51,12 @@ extension MDVideoViewController {
 //MARK: Data source delegate
 extension MDVideoViewController: MDCollectionViewDataSourceProtocol {
     
-    func itemSize(at indexPath: IndexPath) -> CGSize {
-        return UIScreen.main.bounds.size
+    func collectionView(_ collectionView: UICollectionView, dequeueReusableCellAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        playVideoOnVisibleCell()
+    func collectionView(_ collectionView: UICollectionView, itemSizeAt indexPath: IndexPath) -> CGSize {
+        return UIScreen.main.bounds.size
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -75,6 +72,10 @@ extension MDVideoViewController: MDCollectionViewDataSourceProtocol {
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         videoCell(cell: cell)?.didEndDisplaying()
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        playVideoOnVisibleCell()
     }
     
     func playVideoOnVisibleCell() {

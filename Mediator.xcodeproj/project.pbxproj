@@ -252,8 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				12AE441F1F3439B80017DA50 /* UIConstant.swift */,
-				1203623F1F46CB3900DAD77E /* UINavigationControllerExtension.swift */,
-				120362411F46CC8800DAD77E /* UIColorExtension.swift */,
 				12C5B4BC1F3F06DA000A9523 /* Animators */,
 				12C92EBD1F361FE600EF8CDF /* ProgressTimer */,
 				12991DCF1F35BB5100A449D9 /* Players */,
@@ -296,6 +294,8 @@
 		1276A8951F245ABD008410B5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1203623F1F46CB3900DAD77E /* UINavigationControllerExtension.swift */,
+				120362411F46CC8800DAD77E /* UIColorExtension.swift */,
 				12371A081F2ED0F2008F2F4D /* FileManager+Extension.swift */,
 				12371A2D1F2EDC78008F2F4D /* UserDefaultsExtension.swift */,
 				12AE44251F34DDF90017DA50 /* CALayerExtension.swift */,

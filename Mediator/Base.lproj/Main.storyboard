@@ -282,15 +282,15 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bmf-Bq-Qye">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="os1-3O-Ixd">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="os1-3O-Ixd" customClass="MDStickyFlowLayout" customModule="Mediator" customModuleProvider="target">
                                     <size key="itemSize" width="342" height="86"/>
-                                    <size key="headerReferenceSize" width="50" height="120"/>
+                                    <size key="headerReferenceSize" width="50" height="200"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="rWF-08-Au1" customClass="MDStoryCell" customModule="Mediator" customModuleProvider="target">
-                                        <rect key="frame" x="16.5" y="120" width="342" height="86"/>
+                                        <rect key="frame" x="16.5" y="200" width="342" height="86"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="86"/>
@@ -333,11 +333,11 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Header" id="jEg-P2-YWz" customClass="MDStoryHeaderView" customModule="Mediator" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Galaxy_Cover" translatesAutoresizingMaskIntoConstraints="NO" id="1KE-ZD-KNO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fn1-K8-HDn">
                                             <rect key="frame" x="320" y="30" width="39" height="30"/>
@@ -349,8 +349,8 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep Stories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzb-d7-qP4">
-                                            <rect key="frame" x="75.5" y="9" width="224" height="102"/>
-                                            <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="30"/>
+                                            <rect key="frame" x="34.5" y="31" width="306" height="138.5"/>
+                                            <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="41"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -366,6 +366,9 @@
                                         <constraint firstItem="fn1-K8-HDn" firstAttribute="trailing" secondItem="jEg-P2-YWz" secondAttribute="trailingMargin" id="byO-R1-tSr"/>
                                         <constraint firstAttribute="trailing" secondItem="1KE-ZD-KNO" secondAttribute="trailing" id="iSx-TA-1gh"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="labelTitle" destination="jzb-d7-qP4" id="iYP-cf-ytP"/>
+                                    </connections>
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>

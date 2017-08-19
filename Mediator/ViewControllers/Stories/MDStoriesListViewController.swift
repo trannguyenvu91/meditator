@@ -37,11 +37,11 @@ extension MDStoriesListViewController: MDCollectionViewDataSourceProtocol {
     }
     
     func collectionView(_ collectionView: UICollectionView, itemSizeAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 75)
+        return CGSize(width: view.frame.width, height: UIConstant.storiesRowHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 130)
+        return CGSize(width: view.frame.width, height: UIConstant.storiesHeaderStandardHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

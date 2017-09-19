@@ -133,6 +133,11 @@ class UIBreathingView: UIView {
         }
     }
     
+    func updateBreath(fragments: [BreathFragment]) {
+        self.breathFragments = fragments
+        setNeedsDisplay()
+    }
+    
     deinit {
         progressTimer.pause()
     }

@@ -80,7 +80,7 @@ extension MDVideoViewController: MDCollectionViewDataSourceProtocol {
     
     func playVideoOnVisibleCell() {
         var midOffset = collectionView.contentOffset
-        midOffset.x += view.frame.width / 2.0;
+        midOffset.x += view.frame.width / 2.0
         midOffset.y = collectionView.frame.height / 2.0
         if let indexPath = collectionView.indexPathForItem(at: midOffset), let cell = collectionView.cellForItem(at: indexPath) {
             videoCell(cell: cell)?.playVideo()

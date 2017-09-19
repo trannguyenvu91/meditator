@@ -22,7 +22,9 @@ class MDBreatheViewController: MDBaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        updateExercise(play: true)
+        if !viewModel.isPlaying {
+            updateExercise(play: true)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,8 +79,8 @@ extension MDBreatheViewController: UIBreathingViewDelegate {
     }
     
     func didUpdate(totalTime: Double) {
-        let timeText = "\(Int(totalTime / 60))" + ":" + "\(Int(totalTime.remainder(dividingBy: 60)))"
-        timeLabel.text = timeText
+        viewModel.totalDuration = totalTime
+        timeLabel.text = viewModel.getTotalDurationString()
     }
     
 }

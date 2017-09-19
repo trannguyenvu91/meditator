@@ -19,6 +19,10 @@
 		12371A2B1F2ED24F008F2F4D /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12371A081F2ED0F2008F2F4D /* FileManager+Extension.swift */; };
 		12371A2C1F2ED28F008F2F4D /* video_files.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12371A1C1F2ED111008F2F4D /* video_files.plist */; };
 		12371A2E1F2EDC78008F2F4D /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12371A2D1F2EDC78008F2F4D /* UserDefaultsExtension.swift */; };
+		124AA8C71F70A3E3002198FF /* MDBreathCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124AA8C61F70A3E3002198FF /* MDBreathCell.swift */; };
+		125560971F70165800A78BCB /* MDBreathSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125560961F70165800A78BCB /* MDBreathSettingViewController.swift */; };
+		1255609A1F70168F00A78BCB /* MDBreathSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125560991F70168F00A78BCB /* MDBreathSettingViewModel.swift */; };
+		1255609C1F7016CD00A78BCB /* MDBreathModelsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1255609B1F7016CD00A78BCB /* MDBreathModelsProvider.swift */; };
 		12580B571F064EAF00B3CF1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12580B561F064EAF00B3CF1D /* AppDelegate.swift */; };
 		12580B5C1F064EAF00B3CF1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12580B5A1F064EAF00B3CF1D /* Main.storyboard */; };
 		12580B5E1F064EAF00B3CF1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12580B5D1F064EAF00B3CF1D /* Assets.xcassets */; };
@@ -65,6 +69,7 @@
 		12C5B4BB1F3F06D5000A9523 /* MDSceneListAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C5B4BA1F3F06D5000A9523 /* MDSceneListAnimator.swift */; };
 		12C92EBC1F361FC300EF8CDF /* MDProgressTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C92EBB1F361FC300EF8CDF /* MDProgressTimer.swift */; };
 		12D079951F0670720022EF1E /* MDVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D079941F0670720022EF1E /* MDVideoViewController.swift */; };
+		12D1516E1F64D5660036862F /* MDWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1516D1F64D5660036862F /* MDWebService.swift */; };
 		12F7D60F1F19B010000154BC /* MDMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F7D60E1F19B010000154BC /* MDMedia.swift */; };
 		12F90C991F301A8A0076073E /* MDBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F90C981F301A8A0076073E /* MDBaseTests.swift */; };
 		12F90CA01F301A9C0076073E /* MDMediaImporterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F90C8D1F30195E0076073E /* MDMediaImporterTest.swift */; };
@@ -97,6 +102,10 @@
 		12371A261F2ED198008F2F4D /* ZzwjdY1rq */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ZzwjdY1rq; sourceTree = "<group>"; };
 		12371A2D1F2EDC78008F2F4D /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultsExtension.swift; path = Mediator/Utilities/Extension/UserDefaultsExtension.swift; sourceTree = SOURCE_ROOT; };
 		123DE6181F0F528000B7281D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		124AA8C61F70A3E3002198FF /* MDBreathCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBreathCell.swift; sourceTree = "<group>"; };
+		125560961F70165800A78BCB /* MDBreathSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBreathSettingViewController.swift; sourceTree = "<group>"; };
+		125560991F70168F00A78BCB /* MDBreathSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBreathSettingViewModel.swift; sourceTree = "<group>"; };
+		1255609B1F7016CD00A78BCB /* MDBreathModelsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBreathModelsProvider.swift; sourceTree = "<group>"; };
 		12580B531F064EAF00B3CF1D /* Mediator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mediator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12580B561F064EAF00B3CF1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12580B5B1F064EAF00B3CF1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -145,6 +154,7 @@
 		12C5B4BA1F3F06D5000A9523 /* MDSceneListAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDSceneListAnimator.swift; sourceTree = "<group>"; };
 		12C92EBB1F361FC300EF8CDF /* MDProgressTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDProgressTimer.swift; sourceTree = "<group>"; };
 		12D079941F0670720022EF1E /* MDVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDVideoViewController.swift; path = Mediator/ViewControllers/VideoScreen/MDVideoViewController.swift; sourceTree = SOURCE_ROOT; };
+		12D1516D1F64D5660036862F /* MDWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDWebService.swift; sourceTree = "<group>"; };
 		12F7D60E1F19B010000154BC /* MDMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDMedia.swift; sourceTree = "<group>"; };
 		12F90C8D1F30195E0076073E /* MDMediaImporterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDMediaImporterTest.swift; sourceTree = "<group>"; };
 		12F90C901F30198B0076073E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -201,6 +211,17 @@
 				46A859C158FBDC27670A1CA3 /* Pods_MediatorTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		125560981F70166000A78BCB /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				125560961F70165800A78BCB /* MDBreathSettingViewController.swift */,
+				125560991F70168F00A78BCB /* MDBreathSettingViewModel.swift */,
+				1255609B1F7016CD00A78BCB /* MDBreathModelsProvider.swift */,
+				124AA8C61F70A3E3002198FF /* MDBreathCell.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		12580B4A1F064EAF00B3CF1D = {
@@ -372,6 +393,7 @@
 			children = (
 				12AE441B1F3436AA0017DA50 /* MDBreatheViewController.swift */,
 				127928E31F3C4CFB00424879 /* MDBreatheViewModel.swift */,
+				125560981F70166000A78BCB /* Setting */,
 			);
 			path = BreatheScreen;
 			sourceTree = "<group>";
@@ -400,6 +422,7 @@
 				12B8A3941F18B95C00D5D14B /* CoreData */,
 				12580B781F065D6700B3CF1D /* Base */,
 				129525181F47ECA9007347AD /* MDStory.swift */,
+				12D1516D1F64D5660036862F /* MDWebService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -698,9 +721,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1255609A1F70168F00A78BCB /* MDBreathSettingViewModel.swift in Sources */,
 				126A82EC1F0CF12B00E63C23 /* AppConfigurator.swift in Sources */,
 				12C5B4B21F3E9708000A9523 /* MDSceneListViewController.swift in Sources */,
 				12A2B34E1F218E8D0028F268 /* MDDBManager.swift in Sources */,
+				1255609C1F7016CD00A78BCB /* MDBreathModelsProvider.swift in Sources */,
 				120362401F46CB3900DAD77E /* UINavigationControllerExtension.swift in Sources */,
 				121A35BE1F0B9F3D005843E9 /* MDPlayingCenter.swift in Sources */,
 				12580B7E1F065E0F00B3CF1D /* MDCollectionViewDataSource.swift in Sources */,
@@ -716,6 +741,7 @@
 				12371A2B1F2ED24F008F2F4D /* FileManager+Extension.swift in Sources */,
 				12C5B4B91F3E9F5B000A9523 /* MDSceneListViewModel.swift in Sources */,
 				12580B7D1F065E0900B3CF1D /* MDVideoCell.swift in Sources */,
+				124AA8C71F70A3E3002198FF /* MDBreathCell.swift in Sources */,
 				125FA2341F079A8100320E5E /* MDPlayerView.swift in Sources */,
 				129525191F47ECA9007347AD /* MDStory.swift in Sources */,
 				12AE44261F34DDF90017DA50 /* CALayerExtension.swift in Sources */,
@@ -724,6 +750,7 @@
 				12C5B4BB1F3F06D5000A9523 /* MDSceneListAnimator.swift in Sources */,
 				12F7D60F1F19B010000154BC /* MDMedia.swift in Sources */,
 				12580B571F064EAF00B3CF1D /* AppDelegate.swift in Sources */,
+				125560971F70165800A78BCB /* MDBreathSettingViewController.swift in Sources */,
 				120B5A871F11A1630001F23C /* MDMediaImporter.swift in Sources */,
 				129525111F47EA43007347AD /* MDStoryCell.swift in Sources */,
 				12580B6E1F06536100B3CF1D /* MDVideoProvider.swift in Sources */,
@@ -735,6 +762,7 @@
 				127928E21F3C3F8300424879 /* MDVideoViewModel.swift in Sources */,
 				129525171F47EC2C007347AD /* MDStoriesProvider.swift in Sources */,
 				12C5B4B51F3E98D0000A9523 /* MDSceneCell.swift in Sources */,
+				12D1516E1F64D5660036862F /* MDWebService.swift in Sources */,
 				12580B821F065F9800B3CF1D /* MDProtocols.swift in Sources */,
 				1295250E1F47E9E3007347AD /* MDStoriesListViewController.swift in Sources */,
 			);

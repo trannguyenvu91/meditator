@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct MDBreatheModel {
+struct MDBreatheModel: MDModelProtocol {
     var fragments: [BreathFragment]!
     var duration: Double!
 }
@@ -16,6 +16,7 @@ struct MDBreatheModel {
 class MDBreatheViewModel: NSObject {
     let breathPlayer = MDBreathePlayer()
     var breatheModel: MDBreatheModel!
+    var totalDuration: Double = 0
     
     override init() {
         super.init()
@@ -39,6 +40,16 @@ class MDBreatheViewModel: NSObject {
     
     func pausePlaying() {
         breathPlayer.pause()
+    }
+    
+    func getTotalDurationString() -> String {
+        return "\(Int(totalDuration / 60))" + ":" + "\(Int(totalDuration) % 60)"
+    }
+    
+    var isPlaying: Bool {
+        get {
+            return breathPlayer.isPlaying()
+        }
     }
     
 }
